@@ -70,28 +70,59 @@ public class Player {
         physicsBody.applyForceToCenter(x,y,true);
     }
 
-    private void checkControls() {
-        //left
-        if (Gdx.input.isKeyPressed(Keys.S) && !Gdx.input.isKeyPressed(Keys.A)) {
-            applyForce(baseMoveSpeed,0f);
-        } 
-        //right
-        if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.S)) {
-            applyForce(-baseMoveSpeed,0f);
-        }
-        //jump
+    private void checkControls() {//jump
         if (Gdx.input.isKeyPressed(Keys.SPACE) && landed && jumping == 0) {
             jumping = baseJumpStrength;
             //physicsBody.applyLinearImpulse(0f,jumping,pos.x,pos.y,true);
         }
-
+        switch (gravityDirection) {//left/right movement varies based on gravity
+            case "down" :
+                //left
+                if (Gdx.input.isKeyPressed(Keys.S) && !Gdx.input.isKeyPressed(Keys.A)) {
+                    applyForce(baseMoveSpeed,0f);
+                } 
+                //right
+                if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.S)) {
+                    applyForce(-baseMoveSpeed,0f);
+                }
+            break;
+            case "up" :
+                //left
+                if (Gdx.input.isKeyPressed(Keys.S) && !Gdx.input.isKeyPressed(Keys.A)) {
+                    applyForce(baseMoveSpeed,0f);
+                } 
+                //right
+                if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.S)) {
+                    applyForce(-baseMoveSpeed,0f);
+                }
+            break;
+            case "left" :
+                //left
+                if (Gdx.input.isKeyPressed(Keys.S) && !Gdx.input.isKeyPressed(Keys.A)) {
+                    applyForce(0f,-baseMoveSpeed);
+                } 
+                //right
+                if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.S)) {
+                    applyForce(0f,baseMoveSpeed);
+                }
+            break;
+            case "right" :
+                //left
+                if (Gdx.input.isKeyPressed(Keys.S) && !Gdx.input.isKeyPressed(Keys.A)) {
+                    applyForce(0f,baseMoveSpeed);
+                } 
+                //right
+                if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.S)) {
+                    applyForce(0f,-baseMoveSpeed);
+                }
+            break;
+        }
     }
 
     private void manageJump() {
         //continue jump height
         if (jumping > 0f) {
             if (Gdx.input.isKeyPressed(Keys.SPACE)) {
-                physicsBody.applyLinearImpulse(0f,jumping,pos.x,pos.y,true);
                 jumping -= baseJumpDecay;
             } 
             //stop jumping and start falling
@@ -101,17 +132,50 @@ public class Player {
         } else if (jumping != 0f) {
             jumping = 0f;
         }
+
+        switch (gravityDirection) {
+            case "down" :
+                physicsBody.applyLinearImpulse(0f,jumping,pos.x,pos.y,true);
+            break;
+            case "up" :
+                physicsBody.applyLinearImpulse(0f,-jumping,pos.x,pos.y,true);
+            break;
+            case "left" :
+                physicsBody.applyLinearImpulse(jumping,0f,pos.x,pos.y,true);
+            break;
+            case "right" :
+                physicsBody.applyLinearImpulse(-jumping,0f,pos.x,pos.y,true);
+            break;
+        }
     }   
 
     private void updateVars() {
         speed = physicsBody.getLinearVelocity();
-        if (speed.y == 0f) {
-            landed = true;
-            jumping = 0f;
-        } else {
-            landed = false;
-        }
         pos = physicsBody.getPosition();
+        updateLanded();
+        if (gravityDirection != "up" && gravityDirection != "down" && gravityDirection != "left" && gravityDirection != "right") {
+            gravityDirection = "down";
+            System.out.println("Invalid Gravity Direction! Setting to Down");
+        }
+        
+    }
+
+    private void updateLanded() {
+        if (gravityDirection == "down" || gravityDirection == "up") {
+            if (speed.y == 0f) {
+                landed = true;
+                jumping = 0f;
+            } else {
+                landed = false;
+            }  
+        } else {
+            if (speed.x == 0f) {
+                landed = true;
+                jumping = 0f;
+            } else {
+                landed = false;
+            }  
+        }
     }
 
     private void applyGravity() {
