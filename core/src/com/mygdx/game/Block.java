@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Body;
@@ -24,7 +25,7 @@ public class Block {
     private boolean moving;
     private boolean mouseReleased;
 
-    public Block(World w,int startX, int startY, Camera c) {
+    public Block(World w,float startX, float startY, Camera c, Texture texture) {
 
         camera = c;
         world = w;
@@ -37,16 +38,16 @@ public class Block {
 
         physicsBody = world.createBody(groundBodyDef);
         PolygonShape groundBox = new PolygonShape();
-        groundBox.setAsBox(1,.5f);
+        groundBox.setAsBox(.45f,.45f);
         physicsBody.createFixture(groundBox, 0.0f);
         groundBox.dispose();
 
-        bodySprite = new Sprite(new Texture(Gdx.files.internal("placeholder_floor.png")));
-        bodySprite.setBounds(0, 0, 2f, 1f);
+        bodySprite = new Sprite(texture);
+        bodySprite.setBounds(0, 0, 1f, 1f);
         bodySprite.setOriginCenter();
         
-        movingSprite = new Sprite(new Texture(Gdx.files.internal("placeholder_floor.png")));
-        movingSprite.setBounds(0, 0, 2f, 1f);
+        movingSprite = new Sprite(texture);
+        movingSprite.setBounds(0, 0, 1f, 1f);
         movingSprite.setOriginCenter();
         //movingSprite.setColor(.5f, .5f, .5f, 1);
     }
@@ -91,7 +92,7 @@ public class Block {
 
                 physicsBody = world.createBody(groundBodyDef);
                 PolygonShape groundBox = new PolygonShape();
-                groundBox.setAsBox(1,.5f);
+                groundBox.setAsBox(.45f,.45f);
                 physicsBody.createFixture(groundBox, 0.0f);
                 groundBox.dispose();
             }
@@ -111,8 +112,6 @@ public class Block {
             int y1 = Gdx.input.getY();
             Vector3 input = new Vector3(x1, y1, 0);
             camera.unproject(input);
-
-            
 
             movingSprite.setPosition(input.x - (movingSprite.getWidth() / 2), input.y - (movingSprite.getHeight() / 2));
             movingSprite.draw(batch);
