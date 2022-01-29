@@ -86,13 +86,13 @@ public class Level1 implements Screen {
                 camera.unproject(input);
                 Tile tile = new Tile(world,input.x,input.y,camera,block.textures[i]);
                 switch (((FileTextureData)block.textures[i].getTextureData()).getFileHandle().path()) {
-                    case "start_block.png" :
+                    case "levels/start_block.png" :
                         
                     break;
-                    case "end_block.png" :
+                    case "levels/end_block.png" :
 
                     break;
-                    case "spring_block.png" :
+                    case "levels/spring_block.png" :
                         tile = new BouncyTile(world,input.x,input.y,camera,block.textures[i]);
                     break;
                     default:

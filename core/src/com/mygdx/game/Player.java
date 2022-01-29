@@ -33,7 +33,7 @@ public class Player {
     private Float MAX_VELOCITY = 90f;
     private Float undrift = 0.1f;
 
-    private Float bouncePower = 2f;
+    private Float bouncePower = 1f;
     private Float baseJumpStrength = 2.1f;
     private Float baseJumpDecay = 0.25f;
 
@@ -52,6 +52,7 @@ public class Player {
     public Boolean sliderleft = false;
     public Boolean sliderright = false;
     public Boolean gravityUp = false;
+    public Boolean bounced = false;
 
 
     public Player(World world,int startX, int startY, OrthographicCamera c) {
@@ -93,13 +94,16 @@ public class Player {
     public void bounce(String direction) {
         System.out.println("Travis: Bounce?");
         if (direction == "up") {
+            bounced = true;
             System.out.println("Travis: Up!");
             jumping = bouncePower;
-            physicsBody.setLinearVelocity(new Vector2(physicsBody.getLinearVelocity().x,-physicsBody.getLinearVelocity().y));
+            physicsBody.setLinearVelocity(new Vector2(physicsBody.getLinearVelocity().x,-physicsBody.getLinearVelocity().y/2));
             System.out.println("jumping " +jumping);
         } else if (direction == "down") {
+            bounced = true;
             System.out.println("Travis: Down!");
             jumping = -bouncePower;
+            physicsBody.setLinearVelocity(new Vector2(physicsBody.getLinearVelocity().x,-physicsBody.getLinearVelocity().y/2));
             applyForce(0f,-20f);
         }
     }
@@ -107,11 +111,11 @@ public class Player {
     private void manageJump() {
         //continue jump height
         if (jumping > 0f) {
-            if (Gdx.input.isKeyPressed(Keys.SPACE)) {
+            if (Gdx.input.isKeyPressed(Keys.SPACE) || bounced) {
                 jumping -= baseJumpDecay;
             } 
             //stop jumping and start falling
-            if (!Gdx.input.isKeyPressed(Keys.SPACE)) {
+            if (!Gdx.input.isKeyPressed(Keys.SPACE) && !bounced) {
                 jumping = 0f;
             }
         } else if (jumping != 0f) {
@@ -154,6 +158,7 @@ public class Player {
         if (gravityDirection == "down" || gravityDirection == "up") {
             if (speed.y == 0f) {
                 landed = true;
+                bounced = false;
                 jumping = 0f;
             } else {
                 landed = false;
