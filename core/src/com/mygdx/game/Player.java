@@ -40,6 +40,12 @@ public class Player {
     private Vector2 speed = new Vector2(0f,0f);
     private Vector2 pos = new Vector2(0f,0f);
 
+    public String label = "Travis";
+
+
+
+    public Boolean sticky = false;
+
     public Player(World world,int startX, int startY, OrthographicCamera c) {
         
         camera = c;
@@ -64,7 +70,7 @@ public class Player {
         bodySprite.setBounds(0, 0, 1.5f, 1.5f);
         bodySprite.setOriginCenter();        
 
-        physicsBody.setUserData("Travis");
+        physicsBody.setUserData(this);
 
     }
 
@@ -159,6 +165,7 @@ public class Player {
                 applyForce(-jumping,0f);
             break;
         }
+        
     }   
 
     private void updateVars() {
@@ -244,6 +251,10 @@ public class Player {
         bodySprite.setPosition(worldPos.x - (bodySprite.getWidth() / 2), worldPos.y - (bodySprite.getHeight() / 2));
         bodySprite.draw(batch);
 
+    }
+
+    public String toString() {
+        return label;
     }
 
     public void dispose() {

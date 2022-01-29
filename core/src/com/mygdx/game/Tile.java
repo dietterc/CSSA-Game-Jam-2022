@@ -15,7 +15,7 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 
-public class Block {
+public class Tile {
     
     private final float SPRITE_DIM = .7f;
     private final float PHYISCS_DIM = .34f;
@@ -29,7 +29,9 @@ public class Block {
     private boolean moving;
     private boolean mouseReleased;
 
-    public Block(World w,float startX, float startY, Camera c, Texture texture) {
+    public String label = "block";
+
+    public Tile(World w,float startX, float startY, Camera c, Texture texture) {
 
         camera = c;
         world = w;
@@ -56,7 +58,7 @@ public class Block {
         //movingSprite.setColor(.5f, .5f, .5f, 1);
     }
 
-    public Block(World w,float startX, float startY, Camera c, Texture texture, String userData) {
+    public Tile(World w,float startX, float startY, Camera c, Texture texture, String label) {
 
         camera = c;
         world = w;
@@ -82,7 +84,9 @@ public class Block {
         movingSprite.setOriginCenter();
         //movingSprite.setColor(.5f, .5f, .5f, 1);
 
-        physicsBody.setUserData(userData);
+        this.label = label;
+        
+        physicsBody.setUserData(this);
     }
     
     //called every iteration of render
@@ -152,7 +156,9 @@ public class Block {
 
     }
 
-    
+    public String toString() {
+        return label;
+    }
 
     public void dispose() {
         

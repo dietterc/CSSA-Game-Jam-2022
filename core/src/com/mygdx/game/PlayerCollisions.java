@@ -27,20 +27,24 @@ public class PlayerCollisions {
                 Fixture fixA = contact.getFixtureA();
                 Fixture fixB = contact.getFixtureB();
                 Fixture travis = null;
-                Fixture other;
+                Fixture other = null;
 
-                if (fixA.getBody().getUserData() == "Travis") {
+                if (fixA.getBody().getUserData().toString() == "Travis") {
                     travis = fixA;
                     other = fixB;
-                } else if (fixB.getBody().getUserData() == "Travis") {
+                } else if (fixB.getBody().getUserData().toString() == "Travis") {
                     travis = fixB;
                     other = fixA;
                 }
 
-                if (travis != null) {
-                    //switch (other.getBody().getUserData()) {
-
-                    //}
+                if (travis != null && travis.getBody().getUserData() instanceof Player) {
+                    Player trueTravis = (Player) travis.getBody().getUserData();
+                    switch (other.getBody().getUserData().toString()) {
+                        case "sticky" :
+                            trueTravis.sticky = true;
+                            System.out.println("Such stick,  Wow");
+                        break;
+                    }
                 }
 
                 //do collide here

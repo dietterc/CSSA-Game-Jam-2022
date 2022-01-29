@@ -1,6 +1,5 @@
-package com.mygdx;
+package com.mygdx.game;
 
-import com.mygdx.game.Block;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
@@ -16,9 +15,9 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 
-public class StickyBlock extends Block {
+public class StickyTile extends Tile {
 
-    public StickyBlock(World w,float startX, float startY, Camera c, Texture texture) {
+    public StickyTile(World w,float startX, float startY, Camera c, Texture texture) {
         super(w, startX, startY, c, texture, "sticky");
     }
     

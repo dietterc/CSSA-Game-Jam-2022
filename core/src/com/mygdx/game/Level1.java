@@ -43,7 +43,7 @@ public class Level1 implements Screen {
     TiledMap tiledMap;
     TiledMapRenderer tiledMapRenderer;
 
-    static ArrayList<Block> blocks = new ArrayList<Block>();
+    static ArrayList<Tile> blocks = new ArrayList<Tile>();
     static ArrayList<Sprite> blockSprites = new ArrayList<Sprite>();
 
 	public Level1(final MyGdxGame game, LevelInfo[] level_data) {
@@ -78,7 +78,7 @@ public class Level1 implements Screen {
                 Vector3 input = new Vector3(x1, y1, 0);
                 camera.unproject(input);
 
-                blocks.add(new Block(world,input.x,input.y,camera,block.textures[i]));
+                blocks.add(new Tile(world,input.x,input.y,camera,block.textures[i]));
             }
         }
 	}

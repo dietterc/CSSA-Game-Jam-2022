@@ -1,6 +1,6 @@
 package com.mygdx.game.infoClasses;
 
-import com.mygdx.game.Block;
+import com.mygdx.game.Tile;
 
 public class LevelInfo {
     public int levelNum;
