@@ -71,18 +71,11 @@ public class Level1 implements Screen {
         for(MapObject object : objects) {
 
             TextureMapObject obj = (TextureMapObject) object;
-            
-            if(object instanceof TextureMapObject) {
-                System.out.println("5");
-            }
 
             float x1 = obj.getX();
             float y1 = obj.getY();
             Vector3 input = new Vector3(x1, y1, 0);
             camera.unproject(input);
-
-            System.out.println("x" + input.x);
-            System.out.println("y" + input.y);
 
             blocks.add(new Block(world,input.x,input.y,camera,obj.getTextureRegion().getTexture()));
 
