@@ -29,15 +29,15 @@ public class Player {
 
     private Float baseMoveSpeed = 0.2f; //unused
 
-    private Float SPEED = 20f;
+    private Float SPEED = 25f;
     private Float MAX_VELOCITY = 90f;
     private Float undrift = 0.1f;
 
-    private Float bouncePower = 1f;
-    private Float baseJumpStrength = 2.1f;
-    private Float baseJumpDecay = 0.25f;
+    private Float bouncePower = 2.75f;
+    private Float baseJumpStrength = 3.1f;
+    private Float baseJumpDecay = 0.265f;
 
-    private Float gravityStrength = -10f;
+    private Float gravityStrength = -40f;
     public String gravityDirection = "down";
 
     private Boolean landed = false;
@@ -71,7 +71,7 @@ public class Player {
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = circle;
         fixtureDef.density = 0.0f;
-        fixtureDef.friction = 0.4f;
+        fixtureDef.friction = 0.1f;
         fixtureDef.restitution = 0.0f;
         Fixture fixture = physicsBody.createFixture(fixtureDef);
 
