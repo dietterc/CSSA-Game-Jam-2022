@@ -13,6 +13,9 @@ public class MyGdxGame extends Game {
 		batch = new SpriteBatch();
 		font = new BitmapFont(); // use libGDX's default Arial font for now
 		this.setScreen(new MainMenu(this));
+
+		
+
 	}
 
 	@Override
