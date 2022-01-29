@@ -43,7 +43,7 @@ public class MyGdxGame extends Game {
 
 				TextureMapObject obj = (TextureMapObject) object;
 				
-				points[blockIndex] = new Vector2(obj.getX()+32,1080-obj.getY()+32);
+				points[blockIndex] = new Vector2(obj.getX()+32,1080-obj.getY()-32);
 				textures[blockIndex] = obj.getTextureRegion().getTexture();
 				blockIndex += 1;
 				
