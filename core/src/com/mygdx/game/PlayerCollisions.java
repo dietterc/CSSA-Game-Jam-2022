@@ -56,15 +56,23 @@ public class PlayerCollisions {
                     }
 
                     if (travis != null && travis.getBody().getUserData() instanceof Player) {
+                        System.out.println("Passed null check");
                         Player trueTravis = (Player) travis.getBody().getUserData();
-                        switch (other.getBody().getUserData().toString()) {
+                        Tile trueOther = (Tile) other.getBody().getUserData();
+                        switch (trueOther.label) {
                             case "sticky" :
                                 trueTravis.sticky = true;
                                 System.out.println("Such stick,  Wow");
                             break;
                             case "bouncy" :
-                                //trueTravis.bounce();
-                                System.out.println("Boing!");
+                                System.out.println("Bounce dif: "+ (trueOther.getPosition().y - trueTravis.pos.y));
+                                if (trueOther.rotation == 0 && (trueOther.getPosition().y - trueTravis.pos.y <= 0.34f)) {
+                                    trueTravis.bounce("up");
+                                    System.out.println("Boing!");
+                                } else if (trueOther.rotation == 180 && (trueOther.getPosition().y - trueTravis.pos.y >= 0.34f)) {
+                                    trueTravis.bounce("down");
+                                    System.out.println("Boing!");
+                                }
                             break;
                             case "sliderleft" :
                                 //trueTravis.sliderleft;

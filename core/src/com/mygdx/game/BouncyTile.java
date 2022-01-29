@@ -19,6 +19,7 @@ public class BouncyTile extends Tile {
 
     public BouncyTile(World w,float startX, float startY, Camera c, Texture texture) {
         super(w, startX, startY, c, texture, "bouncy");
+        super.physicsBody.setUserData(this);
     }
     
 }

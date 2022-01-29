@@ -21,7 +21,7 @@ public class Tile {
     private final float SPRITE_DIM = .7f;
     private final float PHYISCS_DIM = .34f;
 
-    private Body physicsBody;
+    public Body physicsBody;
     private Camera camera;
     private Sprite bodySprite;
     private Sprite movingSprite;
@@ -35,6 +35,8 @@ public class Tile {
     public float diffY;
 
     public String label = "block";
+
+    public int rotation = 0;
 
     public Tile(World w,float startX, float startY, Camera c, Texture texture) {
 
@@ -52,6 +54,7 @@ public class Tile {
         groundBodyDef.position.set(startX,startY);
 
         physicsBody = Level1.world.createBody(groundBodyDef);
+        physicsBody.setUserData(this);
         PolygonShape groundBox = new PolygonShape();
         groundBox.setAsBox(PHYISCS_DIM,PHYISCS_DIM);
         physicsBody.createFixture(groundBox, 0.0f);
@@ -65,6 +68,7 @@ public class Tile {
         movingSprite.setBounds(0, 0, SPRITE_DIM, SPRITE_DIM);
         movingSprite.setOriginCenter();
         //movingSprite.setColor(.5f, .5f, .5f, 1);
+        
     }
 
     public Tile(World w,float startX, float startY, Camera c, Texture texture, String label) {
@@ -83,6 +87,7 @@ public class Tile {
         groundBodyDef.position.set(startX,startY);
 
         physicsBody = Level1.world.createBody(groundBodyDef);
+        physicsBody.setUserData(this);
         PolygonShape groundBox = new PolygonShape();
         groundBox.setAsBox(PHYISCS_DIM,PHYISCS_DIM);
         physicsBody.createFixture(groundBox, 0.0f);
@@ -99,13 +104,16 @@ public class Tile {
 
         this.label = label;
         
-        physicsBody.setUserData(this);
     }
 
     public void becomeSensor() {
         for (Fixture f: physicsBody.getFixtureList()) {
             f.setSensor(true);
         }
+    }
+
+    public Vector2 getPosition() {
+        return physicsBody.getPosition();
     }
     
     //called every iteration of render
@@ -158,6 +166,7 @@ public class Tile {
                     Level1.world.destroyBody(myBlock.tiles[i].physicsBody);
 
                     myBlock.tiles[i].physicsBody = Level1.world.createBody(groundBodyDef);
+                    myBlock.tiles[i].physicsBody.setUserData(myBlock.tiles[i]);
                     PolygonShape groundBox = new PolygonShape();
                     groundBox.setAsBox(PHYISCS_DIM,PHYISCS_DIM);
                     myBlock.tiles[i].physicsBody.createFixture(groundBox, 0.0f);

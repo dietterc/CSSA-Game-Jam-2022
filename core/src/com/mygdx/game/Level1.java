@@ -26,6 +26,9 @@ import com.badlogic.gdx.maps.objects.PolygonMapObject;
 import com.badlogic.gdx.maps.objects.PolylineMapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.objects.TextureMapObject;
+import com.badlogic.gdx.graphics.glutils.FileTextureData;
+
+
 
 public class Level1 implements Screen {
 
@@ -79,8 +82,21 @@ public class Level1 implements Screen {
                 float y1 = block.blockPoints[i].y;
                 Vector3 input = new Vector3(x1, y1, 0);
                 camera.unproject(input);
-
                 Tile tile = new Tile(world,input.x,input.y,camera,block.textures[i]);
+                switch (((FileTextureData)block.textures[i].getTextureData()).getFileHandle().path()) {
+                    case "start_block.png" :
+                        
+                    break;
+                    case "end_block.png" :
+
+                    break;
+                    case "spring_block.png" :
+                        tile = new BouncyTile(world,input.x,input.y,camera,block.textures[i]);
+                    break;
+                    default:
+                        tile = new Tile(world,input.x,input.y,camera,block.textures[i]);
+                    break;
+                }
                 tiles.add(tile);
                 local_tiles[tilesIndex++] = tile; 
             }

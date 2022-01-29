@@ -33,7 +33,7 @@ public class Player {
     private Float MAX_VELOCITY = 90f;
     private Float undrift = 0.1f;
 
-
+    private Float bouncePower = 2f;
     private Float baseJumpStrength = 2.1f;
     private Float baseJumpDecay = 0.25f;
 
@@ -44,13 +44,15 @@ public class Player {
     private Float jumping = 0f;
 
     private Vector2 speed = new Vector2(0f,0f);
-    private Vector2 pos = new Vector2(0f,0f);
+    public Vector2 pos = new Vector2(0f,0f);
 
     public String label = "Travis";
 
-
-
     public Boolean sticky = false;
+    public Boolean sliderleft = false;
+    public Boolean sliderright = false;
+    public Boolean gravityUp = false;
+
 
     public Player(World world,int startX, int startY, OrthographicCamera c) {
         
@@ -88,7 +90,19 @@ public class Player {
         physicsBody.applyLinearImpulse(x,y,pos.x,pos.y,true);
     }
 
-    
+    public void bounce(String direction) {
+        System.out.println("Travis: Bounce?");
+        if (direction == "up") {
+            System.out.println("Travis: Up!");
+            jumping = bouncePower;
+            physicsBody.setLinearVelocity(new Vector2(physicsBody.getLinearVelocity().x,-physicsBody.getLinearVelocity().y));
+            System.out.println("jumping " +jumping);
+        } else if (direction == "down") {
+            System.out.println("Travis: Down!");
+            jumping = -bouncePower;
+            applyForce(0f,-20f);
+        }
+    }
 
     private void manageJump() {
         //continue jump height
