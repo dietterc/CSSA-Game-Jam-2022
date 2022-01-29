@@ -26,7 +26,7 @@ public class MyGdxGame extends Game {
 
 		//load in level Data
 		//level 1
-		TiledMap tiledMap = new TmxMapLoader().load("testlevel.tmx");
+		TiledMap tiledMap = new TmxMapLoader().load("levels/testlevel.tmx");
 		MapLayers layers = tiledMap.getLayers();
 		BlockInfo[] level1Blocks = new BlockInfo[layers.getCount()];
 		int layerIndex = 0;
@@ -43,7 +43,7 @@ public class MyGdxGame extends Game {
 
 				TextureMapObject obj = (TextureMapObject) object;
 				
-				points[blockIndex] = new Vector2(obj.getX(),1080-obj.getY());
+				points[blockIndex] = new Vector2(obj.getX()+32,1080-obj.getY()-32);
 				textures[blockIndex] = obj.getTextureRegion().getTexture();
 				blockIndex += 1;
 				

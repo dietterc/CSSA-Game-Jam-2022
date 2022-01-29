@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "C:/Users/super/Desktop/tiled/levels/tileset.tsx",
     "expandedProjectPaths": [
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
@@ -37,8 +37,8 @@
             "scale": 0.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 701,
-                "y": 539
+                "x": 906,
+                "y": 506
             }
         },
         "C:/Users/super/Desktop/tiled/level1.tmx#ASEC P": {
@@ -47,19 +47,192 @@
         },
         "C:/Users/super/Desktop/tiled/level1_seperate_objects.tmx": {
             "scale": 0.5601041666666666,
-            "selectedLayer": 3,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 933.7548819044077,
-                "y": 746.2897526501766
+                "x": 921.2572066207924,
+                "y": 723.0797842663195
             }
         },
         "C:/Users/super/Desktop/tiled/level1_seperate_objects.tmx#ASEC P": {
             "scaleInDock": 1
         },
+        "C:/Users/super/Desktop/tiled/level2.tmx": {
+            "scale": 0.5462499999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 895.1945080091535,
+                "y": 479.6338672768879
+            }
+        },
+        "C:/Users/super/Desktop/tiled/level3.tmx": {
+            "scale": 0.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 922,
+                "y": 260
+            }
+        },
+        "C:/Users/super/Desktop/tiled/level4.tmx": {
+            "scale": 0.5462499999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 893.3638443935929,
+                "y": 479.6338672768879
+            }
+        },
+        "C:/Users/super/Desktop/tiled/level5.tmx": {
+            "scale": 0.5462499999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 898.8558352402748,
+                "y": 481.4645308924486
+            }
+        },
+        "C:/Users/super/Desktop/tiled/level6.tmx": {
+            "scale": 0.5462499999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 898.8558352402748,
+                "y": 481.4645308924486
+            }
+        },
+        "C:/Users/super/Desktop/tiled/level7.tmx": {
+            "scale": 0.5462499999999999,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 898.8558352402748,
+                "y": 481.4645308924486
+            }
+        },
+        "C:/Users/super/Desktop/tiled/level8.tmx": {
+            "scale": 0.5462499999999999,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 900.6864988558355,
+                "y": 481.4645308924486
+            }
+        },
+        "C:/Users/super/Desktop/tiled/level9.tmx": {
+            "scale": 0.5462499999999999,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 898.8558352402748,
+                "y": 481.4645308924486
+            }
+        },
+        "C:/Users/super/Desktop/tiled/levels/level0.tmx": {
+            "scale": 0.5650862068965518,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 929.0617848970251,
+                "y": 481.3424866514111
+            }
+        },
+        "C:/Users/super/Desktop/tiled/levels/level1.tmx": {
+            "scale": 0.5650862068965518,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 929.0617848970251,
+                "y": 481.3424866514111
+            }
+        },
+        "C:/Users/super/Desktop/tiled/levels/level10.tmx": {
+            "scale": 0.5462499999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 895.1945080091535,
+                "y": 479.6338672768879
+            }
+        },
+        "C:/Users/super/Desktop/tiled/levels/level11.tmx": {
+            "scale": 0.5462499999999999,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 897.0251716247142,
+                "y": 481.4645308924486
+            }
+        },
+        "C:/Users/super/Desktop/tiled/levels/level2.tmx": {
+            "scale": 0.5650862068965518,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 929.0617848970251,
+                "y": 481.3424866514111
+            }
+        },
+        "C:/Users/super/Desktop/tiled/levels/level3.tmx": {
+            "scale": 0.5650862068965518,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 929.0617848970251,
+                "y": 481.3424866514111
+            }
+        },
+        "C:/Users/super/Desktop/tiled/levels/level4.tmx": {
+            "scale": 0.5650862068965518,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 929.0617848970251,
+                "y": 481.3424866514111
+            }
+        },
+        "C:/Users/super/Desktop/tiled/levels/level5.tmx": {
+            "scale": 0.5650862068965518,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 929.0617848970251,
+                "y": 481.3424866514111
+            }
+        },
+        "C:/Users/super/Desktop/tiled/levels/level6.tmx": {
+            "scale": 0.5650862068965518,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 925.5225019069412,
+                "y": 479.57284515636917
+            }
+        },
+        "C:/Users/super/Desktop/tiled/levels/level7.tmx": {
+            "scale": 0.5650862068965518,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 925.5225019069412,
+                "y": 479.57284515636917
+            }
+        },
+        "C:/Users/super/Desktop/tiled/levels/level8.tmx": {
+            "scale": 0.5650862068965518,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 929.0617848970251,
+                "y": 481.3424866514111
+            }
+        },
+        "C:/Users/super/Desktop/tiled/levels/level9.tmx": {
+            "scale": 0.5462499999999999,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 897.0251716247142,
+                "y": 481.4645308924486
+            }
+        },
+        "C:/Users/super/Desktop/tiled/levels/tileset.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
         "C:/Users/super/Desktop/tiled/no_embed.tsx": {
             "dynamicWrapping": true,
             "scaleInDock": 1,
             "scaleInEditor": 1
+        },
+        "C:/Users/super/Desktop/tiled/testlevel.tmx": {
+            "scale": 0.5462499999999999,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 856.75057208238,
+                "y": 507.0938215102975
+            }
         },
         "C:/Users/super/Desktop/tiled/tile_layer_test.tmx": {
             "scale": 0.5601041666666666,
@@ -83,26 +256,42 @@
         },
         "C:/Users/super/Desktop/tiled/tile_layer_test_no_embed.tmx#ASEC P": {
             "scaleInDock": 1
+        },
+        "C:/Users/super/Desktop/tiled/tileset.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         }
     },
     "last.exportedFilePath": "C:/Users/super/Desktop/tiled",
     "last.imagePath": "C:/Users/super/Desktop/tiled",
     "lastUsedTilesetExportFilter": "Tiled tileset files (*.tsx *.xml)",
+    "map.height": 15,
     "map.lastUsedFormat": "tmx",
+    "map.layerDataFormat": null,
+    "map.tileHeight": 64,
+    "map.tileWidth": 64,
+    "map.width": 29,
     "openFiles": [
+        "C:/Users/super/Desktop/tiled/level8.tmx",
+        "C:/Users/super/Desktop/tiled/levels/level7.tmx",
+        "C:/Users/super/Desktop/tiled/levels/tileset.tsx"
     ],
     "project": "Tiled Project ASEC P.tiled-project",
+    "property.type": "int",
     "recentFiles": [
-        "C:/Users/super/Desktop/tiled/level1_seperate_objects.tmx",
-        "C:/Users/super/Desktop/tiled/tile_layer_test.tmx",
-        "C:/Users/super/Desktop/tiled/no_embed.tsx",
-        "C:/Users/super/Desktop/tiled/tile_layer_test_no_embed.tmx",
-        "C:/Users/super/Desktop/tiled/conveyor_right_block.tsx",
-        "C:/Users/super/Desktop/tiled/conveyor_left_block.tsx",
-        "C:/Users/super/Desktop/tiled/conveyor_middle_block.tsx",
-        "C:/Users/super/Desktop/static_block.tsx",
-        "C:/Users/super/Desktop/tiled/level1.tmx",
-        "C:/Users/super/Desktop/tiled/conveyor_block.tsx"
+        "C:/Users/super/Desktop/tiled/level8.tmx",
+        "C:/Users/super/Desktop/tiled/levels/level7.tmx",
+        "C:/Users/super/Desktop/tiled/levels/tileset.tsx",
+        "C:/Users/super/Desktop/tiled/tileset.tsx",
+        "C:/Users/super/Desktop/tiled/testlevel.tmx",
+        "C:/Users/super/Desktop/tiled/level7.tmx",
+        "C:/Users/super/Desktop/tiled/level6.tmx",
+        "C:/Users/super/Desktop/tiled/level5.tmx",
+        "C:/Users/super/Desktop/tiled/level4.tmx",
+        "C:/Users/super/Desktop/tiled/level3.tmx",
+        "C:/Users/super/Desktop/tiled/level2.tmx",
+        "C:/Users/super/Desktop/tiled/level1.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.type": 1

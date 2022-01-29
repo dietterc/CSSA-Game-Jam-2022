@@ -61,6 +61,7 @@ public class Level1 implements Screen {
 
         player = new Player(world,0,0,camera);
 
+        /*
         //global floor      -- for now
         BodyDef groundBodyDef = new BodyDef();
         groundBodyDef.position.set(0,-4);
@@ -69,7 +70,8 @@ public class Level1 implements Screen {
         groundBox.setAsBox(32, 1);
         groundBody.createFixture(groundBox, 0.0f);
         groundBox.dispose();
-
+        */
+        
         LevelInfo mapData = level_data[0];
 
         for(BlockInfo block : mapData.blocks) {
