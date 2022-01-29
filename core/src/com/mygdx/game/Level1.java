@@ -10,8 +10,8 @@ import com.badlogic.gdx.math.Vector2;
 public class Level1 implements Screen {
 
 	final MyGdxGame game;
-    final int WIDTH = 80;
-    final int HEIGHT = 54;
+    final int WIDTH = 20;
+    final float HEIGHT = 11.25f;
 
 	OrthographicCamera camera;
     World world;
@@ -30,7 +30,7 @@ public class Level1 implements Screen {
 
         //floor
         BodyDef groundBodyDef = new BodyDef();
-        groundBodyDef.position.set(0,-25);
+        groundBodyDef.position.set(0,-4);
         Body groundBody = world.createBody(groundBodyDef);
         PolygonShape groundBox = new PolygonShape();
         groundBox.setAsBox(32, 1);

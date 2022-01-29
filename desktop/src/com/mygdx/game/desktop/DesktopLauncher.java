@@ -10,7 +10,9 @@ public class DesktopLauncher {
 		config.title = "unnamed";
 		config.width = 1920;
 		config.height = 1080;
+		config.fullscreen = true;
 
 		new LwjglApplication(new MyGdxGame(), config);
 	}
 }
+

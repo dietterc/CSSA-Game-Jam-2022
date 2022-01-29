@@ -1,6 +1,7 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -34,7 +35,7 @@ public class Player {
         physicsBody.setFixedRotation(true);
 
         circle = new CircleShape();
-        circle.setRadius(1f);
+        circle.setRadius(.35f);
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = circle;
         fixtureDef.density = 0.0f;
@@ -43,14 +44,17 @@ public class Player {
         Fixture fixture = physicsBody.createFixture(fixtureDef);
 
         bodySprite = new Sprite(new Texture(Gdx.files.internal("space_crab.png")));
-        bodySprite.setBounds(0, 0, 5, 5);
+        bodySprite.setBounds(0, 0, 1.5f, 1.5f);
         bodySprite.setOriginCenter();        
 
     }
 
     //called every iteration of render
     public void step() {
-
+        //escape to exit game
+        if (Gdx.input.isKeyPressed(Keys.ESCAPE)) {
+            Gdx.app.exit();
+        }
         
     }
     
