@@ -34,7 +34,7 @@ public class Level1 implements Screen {
     final float HEIGHT = 11.25f;
 
 	OrthographicCamera camera;
-    World world;
+    static World world;
     Box2DDebugRenderer debugRenderer;
     Body body;
     Player player;
@@ -43,7 +43,7 @@ public class Level1 implements Screen {
     TiledMap tiledMap;
     TiledMapRenderer tiledMapRenderer;
 
-    static ArrayList<Tile> blocks = new ArrayList<Tile>();
+    static ArrayList<Tile> tiles = new ArrayList<Tile>();
     static ArrayList<Sprite> blockSprites = new ArrayList<Sprite>();
 
 	public Level1(final MyGdxGame game, LevelInfo[] level_data) {
@@ -70,7 +70,9 @@ public class Level1 implements Screen {
         LevelInfo mapData = level_data[0];
 
         for(BlockInfo block : mapData.blocks) {
-            
+            Tile[] local_tiles = new Tile[block.numBlocks];
+            int tilesIndex = 0;
+
             for(int i=0;i<block.numBlocks;i++) {
 
                 float x1 = block.blockPoints[i].x;
@@ -78,7 +80,14 @@ public class Level1 implements Screen {
                 Vector3 input = new Vector3(x1, y1, 0);
                 camera.unproject(input);
 
-                blocks.add(new Tile(world,input.x,input.y,camera,block.textures[i]));
+                Tile tile = new Tile(world,input.x,input.y,camera,block.textures[i]);
+                tiles.add(tile);
+                local_tiles[tilesIndex++] = tile; 
+            }
+            Block localBlock = new Block(local_tiles);
+            //MyGdxGame.active_blocks[activeBlocksIndex++] = localBlock;
+            for(int i=0;i<localBlock.tiles.length;i++) {
+                localBlock.tiles[i].setBlock(localBlock);
             }
         }
 	}
@@ -96,15 +105,15 @@ public class Level1 implements Screen {
         game.batch.setProjectionMatrix(camera.combined);
 
         player.draw(game.batch);
-        for(int i=0;i<blocks.size();i++){
-            blocks.get(i).draw(game.batch);   
+        for(int i=0;i<tiles.size();i++){
+            tiles.get(i).draw(game.batch);   
         }
         
 		game.batch.end();
 
         player.step();
-        for(int i=0;i<blocks.size();i++){
-            blocks.get(i).step();
+        for(int i=0;i<tiles.size();i++){
+            tiles.get(i).step();
         }
 
         debugRenderer.render(world, camera.combined);

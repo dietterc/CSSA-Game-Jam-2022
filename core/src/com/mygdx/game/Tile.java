@@ -21,29 +21,37 @@ public class Tile {
     private final float SPRITE_DIM = .7f;
     private final float PHYISCS_DIM = .34f;
 
-    private World world;
     private Body physicsBody;
     private Camera camera;
     private Sprite bodySprite;
     private Sprite movingSprite;
+    private Block myBlock;
 
     private boolean moving;
     private boolean mouseReleased;
+    private boolean otherMoving;
+
+    public float diffX;
+    public float diffY;
 
     public String label = "block";
 
     public Tile(World w,float startX, float startY, Camera c, Texture texture) {
 
         camera = c;
-        world = w;
+        myBlock = null;
 
         moving = false;
         mouseReleased = true;
+        otherMoving = false;
+
+        diffX = 0f;
+        diffY = 0f;
 
         BodyDef groundBodyDef = new BodyDef();
         groundBodyDef.position.set(startX,startY);
 
-        physicsBody = world.createBody(groundBodyDef);
+        physicsBody = Level1.world.createBody(groundBodyDef);
         PolygonShape groundBox = new PolygonShape();
         groundBox.setAsBox(PHYISCS_DIM,PHYISCS_DIM);
         physicsBody.createFixture(groundBox, 0.0f);
@@ -62,15 +70,19 @@ public class Tile {
     public Tile(World w,float startX, float startY, Camera c, Texture texture, String label) {
 
         camera = c;
-        world = w;
+        myBlock = null;
 
         moving = false;
         mouseReleased = true;
+        otherMoving = false;
+
+        diffX = 0f;
+        diffY = 0f;
 
         BodyDef groundBodyDef = new BodyDef();
         groundBodyDef.position.set(startX,startY);
 
-        physicsBody = world.createBody(groundBodyDef);
+        physicsBody = Level1.world.createBody(groundBodyDef);
         PolygonShape groundBox = new PolygonShape();
         groundBox.setAsBox(PHYISCS_DIM,PHYISCS_DIM);
         physicsBody.createFixture(groundBox, 0.0f);
@@ -112,7 +124,15 @@ public class Tile {
                 //Now you can use input.x and input.y, as opposed to x1 and y1, to determine if the moving
                 //sprite has been clicked
                 if(bodySprite.getBoundingRectangle().contains(input.x, input.y)) {
-                    bodySprite.setAlpha(.5f);
+                    if(myBlock != null) {
+                        for(int i=0;i<myBlock.tiles.length;i++){
+                            myBlock.tiles[i].bodySprite.setAlpha(.5f);
+                            myBlock.tiles[i].diffX = myBlock.tiles[i].bodySprite.getX() - bodySprite.getX();
+                            myBlock.tiles[i].diffY = myBlock.tiles[i].bodySprite.getY() - bodySprite.getY();
+                            //System.out.println("Y: " + myBlock.tiles[i].diffY);
+                        }
+                    }
+                
                     moving = true;
                     mouseReleased = false;
                 }
@@ -122,29 +142,34 @@ public class Tile {
             if (Gdx.input.isTouched() && mouseReleased) {
                 moving = false;
                 mouseReleased = false;
-                bodySprite.setAlpha(1);
 
                 int x1 = Gdx.input.getX();
                 int y1 = Gdx.input.getY();
                 Vector3 input = new Vector3(x1, y1, 0);
                 camera.unproject(input);
 
-                BodyDef groundBodyDef = new BodyDef();
-                groundBodyDef.position.set(input.x,input.y);
+                for(int i=0;i<myBlock.tiles.length;i++) {
+                    myBlock.tiles[i].bodySprite.setAlpha(1);
 
-                world.destroyBody(physicsBody);
+                    BodyDef groundBodyDef = new BodyDef();
+                    groundBodyDef.position.set(input.x + myBlock.tiles[i].diffX,input.y + myBlock.tiles[i].diffY);
+                    System.out.println("X: " + myBlock.tiles[i].diffX);
 
-                physicsBody = world.createBody(groundBodyDef);
-                PolygonShape groundBox = new PolygonShape();
-                groundBox.setAsBox(PHYISCS_DIM,PHYISCS_DIM);
-                physicsBody.createFixture(groundBox, 0.0f);
-                groundBox.dispose();
+                    Level1.world.destroyBody(myBlock.tiles[i].physicsBody);
+
+                    myBlock.tiles[i].physicsBody = Level1.world.createBody(groundBodyDef);
+                    PolygonShape groundBox = new PolygonShape();
+                    groundBox.setAsBox(PHYISCS_DIM,PHYISCS_DIM);
+                    myBlock.tiles[i].physicsBody.createFixture(groundBox, 0.0f);
+                    groundBox.dispose();
+
+                } 
+
             }
         }
 
     }
     
-    //called every iteration of render
     public void draw(SpriteBatch batch) {
         Vector2 worldPos = physicsBody.getPosition();
 
@@ -161,6 +186,28 @@ public class Tile {
             movingSprite.draw(batch);
         }
 
+        Tile leader = null;
+        if(myBlock != null) {
+            for(int i=0;i<myBlock.tiles.length;i++){
+                if(myBlock.tiles[i].moving) {
+                    if(myBlock.tiles[i] != this) {
+                        otherMoving = true;
+                        leader = myBlock.tiles[i];
+                    }
+                }
+            }
+        }
+
+        if(otherMoving && leader != null ) {
+            movingSprite.setPosition(leader.movingSprite.getX() + diffX, leader.movingSprite.getY() + diffY);
+            movingSprite.draw(batch);
+        }
+
+
+    }
+
+    public void setBlock(Block b) {
+        myBlock = b;
     }
 
     public String toString() {
