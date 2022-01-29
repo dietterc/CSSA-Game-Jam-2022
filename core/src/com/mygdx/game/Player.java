@@ -27,7 +27,13 @@ public class Player {
     private boolean editMode = false;
 
 
-    private Float baseMoveSpeed = 0.2f;
+    private Float baseMoveSpeed = 0.2f; //unused
+
+    private Float SPEED = 20f;
+    private Float MAX_VELOCITY = 90f;
+    private Float undrift = 0.1f;
+
+
     private Float baseJumpStrength = 2.1f;
     private Float baseJumpDecay = 0.25f;
 
@@ -62,7 +68,7 @@ public class Player {
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = circle;
         fixtureDef.density = 0.0f;
-        fixtureDef.friction = .2f;
+        fixtureDef.friction = 0.4f;
         fixtureDef.restitution = 0.0f;
         Fixture fixture = physicsBody.createFixture(fixtureDef);
 
@@ -82,56 +88,7 @@ public class Player {
         physicsBody.applyLinearImpulse(x,y,pos.x,pos.y,true);
     }
 
-    private void checkControls() {//jump
-        if (!editMode) {
-            if (Gdx.input.isKeyJustPressed(Keys.SPACE) && landed && jumping == 0) {
-                jumping = baseJumpStrength;
-                //physicsBody.applyLinearImpulse(0f,jumping,pos.x,pos.y,true);
-            }
-            switch (gravityDirection) {//left/right movement varies based on gravity
-                case "down" :
-                    //left
-                    if (Gdx.input.isKeyPressed(Keys.S) && !Gdx.input.isKeyPressed(Keys.A)) {
-                        applyForce(baseMoveSpeed,0f);
-                    } 
-                    //right
-                    if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.S)) {
-                        applyForce(-baseMoveSpeed,0f);
-                    }
-                break;
-                case "up" :
-                    //left
-                    if (Gdx.input.isKeyPressed(Keys.S) && !Gdx.input.isKeyPressed(Keys.A)) {
-                        applyForce(baseMoveSpeed,0f);
-                    } 
-                    //right
-                    if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.S)) {
-                        applyForce(-baseMoveSpeed,0f);
-                    }
-                break;
-                case "left" :
-                    //left
-                    if (Gdx.input.isKeyPressed(Keys.S) && !Gdx.input.isKeyPressed(Keys.A)) {
-                        applyForce(0f,-baseMoveSpeed);
-                    } 
-                    //right
-                    if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.S)) {
-                        applyForce(0f,baseMoveSpeed);
-                    }
-                break;
-                case "right" :
-                    //left
-                    if (Gdx.input.isKeyPressed(Keys.S) && !Gdx.input.isKeyPressed(Keys.A)) {
-                        applyForce(0f,baseMoveSpeed);
-                    } 
-                    //right
-                    if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.S)) {
-                        applyForce(0f,-baseMoveSpeed);
-                    }
-                break;
-            }
-        }
-    }
+    
 
     private void manageJump() {
         //continue jump height
@@ -146,7 +103,7 @@ public class Player {
         } else if (jumping != 0f) {
             jumping = 0f;
         }
-
+        
         switch (gravityDirection) {
             case "down" :
                 //physicsBody.applyLinearImpulse(0f,jumping,pos.x,pos.y,true);
@@ -156,14 +113,14 @@ public class Player {
                 //physicsBody.applyLinearImpulse(0f,-jumping,pos.x,pos.y,true);
                 applyForce(0f,-jumping);
             break;
-            case "left" :
+            /*case "left" :
                 //physicsBody.applyLinearImpulse(jumping,0f,pos.x,pos.y,true);
                 applyForce(jumping,0f);
             break;
             case "right" :
                 //physicsBody.applyLinearImpulse(-jumping,0f,pos.x,pos.y,true);
                 applyForce(-jumping,0f);
-            break;
+            break;*/
         }
         
     }   
@@ -231,7 +188,8 @@ public class Player {
 
     //called every iteration of render
     public void step() {
-        checkControls();
+        //checkControls();
+        manageMovement();
         manageJump();
         updateVars();
         applyGravity();
@@ -259,6 +217,97 @@ public class Player {
 
     public void dispose() {
         circle.dispose();
+    }
+
+    private void manageMovement() {
+        if (!editMode) {
+            if (Gdx.input.isKeyJustPressed(Keys.SPACE) && landed && jumping == 0) {
+                jumping = baseJumpStrength;
+                //physicsBody.applyLinearImpulse(0f,jumping,pos.x,pos.y,true);
+            }
+
+            //add speed
+            if (Gdx.input.isKeyPressed(Keys.A)) {
+                physicsBody.applyForceToCenter(-SPEED, 0.0f, true);
+            }
+            if (Gdx.input.isKeyPressed(Keys.S)) {
+                physicsBody.applyForceToCenter(SPEED, 0.0f, true);
+            }
+            
+            //opposite speed
+            if (!Gdx.input.isKeyPressed(Keys.A)) {
+                if(physicsBody.getLinearVelocity().x < 0) 
+                    physicsBody.applyForceToCenter(SPEED, 0.0f, true);
+            }
+            if (!Gdx.input.isKeyPressed(Keys.S)) {
+                if(physicsBody.getLinearVelocity().x > 0) 
+                    physicsBody.applyForceToCenter(-SPEED, 0.0f, true);
+            }
+
+            //max speed
+            if(physicsBody.getLinearVelocity().x >= MAX_VELOCITY) {
+                physicsBody.setLinearVelocity(MAX_VELOCITY,physicsBody.getLinearVelocity().y);
+            } else if(physicsBody.getLinearVelocity().x <= -MAX_VELOCITY) {
+                physicsBody.setLinearVelocity(-MAX_VELOCITY,physicsBody.getLinearVelocity().y);
+            }
+            
+            //if close to 0, set to 0
+            if(physicsBody.getLinearVelocity().x < undrift && physicsBody.getLinearVelocity().x > -undrift) {
+                physicsBody.setLinearVelocity(0,physicsBody.getLinearVelocity().y);
+            }
+
+        }   
+    }
+
+    private void checkControls() {//jump
+        if (!editMode) {
+            if (Gdx.input.isKeyJustPressed(Keys.SPACE) && landed && jumping == 0) {
+                jumping = baseJumpStrength;
+                //physicsBody.applyLinearImpulse(0f,jumping,pos.x,pos.y,true);
+            }
+            switch (gravityDirection) {//left/right movement varies based on gravity
+                case "down" :
+                    //left
+                    if (Gdx.input.isKeyPressed(Keys.S) && !Gdx.input.isKeyPressed(Keys.A)) {
+                        applyForce(baseMoveSpeed,0f);
+                    } 
+                    //right
+                    if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.S)) {
+                        applyForce(-baseMoveSpeed,0f);
+                    }
+                break;
+                case "up" :
+                    //left
+                    if (Gdx.input.isKeyPressed(Keys.S) && !Gdx.input.isKeyPressed(Keys.A)) {
+                        applyForce(baseMoveSpeed,0f);
+                    } 
+                    //right
+                    if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.S)) {
+                        applyForce(-baseMoveSpeed,0f);
+                    }
+                break;
+                case "left" :
+                    //left
+                    if (Gdx.input.isKeyPressed(Keys.S) && !Gdx.input.isKeyPressed(Keys.A)) {
+                        applyForce(0f,-baseMoveSpeed);
+                    } 
+                    //right
+                    if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.S)) {
+                        applyForce(0f,baseMoveSpeed);
+                    }
+                break;
+                case "right" :
+                    //left
+                    if (Gdx.input.isKeyPressed(Keys.S) && !Gdx.input.isKeyPressed(Keys.A)) {
+                        applyForce(0f,baseMoveSpeed);
+                    } 
+                    //right
+                    if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.S)) {
+                        applyForce(0f,-baseMoveSpeed);
+                    }
+                break;
+            }
+        }
     }
 
 
