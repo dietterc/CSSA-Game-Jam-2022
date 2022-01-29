@@ -26,7 +26,7 @@ public class PlayerCollisions {
             public void beginContact(Contact contact) {
                 Fixture fixA = contact.getFixtureA();
                 Fixture fixB = contact.getFixtureB();
-                Fixture travis;
+                Fixture travis = null;
                 Fixture other;
 
                 if (fixA.getBody().getUserData() == "Travis") {
@@ -35,6 +35,12 @@ public class PlayerCollisions {
                 } else if (fixB.getBody().getUserData() == "Travis") {
                     travis = fixB;
                     other = fixA;
+                }
+
+                if (travis != null) {
+                    //switch (other.getBody().getUserData()) {
+
+                    //}
                 }
 
                 //do collide here
