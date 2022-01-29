@@ -6,6 +6,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.mygdx.game.infoClasses.BlockInfo;
+import com.mygdx.game.infoClasses.LevelInfo;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.MapObject;
@@ -36,6 +38,7 @@ public class Level1 implements Screen {
     Box2DDebugRenderer debugRenderer;
     Body body;
     Player player;
+    LevelInfo[] level_data;
 
     TiledMap tiledMap;
     TiledMapRenderer tiledMapRenderer;
@@ -43,15 +46,15 @@ public class Level1 implements Screen {
     static ArrayList<Block> blocks = new ArrayList<Block>();
     static ArrayList<Sprite> blockSprites = new ArrayList<Sprite>();
 
-	public Level1(final MyGdxGame game) {
+	public Level1(final MyGdxGame game, LevelInfo[] level_data) {
 		this.game = game;
+        this.level_data = level_data;
 
 		camera = new OrthographicCamera(WIDTH,HEIGHT);
         //world = new World(new Vector2(0,-10), true);
         world = new World(new Vector2(0,0), true);
         debugRenderer = new Box2DDebugRenderer();
 
-       
         player = new Player(world,0,0,camera);
 
         //global floor      -- for now
@@ -63,24 +66,20 @@ public class Level1 implements Screen {
         groundBody.createFixture(groundBox, 0.0f);
         groundBox.dispose();
 
-    
-        TiledMap tiledMap = new TmxMapLoader().load("level1_seperate_objects.tmx");
+        LevelInfo mapData = level_data[0];
 
-        MapObjects objects = tiledMap.getLayers().get("poop").getObjects();
+        for(BlockInfo block : mapData.blocks) {
+            
+            for(int i=0;i<block.numBlocks;i++) {
 
-        for(MapObject object : objects) {
+                float x1 = block.blockPoints[i].x;
+                float y1 = block.blockPoints[i].y;
+                Vector3 input = new Vector3(x1, y1, 0);
+                camera.unproject(input);
 
-            TextureMapObject obj = (TextureMapObject) object;
-
-            float x1 = obj.getX();
-            float y1 = 1080-obj.getY();
-            Vector3 input = new Vector3(x1, y1, 0);
-            camera.unproject(input);
-
-            blocks.add(new Block(world,input.x,input.y,camera,obj.getTextureRegion().getTexture()));
-
+                blocks.add(new Block(world,input.x,input.y,camera,block.textures[i]));
+            }
         }
-        
 	}
 
 

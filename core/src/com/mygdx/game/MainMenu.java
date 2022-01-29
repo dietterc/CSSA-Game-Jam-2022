@@ -3,16 +3,19 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.mygdx.game.infoClasses.LevelInfo;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 
 public class MainMenu implements Screen {
 
 	final MyGdxGame game;
+	LevelInfo[] level_data;
 
 	OrthographicCamera camera;
 
-	public MainMenu(final MyGdxGame game) {
+	public MainMenu(final MyGdxGame game, LevelInfo[] level_data) {
 		this.game = game;
+		this.level_data = level_data;
 
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 800, 480);
@@ -31,7 +34,7 @@ public class MainMenu implements Screen {
 		game.batch.end();
 
 		if (Gdx.input.isTouched()) {
-			game.setScreen(new Level1(game));
+			game.setScreen(new Level1(game,level_data));
 			dispose();
 		}
 	}
