@@ -32,7 +32,7 @@ public class Player {
     private Float baseJumpDecay = 0.25f;
 
     private Float gravityStrength = -10f;
-    private String gravityDirection = "down";
+    public String gravityDirection = "down";
 
     private Boolean landed = false;
     private Float jumping = 0f;

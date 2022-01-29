@@ -28,6 +28,13 @@ public class PlayerCollisions {
                 Fixture fixB = contact.getFixtureB();
                 Fixture travis = null;
                 Fixture other = null;
+                Fixture falling = null;
+
+                if (fixA.getBody().getUserData().toString() == "falling") {
+                    falling = fixA;
+                } else if (fixB.getBody().getUserData().toString() == "falling") {
+                    falling = fixB;
+                }
 
                 if (fixA.getBody().getUserData().toString() == "Travis") {
                     travis = fixA;
@@ -37,6 +44,10 @@ public class PlayerCollisions {
                     other = fixA;
                 }
 
+                if (falling != null) {
+                    
+                }
+
                 if (travis != null && travis.getBody().getUserData() instanceof Player) {
                     Player trueTravis = (Player) travis.getBody().getUserData();
                     switch (other.getBody().getUserData().toString()) {
@@ -44,6 +55,27 @@ public class PlayerCollisions {
                             trueTravis.sticky = true;
                             System.out.println("Such stick,  Wow");
                         break;
+                        case "bouncy" :
+                            //trueTravis.bounce();
+                            System.out.println("Boing!");
+                        break;
+                        case "sliderleft" :
+                            //trueTravis.sliderleft;
+                            System.out.println("<-----");
+                        break;
+                        case "sliderright" :
+                            //trueTravis.sliderright;
+                            System.out.println("----->");
+                        break;
+                        case "gravityup" :
+                            trueTravis.gravityDirection = "up";
+                            System.out.println("Up We Go");
+                        break;
+                        case "spike" :
+                            //call reset method?
+                            System.out.println("Ouch!");
+                        break;
+
                     }
                 }
 
