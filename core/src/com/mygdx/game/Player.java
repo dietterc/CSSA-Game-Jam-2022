@@ -24,8 +24,10 @@ public class Player {
 
     private OrthographicCamera camera;
 
+    private boolean editMode = false;
 
-    private Float baseMoveSpeed = 7f;
+
+    private Float baseMoveSpeed = 0.3f;
     private Float baseJumpStrength = 2.1f;
     private Float baseJumpDecay = 0.25f;
 
@@ -54,7 +56,7 @@ public class Player {
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = circle;
         fixtureDef.density = 0.0f;
-        fixtureDef.friction = 0.2f;
+        fixtureDef.friction = 2f;
         fixtureDef.restitution = 0.0f;
         Fixture fixture = physicsBody.createFixture(fixtureDef);
 
@@ -64,58 +66,62 @@ public class Player {
 
     }
 
-
+    public void setEditMode(boolean val) {
+        editMode = val;
+    }
 
     private void applyForce(float x, float y) {
-        physicsBody.applyForceToCenter(x,y,true);
+        physicsBody.applyLinearImpulse(x,y,pos.x,pos.y,true);
     }
 
     private void checkControls() {//jump
-        if (Gdx.input.isKeyPressed(Keys.SPACE) && landed && jumping == 0) {
-            jumping = baseJumpStrength;
-            //physicsBody.applyLinearImpulse(0f,jumping,pos.x,pos.y,true);
-        }
-        switch (gravityDirection) {//left/right movement varies based on gravity
-            case "down" :
-                //left
-                if (Gdx.input.isKeyPressed(Keys.S) && !Gdx.input.isKeyPressed(Keys.A)) {
-                    applyForce(baseMoveSpeed,0f);
-                } 
-                //right
-                if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.S)) {
-                    applyForce(-baseMoveSpeed,0f);
-                }
-            break;
-            case "up" :
-                //left
-                if (Gdx.input.isKeyPressed(Keys.S) && !Gdx.input.isKeyPressed(Keys.A)) {
-                    applyForce(baseMoveSpeed,0f);
-                } 
-                //right
-                if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.S)) {
-                    applyForce(-baseMoveSpeed,0f);
-                }
-            break;
-            case "left" :
-                //left
-                if (Gdx.input.isKeyPressed(Keys.S) && !Gdx.input.isKeyPressed(Keys.A)) {
-                    applyForce(0f,-baseMoveSpeed);
-                } 
-                //right
-                if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.S)) {
-                    applyForce(0f,baseMoveSpeed);
-                }
-            break;
-            case "right" :
-                //left
-                if (Gdx.input.isKeyPressed(Keys.S) && !Gdx.input.isKeyPressed(Keys.A)) {
-                    applyForce(0f,baseMoveSpeed);
-                } 
-                //right
-                if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.S)) {
-                    applyForce(0f,-baseMoveSpeed);
-                }
-            break;
+        if (!editMode) {
+            if (Gdx.input.isKeyPressed(Keys.SPACE) && landed && jumping == 0) {
+                jumping = baseJumpStrength;
+                //physicsBody.applyLinearImpulse(0f,jumping,pos.x,pos.y,true);
+            }
+            switch (gravityDirection) {//left/right movement varies based on gravity
+                case "down" :
+                    //left
+                    if (Gdx.input.isKeyPressed(Keys.S) && !Gdx.input.isKeyPressed(Keys.A)) {
+                        applyForce(baseMoveSpeed,0f);
+                    } 
+                    //right
+                    if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.S)) {
+                        applyForce(-baseMoveSpeed,0f);
+                    }
+                break;
+                case "up" :
+                    //left
+                    if (Gdx.input.isKeyPressed(Keys.S) && !Gdx.input.isKeyPressed(Keys.A)) {
+                        applyForce(baseMoveSpeed,0f);
+                    } 
+                    //right
+                    if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.S)) {
+                        applyForce(-baseMoveSpeed,0f);
+                    }
+                break;
+                case "left" :
+                    //left
+                    if (Gdx.input.isKeyPressed(Keys.S) && !Gdx.input.isKeyPressed(Keys.A)) {
+                        applyForce(0f,-baseMoveSpeed);
+                    } 
+                    //right
+                    if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.S)) {
+                        applyForce(0f,baseMoveSpeed);
+                    }
+                break;
+                case "right" :
+                    //left
+                    if (Gdx.input.isKeyPressed(Keys.S) && !Gdx.input.isKeyPressed(Keys.A)) {
+                        applyForce(0f,baseMoveSpeed);
+                    } 
+                    //right
+                    if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.S)) {
+                        applyForce(0f,-baseMoveSpeed);
+                    }
+                break;
+            }
         }
     }
 
@@ -135,16 +141,20 @@ public class Player {
 
         switch (gravityDirection) {
             case "down" :
-                physicsBody.applyLinearImpulse(0f,jumping,pos.x,pos.y,true);
+                //physicsBody.applyLinearImpulse(0f,jumping,pos.x,pos.y,true);
+                applyForce(0f,jumping);
             break;
             case "up" :
-                physicsBody.applyLinearImpulse(0f,-jumping,pos.x,pos.y,true);
+                //physicsBody.applyLinearImpulse(0f,-jumping,pos.x,pos.y,true);
+                applyForce(0f,-jumping);
             break;
             case "left" :
-                physicsBody.applyLinearImpulse(jumping,0f,pos.x,pos.y,true);
+                //physicsBody.applyLinearImpulse(jumping,0f,pos.x,pos.y,true);
+                applyForce(jumping,0f);
             break;
             case "right" :
-                physicsBody.applyLinearImpulse(-jumping,0f,pos.x,pos.y,true);
+                //physicsBody.applyLinearImpulse(-jumping,0f,pos.x,pos.y,true);
+                applyForce(-jumping,0f);
             break;
         }
     }   
