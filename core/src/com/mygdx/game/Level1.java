@@ -53,6 +53,7 @@ public class Level1 implements Screen {
 		camera = new OrthographicCamera(WIDTH,HEIGHT);
         //world = new World(new Vector2(0,-10), true);
         world = new World(new Vector2(0,0), true);
+        world.setContactListener(PlayerCollisions.createCollisionListener());
         debugRenderer = new Box2DDebugRenderer();
 
         player = new Player(world,0,0,camera);

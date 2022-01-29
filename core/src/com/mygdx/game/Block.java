@@ -55,6 +55,35 @@ public class Block {
         movingSprite.setOriginCenter();
         //movingSprite.setColor(.5f, .5f, .5f, 1);
     }
+
+    public Block(World w,float startX, float startY, Camera c, Texture texture, String userData) {
+
+        camera = c;
+        world = w;
+
+        moving = false;
+        mouseReleased = true;
+
+        BodyDef groundBodyDef = new BodyDef();
+        groundBodyDef.position.set(startX,startY);
+
+        physicsBody = world.createBody(groundBodyDef);
+        PolygonShape groundBox = new PolygonShape();
+        groundBox.setAsBox(PHYISCS_DIM,PHYISCS_DIM);
+        physicsBody.createFixture(groundBox, 0.0f);
+        groundBox.dispose();
+
+        bodySprite = new Sprite(texture);
+        bodySprite.setBounds(0, 0, SPRITE_DIM, SPRITE_DIM);
+        bodySprite.setOriginCenter();
+        
+        movingSprite = new Sprite(texture);
+        movingSprite.setBounds(0, 0, SPRITE_DIM, SPRITE_DIM);
+        movingSprite.setOriginCenter();
+        //movingSprite.setColor(.5f, .5f, .5f, 1);
+
+        physicsBody.setUserData(userData);
+    }
     
     //called every iteration of render
     public void step() {
