@@ -27,7 +27,7 @@ public class Player {
     private boolean editMode = false;
 
 
-    private Float baseMoveSpeed = 0.3f;
+    private Float baseMoveSpeed = 0.2f;
     private Float baseJumpStrength = 2.1f;
     private Float baseJumpDecay = 0.25f;
 
@@ -56,13 +56,15 @@ public class Player {
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = circle;
         fixtureDef.density = 0.0f;
-        fixtureDef.friction = 2f;
+        fixtureDef.friction = .2f;
         fixtureDef.restitution = 0.0f;
         Fixture fixture = physicsBody.createFixture(fixtureDef);
 
         bodySprite = new Sprite(new Texture(Gdx.files.internal("space_crab.png")));
         bodySprite.setBounds(0, 0, 1.5f, 1.5f);
         bodySprite.setOriginCenter();        
+
+        physicsBody.setUserData("Travis");
 
     }
 
@@ -76,7 +78,7 @@ public class Player {
 
     private void checkControls() {//jump
         if (!editMode) {
-            if (Gdx.input.isKeyPressed(Keys.SPACE) && landed && jumping == 0) {
+            if (Gdx.input.isKeyJustPressed(Keys.SPACE) && landed && jumping == 0) {
                 jumping = baseJumpStrength;
                 //physicsBody.applyLinearImpulse(0f,jumping,pos.x,pos.y,true);
             }
