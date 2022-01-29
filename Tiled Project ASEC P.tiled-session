@@ -1,0 +1,109 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "": {
+            "scaleInEditor": 1
+        },
+        "C:/Users/super/Desktop/static_block.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/super/Desktop/tiled/conveyor_block.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/super/Desktop/tiled/conveyor_left_block.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/super/Desktop/tiled/conveyor_middle_block.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/super/Desktop/tiled/conveyor_right_block.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/super/Desktop/tiled/level1.tmx": {
+            "scale": 0.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 701,
+                "y": 539
+            }
+        },
+        "C:/Users/super/Desktop/tiled/level1.tmx#ASEC P": {
+            "dynamicWrapping": true,
+            "scaleInEditor": 1
+        },
+        "C:/Users/super/Desktop/tiled/level1_seperate_objects.tmx": {
+            "scale": 0.5601041666666666,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 933.7548819044077,
+                "y": 746.2897526501766
+            }
+        },
+        "C:/Users/super/Desktop/tiled/level1_seperate_objects.tmx#ASEC P": {
+            "scaleInDock": 1
+        },
+        "C:/Users/super/Desktop/tiled/no_embed.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/super/Desktop/tiled/tile_layer_test.tmx": {
+            "scale": 0.5601041666666666,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 933.7548819044077,
+                "y": 512.4046866282315
+            }
+        },
+        "C:/Users/super/Desktop/tiled/tile_layer_test.tmx#ASEC P": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1
+        },
+        "C:/Users/super/Desktop/tiled/tile_layer_test_no_embed.tmx": {
+            "scale": 0.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 964,
+                "y": 78
+            }
+        },
+        "C:/Users/super/Desktop/tiled/tile_layer_test_no_embed.tmx#ASEC P": {
+            "scaleInDock": 1
+        }
+    },
+    "last.exportedFilePath": "C:/Users/super/Desktop/tiled",
+    "last.imagePath": "C:/Users/super/Desktop/tiled",
+    "lastUsedTilesetExportFilter": "Tiled tileset files (*.tsx *.xml)",
+    "map.lastUsedFormat": "tmx",
+    "openFiles": [
+    ],
+    "project": "Tiled Project ASEC P.tiled-project",
+    "recentFiles": [
+        "C:/Users/super/Desktop/tiled/level1_seperate_objects.tmx",
+        "C:/Users/super/Desktop/tiled/tile_layer_test.tmx",
+        "C:/Users/super/Desktop/tiled/no_embed.tsx",
+        "C:/Users/super/Desktop/tiled/tile_layer_test_no_embed.tmx",
+        "C:/Users/super/Desktop/tiled/conveyor_right_block.tsx",
+        "C:/Users/super/Desktop/tiled/conveyor_left_block.tsx",
+        "C:/Users/super/Desktop/tiled/conveyor_middle_block.tsx",
+        "C:/Users/super/Desktop/static_block.tsx",
+        "C:/Users/super/Desktop/tiled/level1.tmx",
+        "C:/Users/super/Desktop/tiled/conveyor_block.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.type": 1
+}

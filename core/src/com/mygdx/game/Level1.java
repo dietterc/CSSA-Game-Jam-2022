@@ -64,16 +64,16 @@ public class Level1 implements Screen {
         groundBox.dispose();
 
     
-        TiledMap tiledMap = new TmxMapLoader().load("level1.tmx");
+        TiledMap tiledMap = new TmxMapLoader().load("level1_seperate_objects.tmx");
 
-        MapObjects objects = tiledMap.getLayers().get("Normal_Block_1").getObjects();
+        MapObjects objects = tiledMap.getLayers().get("poop").getObjects();
 
         for(MapObject object : objects) {
 
             TextureMapObject obj = (TextureMapObject) object;
 
             float x1 = obj.getX();
-            float y1 = obj.getY();
+            float y1 = 1080-obj.getY();
             Vector3 input = new Vector3(x1, y1, 0);
             camera.unproject(input);
 

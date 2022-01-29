@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="29" height="15" tilewidth="64" tileheight="64" infinite="0" nextlayerid="9" nextobjectid="94">
+ <tileset firstgid="1" name="ASEC P" tilewidth="64" tileheight="64" tilecount="11" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="64" height="64" source="no_jump_block.png"/>
+  </tile>
+  <tile id="1">
+   <image width="64" height="64" source="spike_tile.png"/>
+  </tile>
+  <tile id="2">
+   <image width="64" height="64" source="conveyor_left_block.png"/>
+  </tile>
+  <tile id="3">
+   <image width="64" height="64" source="conveyor_middle_block.png"/>
+  </tile>
+  <tile id="4">
+   <image width="64" height="64" source="conveyor_right_block.png"/>
+  </tile>
+  <tile id="5">
+   <image width="64" height="64" source="end_block.png"/>
+  </tile>
+  <tile id="6">
+   <image width="64" height="64" source="falling_block.png"/>
+  </tile>
+  <tile id="7">
+   <image width="64" height="64" source="static_block.png"/>
+  </tile>
+  <tile id="8">
+   <image width="64" height="64" source="spring_block.png"/>
+  </tile>
+  <tile id="9">
+   <image width="64" height="64" source="start_block.png"/>
+  </tile>
+  <tile id="10">
+   <image width="64" height="64" source="basic_block.png"/>
+  </tile>
+ </tileset>
+ <objectgroup id="4" name="Normal_Block_1">
+  <object id="46" gid="11" x="448" y="576" width="64" height="64"/>
+  <object id="47" gid="11" x="512" y="576" width="64" height="64"/>
+  <object id="48" gid="11" x="576" y="576" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup id="8" name="poop">
+  <object id="49" gid="11" x="448" y="320" width="64" height="64"/>
+  <object id="50" gid="11" x="448" y="384" width="64" height="64"/>
+  <object id="51" gid="11" x="448" y="448" width="64" height="64"/>
+  <object id="52" gid="11" x="448" y="256" width="64" height="64"/>
+  <object id="53" gid="11" x="448" y="192" width="64" height="64"/>
+  <object id="54" gid="11" x="512" y="192" width="64" height="64"/>
+  <object id="55" gid="11" x="576" y="192" width="64" height="64"/>
+  <object id="56" gid="11" x="576" y="256" width="64" height="64"/>
+  <object id="57" gid="11" x="576" y="320" width="64" height="64"/>
+  <object id="58" gid="11" x="512" y="320" width="64" height="64"/>
+  <object id="59" gid="11" x="704" y="192" width="64" height="64"/>
+  <object id="60" gid="11" x="704" y="256" width="64" height="64"/>
+  <object id="61" gid="11" x="704" y="320" width="64" height="64"/>
+  <object id="62" gid="11" x="704" y="384" width="64" height="64"/>
+  <object id="63" gid="11" x="704" y="448" width="64" height="64"/>
+  <object id="64" gid="11" x="768" y="448" width="64" height="64"/>
+  <object id="65" gid="11" x="832" y="448" width="64" height="64"/>
+  <object id="66" gid="11" x="832" y="384" width="64" height="64"/>
+  <object id="67" gid="11" x="832" y="320" width="64" height="64"/>
+  <object id="68" gid="11" x="832" y="256" width="64" height="64"/>
+  <object id="69" gid="11" x="832" y="192" width="64" height="64"/>
+  <object id="70" gid="11" x="768" y="192" width="64" height="64"/>
+  <object id="71" gid="11" x="960" y="192" width="64" height="64"/>
+  <object id="72" gid="11" x="960" y="256" width="64" height="64"/>
+  <object id="73" gid="11" x="960" y="320" width="64" height="64"/>
+  <object id="74" gid="11" x="960" y="384" width="64" height="64"/>
+  <object id="75" gid="11" x="960" y="448" width="64" height="64"/>
+  <object id="76" gid="11" x="1024" y="448" width="64" height="64"/>
+  <object id="77" gid="11" x="1088" y="448" width="64" height="64"/>
+  <object id="78" gid="11" x="1088" y="384" width="64" height="64"/>
+  <object id="79" gid="11" x="1088" y="320" width="64" height="64"/>
+  <object id="80" gid="11" x="1088" y="256" width="64" height="64"/>
+  <object id="81" gid="11" x="1088" y="192" width="64" height="64"/>
+  <object id="82" gid="11" x="1024" y="192" width="64" height="64"/>
+  <object id="83" gid="11" x="1216" y="192" width="64" height="64"/>
+  <object id="84" gid="11" x="1216" y="256" width="64" height="64"/>
+  <object id="85" gid="11" x="1216" y="320" width="64" height="64"/>
+  <object id="86" gid="11" x="1216" y="384" width="64" height="64"/>
+  <object id="87" gid="11" x="1216" y="448" width="64" height="64"/>
+  <object id="88" gid="11" x="1280" y="192" width="64" height="64"/>
+  <object id="89" gid="11" x="1344" y="192" width="64" height="64"/>
+  <object id="90" gid="11" x="1344" y="192" width="64" height="64"/>
+  <object id="91" gid="11" x="1344" y="256" width="64" height="64"/>
+  <object id="92" gid="11" x="1344" y="320" width="64" height="64"/>
+  <object id="93" gid="11" x="1280" y="320" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup id="5" name="Normal_Block_2">
+  <object id="43" gid="11" x="960" y="576" width="64" height="64"/>
+  <object id="44" gid="11" x="896" y="576" width="64" height="64"/>
+  <object id="45" gid="11" x="832" y="576" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup id="6" name="Normal_Block_3">
+  <object id="40" gid="11" x="1344" y="576" width="64" height="64"/>
+  <object id="41" gid="11" x="1280" y="576" width="64" height="64"/>
+  <object id="42" gid="11" x="1216" y="576" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup id="7" name="Goal_Blocks">
+  <object id="38" gid="10" x="192" y="576" width="64" height="64"/>
+  <object id="39" gid="6" x="1600" y="576" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup id="2" name="Spikes">
+  <object id="4" gid="2" x="834" y="646" width="64" height="64"/>
+  <object id="5" gid="2" x="892" y="640" width="64" height="64"/>
+  <object id="6" gid="2" x="962" y="646" width="64" height="64"/>
+  <object id="7" gid="2" x="448" y="640" width="64" height="64"/>
+  <object id="10" gid="2" x="518" y="642" width="64" height="64"/>
+  <object id="11" gid="2" x="580" y="638" width="64" height="64"/>
+  <object id="12" gid="2" x="1214" y="646" width="64" height="64"/>
+  <object id="14" gid="2" x="1278" y="646" width="64" height="64"/>
+  <object id="15" gid="2" x="1346" y="642" width="64" height="64"/>
+  <object id="17" gid="2" x="832" y="960" width="64" height="64"/>
+  <object id="18" gid="2" x="896" y="960" width="64" height="64"/>
+  <object id="19" gid="2" x="960" y="960" width="64" height="64"/>
+  <object id="20" gid="2" x="1024" y="960" width="64" height="64"/>
+  <object id="21" gid="2" x="1088" y="960" width="64" height="64"/>
+  <object id="22" gid="2" x="832" y="832" width="64" height="64"/>
+  <object id="23" gid="2" x="960" y="832" width="64" height="64"/>
+ </objectgroup>
+</map>

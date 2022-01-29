@@ -16,6 +16,10 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 
 public class Block {
+    
+    private final float SPRITE_DIM = .7f;
+    private final float PHYISCS_DIM = .34f;
+
     private World world;
     private Body physicsBody;
     private Camera camera;
@@ -38,16 +42,16 @@ public class Block {
 
         physicsBody = world.createBody(groundBodyDef);
         PolygonShape groundBox = new PolygonShape();
-        groundBox.setAsBox(.45f,.45f);
+        groundBox.setAsBox(PHYISCS_DIM,PHYISCS_DIM);
         physicsBody.createFixture(groundBox, 0.0f);
         groundBox.dispose();
 
         bodySprite = new Sprite(texture);
-        bodySprite.setBounds(0, 0, 1f, 1f);
+        bodySprite.setBounds(0, 0, SPRITE_DIM, SPRITE_DIM);
         bodySprite.setOriginCenter();
         
         movingSprite = new Sprite(texture);
-        movingSprite.setBounds(0, 0, 1f, 1f);
+        movingSprite.setBounds(0, 0, SPRITE_DIM, SPRITE_DIM);
         movingSprite.setOriginCenter();
         //movingSprite.setColor(.5f, .5f, .5f, 1);
     }
@@ -92,7 +96,7 @@ public class Block {
 
                 physicsBody = world.createBody(groundBodyDef);
                 PolygonShape groundBox = new PolygonShape();
-                groundBox.setAsBox(.45f,.45f);
+                groundBox.setAsBox(PHYISCS_DIM,PHYISCS_DIM);
                 physicsBody.createFixture(groundBox, 0.0f);
                 groundBox.dispose();
             }
