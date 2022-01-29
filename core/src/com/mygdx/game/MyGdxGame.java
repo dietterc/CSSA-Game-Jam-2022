@@ -26,7 +26,7 @@ public class MyGdxGame extends Game {
 
 		//load in level Data
 		//level 1
-		TiledMap tiledMap = new TmxMapLoader().load("testlevel.tmx");
+		TiledMap tiledMap = new TmxMapLoader().load("levels/testlevel.tmx");
 		MapLayers layers = tiledMap.getLayers();
 		BlockInfo[] level1Blocks = new BlockInfo[layers.getCount()];
 		int layerIndex = 0;
