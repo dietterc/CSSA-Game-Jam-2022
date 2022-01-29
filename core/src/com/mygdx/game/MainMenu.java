@@ -24,10 +24,10 @@ public class MainMenu implements Screen {
 
 		camera.update();
 		game.batch.setProjectionMatrix(camera.combined);
-
+        
 		game.batch.begin();
 		game.font.draw(game.batch, "Main menu screen, click to start", 100, 150);
-		//game.font.draw(game.batch, "Tap anywhere to begin!", 100, 100);
+		
 		game.batch.end();
 
 		if (Gdx.input.isTouched()) {

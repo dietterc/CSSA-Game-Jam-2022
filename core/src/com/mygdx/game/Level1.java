@@ -1,9 +1,12 @@
 package com.mygdx.game;
 
+import java.util.ArrayList;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.math.Vector2;
 
@@ -19,6 +22,9 @@ public class Level1 implements Screen {
     Body body;
     Player player;
 
+    static ArrayList<Block> blocks = new ArrayList<Block>();
+    static ArrayList<Sprite> blockSprites = new ArrayList<Sprite>();
+
 	public Level1(final MyGdxGame game) {
 		this.game = game;
 
@@ -28,7 +34,7 @@ public class Level1 implements Screen {
 
         player = new Player(world,0,0,camera);
 
-        //floor
+        //global floor      -- for now
         BodyDef groundBodyDef = new BodyDef();
         groundBodyDef.position.set(0,-4);
         Body groundBody = world.createBody(groundBodyDef);
@@ -37,7 +43,10 @@ public class Level1 implements Screen {
         groundBody.createFixture(groundBox, 0.0f);
         groundBox.dispose();
 
-        
+        //blocks
+        blocks.add(new Block(world,0,-2,camera));
+        blocks.add(new Block(world,4,-2,camera));
+
 	}
 
     @Override
@@ -51,10 +60,16 @@ public class Level1 implements Screen {
         game.batch.setProjectionMatrix(camera.combined);
 
         player.draw(game.batch);
+        for(int i=0;i<blocks.size();i++){
+            blocks.get(i).draw(game.batch);   
+        }
         
 		game.batch.end();
 
         player.step();
+        for(int i=0;i<blocks.size();i++){
+            blocks.get(i).step();
+        }
 
         debugRenderer.render(world, camera.combined);
 		world.step(1/60f, 6, 2);
