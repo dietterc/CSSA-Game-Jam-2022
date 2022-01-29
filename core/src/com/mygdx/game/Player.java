@@ -40,7 +40,7 @@ public class Player {
         fixtureDef.shape = circle;
         fixtureDef.density = 0.0f;
         fixtureDef.friction = 0.2f;
-        fixtureDef.restitution = 0.5f;
+        fixtureDef.restitution = 0.0f;
         Fixture fixture = physicsBody.createFixture(fixtureDef);
 
         bodySprite = new Sprite(new Texture(Gdx.files.internal("space_crab.png")));
