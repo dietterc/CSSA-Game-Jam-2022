@@ -42,7 +42,7 @@ public class PlayerCollisions {
                     if (falling != null && falling.getBody().getUserData() instanceof FallingTile) {
                         if (falling.untouched && other.getBody().getUserData().toString() == "Travis") {
                             falling.fall();
-                        } else if (!falling.untouched && (other.getBody().getUserData() instanceof Tile) && (!other.getBody().getUserData() instanceof Spike)) {
+                        } else if (!falling.untouched && (other.getBody().getUserData() instanceof Tile) && (!other.getBody().getUserData() instanceof Spike) && (!other.getBody().getUserData() instanceof GravityUp)) {
                             falling.poof();
                         }
                     }

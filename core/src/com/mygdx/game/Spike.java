@@ -15,10 +15,11 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 
-public class SliderLeftTile extends Tile {
+public class Spike extends Tile {
 
-    public SliderLeftTile(World w,float startX, float startY, Camera c, Texture texture) {
-        super(w, startX, startY, c, texture, "sliderleft");
+    public Spike(World w,float startX, float startY, Camera c, Texture texture) {
+        super(w, startX, startY, c, texture, "spike");
+        super.becomeSensor();
     }
     
 }

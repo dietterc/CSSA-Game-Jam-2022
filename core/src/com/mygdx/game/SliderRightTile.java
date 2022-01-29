@@ -15,10 +15,10 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 
-public class SliderLeftTile extends Tile {
+public class SliderRightTile extends Tile {
 
-    public SliderLeftTile(World w,float startX, float startY, Camera c, Texture texture) {
-        super(w, startX, startY, c, texture, "sliderleft");
+    public SliderRightTile(World w,float startX, float startY, Camera c, Texture texture) {
+        super(w, startX, startY, c, texture, "sliderright");
     }
     
 }
