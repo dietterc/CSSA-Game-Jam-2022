@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="29" height="15" tilewidth="64" tileheight="64" infinite="0" nextlayerid="7" nextobjectid="99">
+ <tileset firstgid="1" source="tileset.tsx"/>
+ <objectgroup id="2" name="static">
+  <object id="1" gid="8" x="0" y="64" width="64" height="64"/>
+  <object id="2" gid="8" x="0" y="128" width="64" height="64"/>
+  <object id="3" gid="8" x="0" y="192" width="64" height="64"/>
+  <object id="4" gid="8" x="0" y="256" width="64" height="64"/>
+  <object id="5" gid="8" x="0" y="320" width="64" height="64"/>
+  <object id="6" gid="8" x="0" y="384" width="64" height="64"/>
+  <object id="7" gid="8" x="0" y="448" width="64" height="64"/>
+  <object id="8" gid="8" x="0" y="512" width="64" height="64"/>
+  <object id="9" gid="8" x="0" y="576" width="64" height="64"/>
+  <object id="10" gid="8" x="0" y="640" width="64" height="64"/>
+  <object id="11" gid="8" x="0" y="704" width="64" height="64"/>
+  <object id="12" gid="8" x="0" y="832" width="64" height="64"/>
+  <object id="13" gid="8" x="0" y="832" width="64" height="64"/>
+  <object id="14" gid="8" x="0" y="768" width="64" height="64"/>
+  <object id="15" gid="8" x="0" y="896" width="64" height="64"/>
+  <object id="16" gid="8" x="0" y="960" width="64" height="64"/>
+  <object id="17" gid="10" x="64" y="128" width="64" height="64"/>
+  <object id="18" gid="8" x="192" y="64" width="64" height="64"/>
+  <object id="19" gid="8" x="192" y="128" width="64" height="64"/>
+  <object id="27" gid="8" x="192" y="192" width="64" height="64"/>
+  <object id="28" gid="8" x="192" y="256" width="64" height="64"/>
+  <object id="29" gid="8" x="256" y="256" width="64" height="64"/>
+  <object id="30" gid="8" x="320" y="256" width="64" height="64"/>
+  <object id="31" gid="8" x="320" y="320" width="64" height="64"/>
+  <object id="32" gid="8" x="320" y="384" width="64" height="64"/>
+  <object id="33" gid="8" x="320" y="448" width="64" height="64"/>
+  <object id="34" gid="8" x="320" y="512" width="64" height="64"/>
+  <object id="35" gid="8" x="320" y="640" width="64" height="64"/>
+  <object id="36" gid="8" x="320" y="704" width="64" height="64"/>
+  <object id="37" gid="8" x="320" y="768" width="64" height="64"/>
+  <object id="38" gid="8" x="320" y="832" width="64" height="64"/>
+  <object id="39" gid="8" x="320" y="896" width="64" height="64"/>
+  <object id="40" gid="8" x="320" y="960" width="64" height="64"/>
+  <object id="41" gid="2" x="256" y="640" width="64" height="64"/>
+  <object id="42" gid="2" x="192" y="640" width="64" height="64"/>
+  <object id="43" gid="2" x="128" y="640" width="64" height="64"/>
+  <object id="45" gid="2" x="64" y="640" width="64" height="64"/>
+  <object id="51" gid="8" x="384" y="512" width="64" height="64"/>
+  <object id="52" gid="8" x="448" y="512" width="64" height="64"/>
+  <object id="53" gid="8" x="512" y="512" width="64" height="64"/>
+  <object id="54" gid="8" x="576" y="512" width="64" height="64"/>
+  <object id="55" gid="8" x="640" y="512" width="64" height="64"/>
+  <object id="56" gid="8" x="704" y="512" width="64" height="64"/>
+  <object id="57" gid="8" x="768" y="512" width="64" height="64"/>
+  <object id="58" gid="8" x="832" y="512" width="64" height="64"/>
+  <object id="59" gid="8" x="896" y="512" width="64" height="64"/>
+  <object id="60" gid="8" x="960" y="512" width="64" height="64"/>
+  <object id="61" gid="8" x="1024" y="512" width="64" height="64"/>
+  <object id="62" gid="8" x="1088" y="512" width="64" height="64"/>
+  <object id="63" gid="8" x="1152" y="512" width="64" height="64"/>
+  <object id="64" gid="8" x="1216" y="512" width="64" height="64"/>
+  <object id="65" gid="8" x="1280" y="512" width="64" height="64"/>
+  <object id="66" gid="8" x="1344" y="512" width="64" height="64"/>
+  <object id="67" gid="8" x="1408" y="512" width="64" height="64"/>
+  <object id="68" gid="8" x="1472" y="512" width="64" height="64"/>
+  <object id="69" gid="2" x="1536" y="512" width="64" height="64">
+   <properties>
+    <property name="rotation" type="int" value="90"/>
+   </properties>
+  </object>
+  <object id="70" gid="2" x="1472" y="448" width="64" height="64"/>
+  <object id="71" gid="2" x="1408" y="448" width="64" height="64"/>
+  <object id="72" gid="2" x="1344" y="448" width="64" height="64"/>
+  <object id="73" gid="2" x="1280" y="448" width="64" height="64"/>
+  <object id="74" gid="2" x="1216" y="448" width="64" height="64"/>
+  <object id="75" gid="2" x="1152" y="448" width="64" height="64"/>
+  <object id="76" gid="2" x="1088" y="448" width="64" height="64"/>
+  <object id="77" gid="2" x="1024" y="448" width="64" height="64"/>
+  <object id="78" gid="2" x="960" y="448" width="64" height="64"/>
+  <object id="79" gid="2" x="896" y="448" width="64" height="64"/>
+  <object id="80" gid="2" x="832" y="448" width="64" height="64"/>
+  <object id="81" gid="2" x="768" y="448" width="64" height="64"/>
+  <object id="82" gid="2" x="704" y="448" width="64" height="64"/>
+  <object id="83" gid="2" x="640" y="448" width="64" height="64"/>
+  <object id="84" gid="2" x="576" y="448" width="64" height="64"/>
+  <object id="85" gid="2" x="512" y="448" width="64" height="64"/>
+  <object id="86" gid="2" x="448" y="448" width="64" height="64"/>
+  <object id="87" gid="6" x="384" y="448" width="64" height="64"/>
+  <object id="88" gid="8" x="320" y="192" width="64" height="64"/>
+  <object id="89" gid="8" x="320" y="128" width="64" height="64"/>
+  <object id="90" gid="8" x="320" y="64" width="64" height="64"/>
+  <object id="91" gid="8" x="256" y="64" width="64" height="64"/>
+  <object id="92" gid="8" x="256" y="128" width="64" height="64"/>
+  <object id="93" gid="8" x="256" y="192" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup id="5" name="block1">
+  <object id="96" gid="11" x="1536" y="64" width="64" height="64"/>
+  <object id="97" gid="11" x="1472" y="64" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup id="6" name="block2">
+  <object id="98" gid="9" x="1088" y="384" width="64" height="64"/>
+ </objectgroup>
+ <layer id="4" name="gravity" width="29" height="15">
+  <data encoding="base64">
+   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAAA4AAAAOAAAADgAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAADgAAAA4AAAAOAAAADgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAOAAAADgAAAA4AAAAOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAAA4AAAAOAAAADgAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAADgAAAA4AAAAOAAAADgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAOAAAADgAAAA4AAAAOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAAA4AAAAOAAAADgAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAADgAAAA4AAAAOAAAADgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAOAAAADgAAAA4AAAAOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAAA4AAAAOAAAADgAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAADgAAAA4AAAAOAAAADgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAOAAAADgAAAA4AAAAOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAAA4AAAAOAAAADgAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAADgAAAA4AAAAOAAAADgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAOAAAADgAAAA4AAAAOAAAA
+  </data>
+ </layer>
+</map>
