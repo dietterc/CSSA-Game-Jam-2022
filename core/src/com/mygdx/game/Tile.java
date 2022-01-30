@@ -38,6 +38,9 @@ public class Tile {
     public float diffX;
     public float diffY;
 
+    public float startX;
+    public float startY;
+
     public Texture texture;
 
     public String label = "block";
@@ -57,6 +60,9 @@ public class Tile {
 
         diffX = 0f;
         diffY = 0f;
+
+        this.startX = startX;
+        this.startY = startY;
 
         physicsBody = createPhysicsBody(startX,startY,this);
         /*

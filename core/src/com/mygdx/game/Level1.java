@@ -49,7 +49,7 @@ public class Level1 implements Screen {
     public EndTile endTile;
 
 
-	public Level1(final MyGdxGame game, LevelInfo[] level_d, int num) {
+	public Level1(final MyGdxGame game, LevelInfo[] level_d, int num, int dir) {
 		this.game = game;
         level_data = level_d;
         levelNum = num;
@@ -59,8 +59,6 @@ public class Level1 implements Screen {
         world = new World(new Vector2(0,0), true);
         world.setContactListener(PlayerCollisions.createCollisionListener());
         debugRenderer = new Box2DDebugRenderer();
-
-        player = new Player(world,0,0,camera);
 
         /*
         //global floor      -- for now
@@ -130,6 +128,22 @@ public class Level1 implements Screen {
                 localBlock.tiles[i].setBlock(localBlock);
             }
         }
+
+        if(dir > 0) {
+            float x = startTile.startX;
+            float y = startTile.startY + .5f;
+            //System.out.println("x: " + x + " y: " + y);
+
+            player = new Player(world,x,y,camera);
+        }
+        else {
+            float x = endTile.startX;
+            float y = endTile.startY + .5f;
+            //System.out.println("x: " + x + " y: " + y);
+
+            player = new Player(world,x,y,camera);
+        }
+
 	}
 
 
@@ -169,7 +183,7 @@ public class Level1 implements Screen {
                 game.setScreen(new MainMenu(game,newLevelData));
             else {
                 levelNum -= 1;
-                game.setScreen(new Level1(game,newLevelData,levelNum));
+                game.setScreen(new Level1(game,newLevelData,levelNum,-1));
                 
             }
                 
@@ -184,7 +198,7 @@ public class Level1 implements Screen {
             //tiles.clear();
             levelNum += 1;
 
-            game.setScreen(new Level1(game,newLevelData,levelNum));
+            game.setScreen(new Level1(game,newLevelData,levelNum,1));
         
         }
         
@@ -229,9 +243,7 @@ public class Level1 implements Screen {
             }
 
         }
-
         return newInfo;
-
     }
 
 

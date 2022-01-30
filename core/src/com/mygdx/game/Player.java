@@ -56,7 +56,7 @@ public class Player {
     public Boolean bounced = false;
 
 
-    public Player(World world,int startX, int startY, OrthographicCamera c) {
+    public Player(World world,float startX, float startY, OrthographicCamera c) {
         
         camera = c;
 
