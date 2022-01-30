@@ -294,7 +294,7 @@ public class Level1 implements Screen {
         player.draw(game.batch);
 		game.batch.end();
 
-        if(Player.storedBlock != null) {
+        if(Player.storedBlock != null && changeRoom != 0) {
             if (Gdx.input.isButtonJustPressed(Buttons.RIGHT)) {
                 System.out.println("YEs");
                 unstoreBlock();
@@ -327,7 +327,7 @@ public class Level1 implements Screen {
         }
 
         if (Gdx.input.isKeyJustPressed(Keys.E)) {
-            if (changeRoom != 0) {
+            if (changeRoom != 0 && Player.storedBlock != null) {
                 travelRoom = true;
                 for(FallingTile t : fallingTiles) {
                     t.resetPos();
