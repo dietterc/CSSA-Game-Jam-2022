@@ -65,6 +65,14 @@ public class PlayerCollisions {
                             trueTravis.landedOnFalling = false;
                         }
                         switch (trueOther.label) {
+                            case "starttile" :
+                                trueTravis.level.changeRoom = -1;
+                                System.out.println("changeRoom: "+trueTravis.level.changeRoom);
+                            break;
+                            case "endtile" :
+                                trueTravis.level.changeRoom = 1;
+                                System.out.println("changeRoom: "+trueTravis.level.changeRoom);
+                            break;
                             case "sticky" :
                                 trueTravis.sticky = true;
                                 System.out.println("Such stick,  Wow");
@@ -134,6 +142,14 @@ public class PlayerCollisions {
                         Player trueTravis = (Player) travis.getBody().getUserData();
                         Tile trueOther = (Tile) other.getBody().getUserData();
                         switch (trueOther.label) {
+                            case "starttile" :
+                                trueTravis.level.changeRoom = 0;
+                                System.out.println("changeRoom: "+trueTravis.level.changeRoom);
+                            break;
+                            case "endtile" :
+                                trueTravis.level.changeRoom = 0;
+                                System.out.println("changeRoom: "+trueTravis.level.changeRoom);
+                            break;
                             case "sticky" :
                                 //trueTravis.sticky = false;
                                 System.out.println("No more stick");
