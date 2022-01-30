@@ -185,9 +185,9 @@ public class Level1 implements Screen {
             levelNum += changeRoom;
             if (levelNum < 0)
                 levelNum = 0;
-            if (levelNum > 13)
+            else if (levelNum > 13)
                 levelNum = 13;
-            game.setScreen(new Level1(game,newLevelData,levelNum,changeRoom));
+            else game.setScreen(new Level1(game,newLevelData,levelNum,changeRoom));
         }
 
         if (Gdx.input.isKeyJustPressed(Keys.E)) {
