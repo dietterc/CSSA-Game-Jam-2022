@@ -75,10 +75,10 @@ public class PlayerCollisions {
                                 System.out.println("Bounce dif: "+ (trueOther.getPosition().y - trueTravis.pos.y));
                                 if (trueOther instanceof BouncyTile) {
                                     BouncyTile bounceOther = (BouncyTile)trueOther;
-                                    if (bounceOther.gravityDirection == "down" && (trueOther.getPosition().y - trueTravis.pos.y <= 0.34f)) {
+                                    if (bounceOther.gravityDirection == "down" && (trueTravis.pos.y - trueOther.getPosition().y   > 0f)) {
                                         trueTravis.bounce("up");
                                         System.out.println("Boing!");
-                                    } else if (bounceOther.gravityDirection == "up" && (trueOther.getPosition().y - trueTravis.pos.y >= 0.34f)) {
+                                    } else if (bounceOther.gravityDirection == "up" && (trueOther.getPosition().y - trueTravis.pos.y > 0f)) {
                                         trueTravis.bounce("down");
                                         System.out.println("Boing!");
                                     }
