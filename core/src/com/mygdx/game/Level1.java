@@ -50,7 +50,7 @@ public class Level1 implements Screen {
     TiledMapRenderer tiledMapRenderer;
 
     ArrayList<Tile> tiles = new ArrayList<Tile>();
-    static ArrayList<Block> blocks = new ArrayList<Block>();
+    ArrayList<Block> blocks = new ArrayList<Block>();
     ArrayList<Sprite> blockSprites = new ArrayList<Sprite>();
 
 	public Level1(final MyGdxGame game, LevelInfo[] level_d, int levelNum) {
@@ -110,10 +110,11 @@ public class Level1 implements Screen {
                         tile = new Tile(world,input.x,input.y,camera,block.textures[i]);
                     break;
                 }
+                tile.texture = block.textures[i];
                 tiles.add(tile);
                 local_tiles[tilesIndex++] = tile; 
             }
-            Block localBlock = new Block(local_tiles, block,this);
+            Block localBlock = new Block(local_tiles);
             blocks.add(localBlock);
             //MyGdxGame.active_blocks[activeBlocksIndex++] = localBlock;
             for(int i=0;i<localBlock.tiles.length;i++) {
@@ -152,7 +153,7 @@ public class Level1 implements Screen {
 
             LevelInfo[] newLevelData = updateLevelData();
             level_data = newLevelData;
-            blocks.clear();
+            //blocks.clear();
             tiles.clear();
 
             game.setScreen(new MainMenu(game,newLevelData));
@@ -178,6 +179,8 @@ public class Level1 implements Screen {
                 for(int j=0; j<blocks.size(); j++) {
                     Block curr = blocks.get(j);
 
+                    //System.out.println(curr.tiles[0].texture.toString());
+
                     Vector2[] points = new Vector2[curr.tiles.length];
                     Texture[] textures = new Texture[curr.tiles.length];
                     for(int k=0; k<curr.tiles.length; k++) {
@@ -188,6 +191,7 @@ public class Level1 implements Screen {
 
                         points[k] = new Vector2(input.x+33.75f,input.y-33.75f);
                         textures[k] = curr.tiles[k].texture;
+                        //System.out.println(curr.tiles[k].texture.toString());
                     }
 
                     newBlocks[j] = new BlockInfo(curr.tiles.length, points, textures);

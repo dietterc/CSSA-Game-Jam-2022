@@ -8,7 +8,7 @@ public class Block {
     BlockInfo originalBlock;
     Level1 level;
     
-    public Block(Tile[] tiles, BlockInfo originalBlock, Level1 level) {
+    public Block(Tile[] tiles) {
         this.tiles = tiles;
         this.originalBlock = originalBlock;
         this.level = level;
