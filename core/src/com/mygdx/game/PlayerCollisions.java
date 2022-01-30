@@ -98,6 +98,7 @@ public class PlayerCollisions {
                             break;
                             case "spike" :
                                 //call reset method?
+                                trueTravis.level.reset();
                                 System.out.println("Ouch!");
                             break;
 

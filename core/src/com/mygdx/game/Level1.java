@@ -306,7 +306,12 @@ public class Level1 implements Screen {
         return newInfo;
     }
 
-
+    public void reset() {
+        toReset = true;
+        for(FallingTile t : fallingTiles) {
+            t.resetPos();
+        }   
+    }
 
     @Override
 	public void resize(int width, int height) {
