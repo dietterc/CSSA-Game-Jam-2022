@@ -42,41 +42,13 @@ public class EndMenu implements Screen {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 1920, 1080);
 
-		backgroundTexture = new Texture("YouWinVersion1.png");
+		backgroundTexture = new Texture("YouWinVersion3.png");
         backgroundSprite = new Sprite(backgroundTexture);
 		//backgroundSprite.setBounds(0, 0, 1f, 1f);
         //backgroundSprite.setOriginCenter();
 		//unstoreBlock(801f,555f);
 	
 
-	}
-
-	public void unstoreBlock(Float x, Float y) {
-        Vector3 input = new Vector3(x, y, 0);
-        camera.unproject(input);
-		//for (Tile t:finalBlock.tiles) {
-		//	t.
-		//}
-
-        for(int i=0;i<Player.storedBlock.tiles.length;i++) {
-            Tile curr = Player.storedBlock.tiles[i];
-            Tile tile = null;
-            if(curr instanceof BouncyTile) {
-                tile = new BouncyTile(world,input.x + curr.diffX,input.y + curr.diffY,camera,curr.texture,null);
-            }
-            else if (curr instanceof StickyTile) {
-                tile = new StickyTile(world,input.x + curr.diffX,input.y + curr.diffY,camera,curr.texture,null);
-            }
-            else if (curr instanceof FallingTile) {
-                tile = new FallingTile(world,input.x + curr.diffX,input.y + curr.diffY,camera,curr.texture,null);
-            }
-            else if ((curr instanceof Tile)) {
-                tile = new Tile(world,input.x + curr.diffX,input.y + curr.diffY,camera,curr.texture,"",null);
-            }
-            tiles.add(tile);
-			System.out.println("texture: "+curr.texture.toString());
-		}
-		
 	}
 
     @Override
@@ -97,8 +69,8 @@ public class EndMenu implements Screen {
 		
 		game.batch.end();
 
-		if (Gdx.input.isKeyJustPressed(Keys.E)) {
-			game.setScreen(new Level1(game,level_data,0,1));
+		if (Gdx.input.isKeyJustPressed(Keys.SPACE)) {
+			game.setScreen(new CreditsMenu(game,level_data,this));
 			dispose();
 		}
 		

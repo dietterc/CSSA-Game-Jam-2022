@@ -291,6 +291,9 @@ public class Player {
         if (Gdx.input.isKeyPressed(Keys.ESCAPE)) {
             Gdx.app.exit();
         }
+        if (Gdx.input.isKeyPressed(Keys.P)) {
+            level.game.setScreen(new MainMenu(level.game,level.level_data));
+        }
         //DEBUGGING!! Remove these later ----------
         /*
         debugGravityChange();
