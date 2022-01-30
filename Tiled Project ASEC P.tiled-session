@@ -146,10 +146,10 @@
         },
         "C:/Users/super/Desktop/tiled/levels/level10.tmx": {
             "scale": 0.5462499999999999,
-            "selectedLayer": 1,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 897.0251716247142,
-                "y": 479.6338672768879
+                "x": 948.2837528604119,
+                "y": 477.80320366132736
             }
         },
         "C:/Users/super/Desktop/tiled/levels/level11.tmx": {
@@ -210,7 +210,7 @@
         },
         "C:/Users/super/Desktop/tiled/levels/level7.tmx": {
             "scale": 0.5650862068965518,
-            "selectedLayer": 3,
+            "selectedLayer": 0,
             "viewCenter": {
                 "x": 925.5225019069412,
                 "y": 479.57284515636917
@@ -226,7 +226,7 @@
         },
         "C:/Users/super/Desktop/tiled/levels/level9.tmx": {
             "scale": 0.5462499999999999,
-            "selectedLayer": 1,
+            "selectedLayer": 0,
             "viewCenter": {
                 "x": 898.8558352402748,
                 "y": 481.4645308924486
