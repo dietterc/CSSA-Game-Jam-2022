@@ -22,13 +22,13 @@ public class MyGdxGame extends Game {
 	
 	@Override
 	public void create () {
-		level_data = new LevelInfo[13];
+		level_data = new LevelInfo[11];
 
-		for(int i=0;i<1;i++) {
+		for(int i=0;i<11;i++) {
 
 			//load in level Data
-			//TiledMap tiledMap = new TmxMapLoader().load("levels/level" + i + ".tmx");
-			TiledMap tiledMap = new TmxMapLoader().load("levels/testlevel.tmx");
+			TiledMap tiledMap = new TmxMapLoader().load("levels/level" + i + ".tmx");
+			//TiledMap tiledMap = new TmxMapLoader().load("levels/testlevel.tmx");
 
 			MapLayers layers = tiledMap.getLayers();
 			BlockInfo[] level1Blocks = new BlockInfo[layers.getCount()];
