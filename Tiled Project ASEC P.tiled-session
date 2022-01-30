@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "C:/Users/super/Desktop/tiled/levels/Final Levels/level0.tmx",
     "expandedProjectPaths": [
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
@@ -125,12 +125,12 @@
             "selectedLayer": 4,
             "viewCenter": {
                 "x": 969,
-                "y": 294
+                "y": 290
             }
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level1.tmx": {
             "scale": 0.33,
-            "selectedLayer": 3,
+            "selectedLayer": 1,
             "viewCenter": {
                 "x": 1162.121212121212,
                 "y": 478.78787878787887
@@ -145,16 +145,16 @@
             }
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level11.tmx": {
-            "scale": 0.25,
-            "selectedLayer": -1,
+            "scale": 0.5,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 1290,
-                "y": 1088
+                "x": 797,
+                "y": 432
             }
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level12.tmx": {
             "scale": 0.5,
-            "selectedLayer": -1,
+            "selectedLayer": 1,
             "viewCenter": {
                 "x": 895,
                 "y": 312
@@ -202,7 +202,7 @@
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level7.tmx": {
             "scale": 0.33,
-            "selectedLayer": -1,
+            "selectedLayer": 1,
             "viewCenter": {
                 "x": 537.878787878788,
                 "y": 18.181818181818244
@@ -213,7 +213,7 @@
             "selectedLayer": 6,
             "viewCenter": {
                 "x": 959,
-                "y": 546
+                "y": 544
             }
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level9.tmx": {
@@ -425,22 +425,36 @@
     "map.tileWidth": 64,
     "map.width": 29,
     "openFiles": [
+        "C:/Users/super/Desktop/tiled/levels/Final Levels/level0.tmx",
+        "C:/Users/super/Desktop/tiled/levels/Final Levels/level1.tmx",
+        "C:/Users/super/Desktop/tiled/levels/Final Levels/level2.tmx",
+        "C:/Users/super/Desktop/tiled/levels/Final Levels/level3.tmx",
+        "C:/Users/super/Desktop/tiled/levels/Final Levels/level4.tmx",
+        "C:/Users/super/Desktop/tiled/levels/Final Levels/level5.tmx",
+        "C:/Users/super/Desktop/tiled/levels/Final Levels/level6.tmx",
+        "C:/Users/super/Desktop/tiled/levels/Final Levels/level7.tmx",
+        "C:/Users/super/Desktop/tiled/levels/Final Levels/level8.tmx",
+        "C:/Users/super/Desktop/tiled/levels/Final Levels/level9.tmx",
+        "C:/Users/super/Desktop/tiled/levels/Final Levels/level10.tmx",
+        "C:/Users/super/Desktop/tiled/levels/Final Levels/level11.tmx",
+        "C:/Users/super/Desktop/tiled/levels/Final Levels/level12.tmx",
+        "C:/Users/super/Desktop/tiled/levels/Final Levels/tileset.tsx"
     ],
     "project": "Tiled Project ASEC P.tiled-project",
     "property.type": "int",
     "recentFiles": [
-        "C:/Users/super/Desktop/tiled/levels/level0.tmx",
-        "C:/Users/super/Desktop/tiled/levels/Final Levels/temp shenanigans/level3.tmx",
         "C:/Users/super/Desktop/tiled/levels/Final Levels/tileset.tsx",
-        "C:/Users/super/Desktop/tiled/levels/tileset.tsx",
-        "C:/Users/super/Desktop/tiled/levels/Final Levels/level8.tmx",
+        "C:/Users/super/Desktop/tiled/levels/Final Levels/level12.tmx",
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level11.tmx",
-        "C:/Users/super/Desktop/tiled/levels/Final Levels/level9.tmx",
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level10.tmx",
+        "C:/Users/super/Desktop/tiled/levels/Final Levels/level9.tmx",
+        "C:/Users/super/Desktop/tiled/levels/Final Levels/level8.tmx",
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level7.tmx",
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level6.tmx",
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level5.tmx",
-        "C:/Users/super/Desktop/tiled/levels/Final Levels/level4.tmx"
+        "C:/Users/super/Desktop/tiled/levels/Final Levels/level4.tmx",
+        "C:/Users/super/Desktop/tiled/levels/Final Levels/level3.tmx",
+        "C:/Users/super/Desktop/tiled/levels/Final Levels/level2.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.type": 1
