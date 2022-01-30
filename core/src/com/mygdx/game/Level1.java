@@ -136,6 +136,10 @@ public class Level1 implements Screen {
                         tile = new Spike(world,input.x,input.y,camera,block.textures[i],this);
                         tile.setTouchable(false);
                     break;
+                    case "levels/spike_down.png" :
+                        tile = new Spike(world,input.x,input.y,camera,block.textures[i],this);
+                        tile.setTouchable(false);
+                    break;
                     case "levels/static_block.png" :
                         tile = new Tile(world,input.x,input.y,camera,block.textures[i],this);
                         tile.setTouchable(false);
