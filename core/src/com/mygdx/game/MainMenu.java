@@ -1,14 +1,10 @@
 package com.mygdx.game;
 
-import java.util.ArrayList;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.mygdx.game.infoClasses.LevelInfo;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.physics.box2d.World;
 
 public class MainMenu implements Screen {
 

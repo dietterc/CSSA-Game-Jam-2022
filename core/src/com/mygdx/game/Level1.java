@@ -112,7 +112,10 @@ public class Level1 implements Screen {
                         tile = new Tile(world,input.x,input.y,camera,block.textures[i]);
                         tile.setTouchable(false);
                     break;
-                    
+                    case "levels/gravity_zone.png" :
+                        tile = new GravityUp(world,input.x,input.y,camera,block.textures[i]);
+                        tile.setTouchable(false);
+                    break;
                     default:
                         tile = new Tile(world,input.x,input.y,camera,block.textures[i]);
                     break;
