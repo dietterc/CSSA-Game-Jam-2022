@@ -249,7 +249,7 @@ public class Level1 implements Screen {
 
             game.setScreen(new Level1(game,newLevelData,levelNum,1));
         }
-
+        */
         if(changeRoom == 0) {
             for(int i=0;i<movableTiles.size();i++) {
                 movableTiles.get(i).setTouchable(false);
@@ -260,7 +260,7 @@ public class Level1 implements Screen {
                 movableTiles.get(i).setTouchable(true);
             }
         }
-        */
+        
         
 
 	}
