@@ -19,7 +19,7 @@ import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 
 public class FallingTile extends Tile {
 
-    private Float startinyHeight;
+    public Float startingHeight;
     private Boolean fallingNow;
     private Float dropSpeed = -1f;
     public Level1 level;
@@ -27,7 +27,7 @@ public class FallingTile extends Tile {
 
     public FallingTile(World w,float startX, float startY, Camera c, Texture texture) {
         super(w, startX, startY, c, texture, "falling");
-        startinyHeight = startY;
+        startingHeight = startY;
         fallingNow = false;
     }
 
@@ -61,7 +61,7 @@ public class FallingTile extends Tile {
     }
 
     public void playerLandProc() {
-        startinyHeight = physicsBody.getPosition().y;
+        startingHeight = physicsBody.getPosition().y;
         //physicsBody.setType(BodyType.KinematicBody);
         transformSelf = true;
         //level.fallingTiles.add(this);
@@ -69,7 +69,7 @@ public class FallingTile extends Tile {
     }
 
     public void resetPos() {
-        physicsBody = createPhysicsBody(physicsBody.getPosition().x,startinyHeight,this);
+        physicsBody = createPhysicsBody(physicsBody.getPosition().x,startingHeight,this);
         fallingNow = false;
         //level.fallingTiles.remove(this);
         //level.resetTiles.add(this);

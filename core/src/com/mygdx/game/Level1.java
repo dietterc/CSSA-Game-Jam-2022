@@ -5,30 +5,19 @@ import java.util.ArrayList;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.Input.Keys;
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.mygdx.game.infoClasses.BlockInfo;
 import com.mygdx.game.infoClasses.LevelInfo;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.maps.MapObject;
-import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
-import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.maps.objects.CircleMapObject;
-import com.badlogic.gdx.maps.objects.EllipseMapObject;
-import com.badlogic.gdx.maps.objects.PolygonMapObject;
-import com.badlogic.gdx.maps.objects.PolylineMapObject;
-import com.badlogic.gdx.maps.objects.RectangleMapObject;
-import com.badlogic.gdx.maps.objects.TextureMapObject;
 import com.badlogic.gdx.graphics.glutils.FileTextureData;
 
 
@@ -51,8 +40,12 @@ public class Level1 implements Screen {
     TiledMapRenderer tiledMapRenderer;
 
     ArrayList<Tile> tiles = new ArrayList<Tile>();
-    static ArrayList<Block> blocks = new ArrayList<Block>();
+    ArrayList<Block> blocks = new ArrayList<Block>();
     ArrayList<Sprite> blockSprites = new ArrayList<Sprite>();
+
+    ArrayList<FallingTile> fallingTiles = new ArrayList<FallingTile>();
+
+    boolean toReset = false;
 
 
 	public Level1(final MyGdxGame game, LevelInfo[] level_d, int levelNum) {
@@ -110,16 +103,17 @@ public class Level1 implements Screen {
                         tile = new FallingTile(world,input.x,input.y,camera,block.textures[i]);
                         FallingTile trueTile = (FallingTile)tile;
                         trueTile.level = this;
-                        //fallingTiles.add((FallingTile)tile);
+                        fallingTiles.add((FallingTile)tile);
                     break;
                     default:
                         tile = new Tile(world,input.x,input.y,camera,block.textures[i]);
                     break;
                 }
+                tile.texture = block.textures[i];
                 tiles.add(tile);
                 local_tiles[tilesIndex++] = tile; 
             }
-            Block localBlock = new Block(local_tiles, block,this);
+            Block localBlock = new Block(local_tiles);
             blocks.add(localBlock);
             //MyGdxGame.active_blocks[activeBlocksIndex++] = localBlock;
             for(int i=0;i<localBlock.tiles.length;i++) {
@@ -163,12 +157,20 @@ public class Level1 implements Screen {
 
         if(Gdx.input.isKeyPressed(Keys.P)) {
 
-            LevelInfo[] newLevelData = updateLevelData();
-            level_data = newLevelData;
-            blocks.clear();
-            tiles.clear();
+            if (toReset) {
+                toReset = false;
+                LevelInfo[] newLevelData = updateLevelData();
+                level_data = newLevelData;
+                //blocks.clear();
+                tiles.clear();
 
-            game.setScreen(new MainMenu(game,newLevelData));
+                game.setScreen(new MainMenu(game,newLevelData));
+            } else {
+                for (FallingTile t: fallingTiles) {
+                    t.resetPos();
+                }
+                toReset = true;
+            }
             
         }
         
@@ -191,6 +193,8 @@ public class Level1 implements Screen {
                 for(int j=0; j<blocks.size(); j++) {
                     Block curr = blocks.get(j);
 
+                    //System.out.println(curr.tiles[0].texture.toString());
+
                     Vector2[] points = new Vector2[curr.tiles.length];
                     Texture[] textures = new Texture[curr.tiles.length];
                     for(int k=0; k<curr.tiles.length; k++) {
@@ -201,6 +205,7 @@ public class Level1 implements Screen {
 
                         points[k] = new Vector2(input.x+33.75f,input.y-33.75f);
                         textures[k] = curr.tiles[k].texture;
+                        //System.out.println(curr.tiles[k].texture.toString());
                     }
 
                     newBlocks[j] = new BlockInfo(curr.tiles.length, points, textures);

@@ -203,6 +203,10 @@ public class Tile {
                     groundBox.dispose();
                     */
                     myBlock.tiles[i].physicsBody = createPhysicsBody(input.x + myBlock.tiles[i].diffX,input.y + myBlock.tiles[i].diffY,myBlock.tiles[i]);
+                    if (myBlock.tiles[i] instanceof FallingTile) {
+                        FallingTile t = (FallingTile)myBlock.tiles[i];
+                        t.startingHeight = t.physicsBody.getPosition().y;
+                    }
                 } 
 
             }
