@@ -6,8 +6,8 @@ import com.badlogic.gdx.physics.box2d.World;
 
 public class EndTile extends Tile {
 
-    public EndTile(World w,float startX, float startY, Camera c, Texture texture) {
-        super(w, startX, startY, c, texture, "endtile");
+    public EndTile(World w,float startX, float startY, Camera c, Texture texture, Level1 level) {
+        super(w, startX, startY, c, texture, "endtile", level);
     }
     
 }

@@ -46,6 +46,7 @@ public class Tile {
     public String label = "block";
 
     public int rotation = 0;
+    public Level1 level;
 
     public Tile(World w,float startX, float startY, Camera c, Texture texture) {
 
@@ -87,6 +88,17 @@ public class Tile {
         movingSprite.setOriginCenter();
         //movingSprite.setColor(.5f, .5f, .5f, 1);
         
+        
+    }
+
+    public Tile(World w,float startX, float startY, Camera c, Texture texture, String newlabel, Level1 level) {
+        this(w, startX, startY, c, texture, newlabel);
+        this.level = level;
+    }
+
+    public Tile(World w,float startX, float startY, Camera c, Texture texture, Level1 level) {
+        this(w, startX, startY, c, texture);
+        this.level = level;
     }
 
     public Tile(World w,float startX, float startY, Camera c, Texture texture, String newlabel) {

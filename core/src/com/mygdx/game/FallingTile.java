@@ -12,12 +12,11 @@ public class FallingTile extends Tile {
     public Float startingHeight;
     private Boolean fallingNow;
     private Float dropSpeed = -1f;
-    public Level1 level;
     private Boolean transformSelf = false;
 
 
-    public FallingTile(World w,float startX, float startY, Camera c, Texture texture) {
-        super(w, startX, startY, c, texture, "falling");
+    public FallingTile(World w,float startX, float startY, Camera c, Texture texture, Level1 level) {
+        super(w, startX, startY, c, texture, "falling", level);
         startingHeight = startY;
         fallingNow = false;
     }
