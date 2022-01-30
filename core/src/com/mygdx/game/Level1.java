@@ -62,9 +62,11 @@ public class Level1 implements Screen {
 
     public static Texture backgroundTexture;
     public static Sprite backgroundSprite;
-
     public static Texture helpTexture;
     public static Sprite helpSprite;
+    public static Texture helpTexture2;
+    public static Sprite helpSprite2;
+
 
     public boolean resetFromSpikeCollision = false;
 
@@ -192,11 +194,20 @@ public class Level1 implements Screen {
 
         if(levelNum == 0) {
 
-            helpTexture = new Texture("MoveBlocksText.png");
+            helpTexture = new Texture("Level1Text.png");
             helpSprite = new Sprite(helpTexture);
             
-            helpSprite.setBounds(-10f, 0f, 7f, 2f);
+            helpSprite.setBounds(-10f, -5.625f, 20f, 11.25f);
             helpSprite.setOriginCenter();
+
+        }
+
+        if(levelNum == 1) {
+            helpTexture2 = new Texture("Level2Text.png");
+            helpSprite2 = new Sprite(helpTexture2);
+            
+            helpSprite2.setBounds(-10f, -5.625f, 20f, 11.25f);
+            helpSprite2.setOriginCenter();
         }
 
 	}
@@ -295,8 +306,12 @@ public class Level1 implements Screen {
 
         backgroundSprite.draw(game.batch);
         
-        if(levelNum == 0)
+        if(levelNum == 0) {
             helpSprite.draw(game.batch);
+        }
+        if(levelNum == 1) {
+            helpSprite2.draw(game.batch);
+        }
 
         
 
@@ -320,7 +335,7 @@ public class Level1 implements Screen {
             tiles.get(i).step();
         }
 
-        debugRenderer.render(world, camera.combined);
+        //debugRenderer.render(world, camera.combined);
 		world.step(1/60f, 6, 2);
 
 
