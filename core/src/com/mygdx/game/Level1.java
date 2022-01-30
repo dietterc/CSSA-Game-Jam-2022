@@ -64,15 +64,8 @@ public class Level1 implements Screen {
     public static Sprite backgroundSprite;
     public static Texture helpTexture;
     public static Sprite helpSprite;
-
     public static Texture helpTexture2;
     public static Sprite helpSprite2;
-
-    public static Texture helpTexture3;
-    public static Sprite helpSprite3;
-
-    public static Texture helpTexture4;
-    public static Sprite helpSprite4;
 
 
     public boolean resetFromSpikeCollision = false;
@@ -201,32 +194,20 @@ public class Level1 implements Screen {
 
         if(levelNum == 0) {
 
-            helpTexture = new Texture("MoveBlocksText.png");
+            helpTexture = new Texture("Level1Text.png");
             helpSprite = new Sprite(helpTexture);
-
-            helpTexture2 = new Texture("RightClickToStoreABlock.png");
-            helpSprite2 = new Sprite(helpTexture2);
-
-            helpTexture3 = new Texture("StoreBlockToProgress.png");
-            helpSprite3 = new Sprite(helpTexture3);
             
-            helpSprite.setBounds(-10.25f, 2.5f, 9f, 3f);
+            helpSprite.setBounds(-10f, -5.625f, 20f, 11.25f);
             helpSprite.setOriginCenter();
 
-            helpSprite2.setBounds(-10.1f, 2f, 7f, 1.5f);
-            helpSprite2.setOriginCenter();
-
-            helpSprite3.setBounds(-10f, 0f, 9.5f, 2f);
-            helpSprite3.setOriginCenter();
         }
-        else if(levelNum == 1) {
 
-            helpTexture4 = new Texture("ReturnToSwapBlocks.png");
-            helpSprite4 = new Sprite(helpTexture4);
-
-            helpSprite4.setBounds(-10f, 0f, 9.5f, 2f);
-            helpSprite4.setOriginCenter();
-
+        if(levelNum == 1) {
+            helpTexture2 = new Texture("Level2Text.png");
+            helpSprite2 = new Sprite(helpTexture2);
+            
+            helpSprite2.setBounds(-10f, -5.625f, 20f, 11.25f);
+            helpSprite2.setOriginCenter();
         }
 
 	}
@@ -327,11 +308,9 @@ public class Level1 implements Screen {
         
         if(levelNum == 0) {
             helpSprite.draw(game.batch);
-            helpSprite2.draw(game.batch);
-            helpSprite3.draw(game.batch);
         }
-        else if(levelNum == 1) {
-            helpSprite4.draw(game.batch);
+        if(levelNum == 1) {
+            helpSprite2.draw(game.batch);
         }
 
         
