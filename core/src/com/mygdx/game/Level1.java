@@ -45,7 +45,6 @@ public class Level1 implements Screen {
 		this.game = game;
         level_data = level_d;
         levelNum = num;
-        System.out.println("THIS ONE " + levelNum);
 
 		camera = new OrthographicCamera(WIDTH,HEIGHT);
         //world = new World(new Vector2(0,-10), true);
@@ -138,7 +137,7 @@ public class Level1 implements Screen {
         debugRenderer.render(world, camera.combined);
 		world.step(1/60f, 6, 2);
 
-        if(Gdx.input.isKeyPressed(Keys.P)) {
+        if(Gdx.input.isKeyJustPressed(Keys.P)) {
 
             LevelInfo[] newLevelData = updateLevelData();
             level_data = newLevelData;
@@ -147,8 +146,12 @@ public class Level1 implements Screen {
 
             if(levelNum == 0)
                 game.setScreen(new MainMenu(game,newLevelData));
-            else
-                game.setScreen(new Level1(game,newLevelData,levelNum--));
+            else {
+                levelNum -= 1;
+                game.setScreen(new Level1(game,newLevelData,levelNum));
+                
+            }
+                
             
         }
 
