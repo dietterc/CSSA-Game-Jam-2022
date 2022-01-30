@@ -5,11 +5,15 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.mygdx.game.infoClasses.LevelInfo;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 
 public class MainMenu implements Screen {
 
 	final MyGdxGame game;
 	LevelInfo[] level_data;
+	public static Texture backgroundTexture;
+    public static Sprite backgroundSprite;
 
 	OrthographicCamera camera;
 
@@ -18,7 +22,12 @@ public class MainMenu implements Screen {
 		this.level_data = level_data;
 
 		camera = new OrthographicCamera();
-		camera.setToOrtho(false, 800, 480);
+		camera.setToOrtho(false, 1920, 1080);
+
+		backgroundTexture = new Texture("AwesomeSpatialEccentricCrustaceanPuzzleTitleScreenKEKW.png");
+        backgroundSprite = new Sprite(backgroundTexture);
+		//backgroundSprite.setBounds(0, 0, 1f, 1f);
+        //backgroundSprite.setOriginCenter();
 	}
 
     @Override
@@ -29,7 +38,9 @@ public class MainMenu implements Screen {
 		game.batch.setProjectionMatrix(camera.combined);
         
 		game.batch.begin();
-		game.font.draw(game.batch, "Main menu screen, click to start", 100, 150);
+		backgroundSprite.draw(game.batch);
+
+		//game.font.draw(game.batch, "Main menu screen, click to start", 100, 150);
 		
 		game.batch.end();
 
