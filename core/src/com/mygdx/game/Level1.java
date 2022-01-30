@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.Input.Buttons;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.mygdx.game.infoClasses.BlockInfo;
@@ -30,7 +31,7 @@ public class Level1 implements Screen {
     World world;
     Box2DDebugRenderer debugRenderer;
     Body body;
-    Player player;
+    public Player player;
     LevelInfo[] level_data;
     static int levelNum;
 
@@ -191,7 +192,60 @@ public class Level1 implements Screen {
 
 	}
 
-    
+    public void storeBlock(Block block) {
+
+        Player.storedBlock = block;
+        blocks.remove(block);
+        for(int i=0;i<block.tiles.length;i++){
+            Tile t = block.tiles[i];
+            if (t.physicsBody != null) {
+                world.destroyBody(t.physicsBody);
+            }
+            tiles.remove(t);
+            movableTiles.remove(t);
+        }
+
+    }
+
+    public void unstoreBlock() {
+        int x1 = Gdx.input.getX();
+        int y1 = Gdx.input.getY();
+        Vector3 input = new Vector3(x1, y1, 0);
+        camera.unproject(input);
+
+        Tile[] newTiles = new Tile[Player.storedBlock.tiles.length];
+        for(int i=0;i<Player.storedBlock.tiles.length;i++) {
+            Tile curr = Player.storedBlock.tiles[i];
+            Tile tile = null;
+            if(curr instanceof BouncyTile) {
+                tile = new BouncyTile(world,input.x + curr.diffX,input.y + curr.diffY,camera,curr.texture,this);
+                movableTiles.add(tile); 
+            }
+            else if (curr instanceof StickyTile) {
+                tile = new StickyTile(world,input.x + curr.diffX,input.y + curr.diffY,camera,curr.texture,this);
+                movableTiles.add(tile); 
+            }
+            else if (curr instanceof FallingTile) {
+                tile = new FallingTile(world,input.x + curr.diffX,input.y + curr.diffY,camera,curr.texture,this);
+                movableTiles.add(tile); 
+            }
+            else if ((curr instanceof Tile)) {
+                tile = new Tile(world,input.x + curr.diffX,input.y + curr.diffY,camera,curr.texture,this);
+                movableTiles.add(tile); 
+            }
+            tiles.add(tile);
+            newTiles[i] = tile;
+            System.out.println("tile");
+        }
+
+        Block newBlock = new Block(newTiles);
+        blocks.add(newBlock);
+        for(int i=0;i<newBlock.tiles.length;i++) {
+            newBlock.tiles[i].setBlock(newBlock);
+        }
+        Player.storedBlock = null;
+    }
+
 
     public void resetStage() {
         toReset = true;
@@ -232,6 +286,13 @@ public class Level1 implements Screen {
         }
         player.draw(game.batch);
 		game.batch.end();
+
+        if(Player.storedBlock != null) {
+            if (Gdx.input.isButtonJustPressed(Buttons.RIGHT)) {
+                System.out.println("YEs");
+                unstoreBlock();
+            }
+        }
 
         player.step();
         for(int i=0;i<tiles.size();i++){
