@@ -172,7 +172,7 @@ public class Level1 implements Screen {
             float x = startTile.startX;
             float y = startTile.startY + .5f;
             //System.out.println("x: " + x + " y: " + y);
-
+            
             player = new Player(world,x,y,camera);
         }
         else {
@@ -310,6 +310,7 @@ public class Level1 implements Screen {
             if (Gdx.input.isButtonJustPressed(Buttons.RIGHT)) {
                 System.out.println("YEs");
                 unstoreBlock();
+                player.setSprite("none");
             }
         }
 

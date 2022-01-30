@@ -256,6 +256,7 @@ public class Tile {
                         }
                         level.storeBlock(myBlock);
                         System.out.println("Yes");
+                        level.player.setSprite("bag");
                     }
                     mouseReleased = false;
                 }
