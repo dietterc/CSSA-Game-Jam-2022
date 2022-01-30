@@ -33,8 +33,8 @@ public class Level1 implements Screen {
     Box2DDebugRenderer debugRenderer;
     Body body;
     Player player;
-    static LevelInfo[] level_data;
-    int levelNum;
+    LevelInfo[] level_data;
+    static int levelNum;
 
     TiledMap tiledMap;
     TiledMapRenderer tiledMapRenderer;
@@ -48,10 +48,11 @@ public class Level1 implements Screen {
     boolean toReset = false;
 
 
-	public Level1(final MyGdxGame game, LevelInfo[] level_d, int levelNum) {
+	public Level1(final MyGdxGame game, LevelInfo[] level_d, int num) {
 		this.game = game;
         level_data = level_d;
-        this.levelNum = levelNum;
+        levelNum = num;
+        System.out.println("THIS ONE " + levelNum);
 
 		camera = new OrthographicCamera(WIDTH,HEIGHT);
         //world = new World(new Vector2(0,-10), true);
@@ -164,14 +165,30 @@ public class Level1 implements Screen {
                 //blocks.clear();
                 tiles.clear();
 
-                game.setScreen(new MainMenu(game,newLevelData));
+                if(levelNum == 0)
+                    game.setScreen(new MainMenu(game,newLevelData));
+                else
+                    game.setScreen(new Level1(game,newLevelData,levelNum--));
             } else {
                 for (FallingTile t: fallingTiles) {
                     t.resetPos();
                 }
                 toReset = true;
             }
+
             
+        }
+
+        if(Gdx.input.isKeyJustPressed(Keys.L)) {
+
+            LevelInfo[] newLevelData = updateLevelData();
+            level_data = newLevelData;
+            //blocks.clear();
+            //tiles.clear();
+            levelNum += 1;
+
+            game.setScreen(new Level1(game,newLevelData,levelNum));
+        
         }
         
 

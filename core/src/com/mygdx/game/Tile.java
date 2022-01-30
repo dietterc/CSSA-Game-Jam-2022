@@ -20,7 +20,7 @@ import com.badlogic.gdx.physics.box2d.World;
 public class Tile {
     
     private final float SPRITE_DIM = .7f;
-    private final float PHYISCS_DIM = .34f;
+    private final float PHYISCS_DIM = .344f;
 
     public Body physicsBody;
     private Camera camera;
