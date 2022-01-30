@@ -29,7 +29,7 @@ public class Player {
 
     private Float baseMoveSpeed = 0.2f; //unused
 
-    private Float SPEED = 25f;
+    private Float SPEED = 16f;
     private Float MAX_VELOCITY = 90f;
     private Float undrift = 0.1f;
 
@@ -68,7 +68,7 @@ public class Player {
         physicsBody.setFixedRotation(true);
 
         circle = new CircleShape();
-        circle.setRadius(.35f);
+        circle.setRadius(.24f);
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = circle;
         fixtureDef.density = 0.0f;
@@ -77,7 +77,7 @@ public class Player {
         Fixture fixture = physicsBody.createFixture(fixtureDef);
 
         bodySprite = new Sprite(new Texture(Gdx.files.internal("space_crab.png")));
-        bodySprite.setBounds(0, 0, 1.5f, 1.5f);
+        bodySprite.setBounds(0, 0, 1f, 1f);
         bodySprite.setOriginCenter();        
 
         physicsBody.setUserData(this);
