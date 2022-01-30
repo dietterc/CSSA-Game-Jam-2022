@@ -6,8 +6,8 @@ import com.badlogic.gdx.physics.box2d.World;
 
 public class SliderRightTile extends Tile {
 
-    public SliderRightTile(World w,float startX, float startY, Camera c, Texture texture) {
-        super(w, startX, startY, c, texture, "sliderright");
+    public SliderRightTile(World w,float startX, float startY, Camera c, Texture texture, Level1 level) {
+        super(w, startX, startY, c, texture, "sliderright", level);
     }
     
 }
