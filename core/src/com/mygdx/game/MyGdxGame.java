@@ -44,13 +44,14 @@ public class MyGdxGame extends Game {
 				TextureMapObject obj = (TextureMapObject) object;
 				
 				points[blockIndex] = new Vector2(obj.getX()+32,1080-obj.getY()-32);
+				System.out.println("HERE: " + (1080-obj.getY()-32));
 				textures[blockIndex] = obj.getTextureRegion().getTexture();
 				blockIndex += 1;
 				
 			}
 			level1Blocks[layerIndex++] = new BlockInfo(objects.getCount(), points, textures);
 		}
-		level_data[0] = new LevelInfo(1, level1Blocks);
+		level_data[0] = new LevelInfo(0, level1Blocks);
 
 
 		batch = new SpriteBatch();

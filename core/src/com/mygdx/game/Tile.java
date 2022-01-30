@@ -1,5 +1,6 @@
 package com.mygdx.game;
 
+import java.lang.System.Logger.Level;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
@@ -21,11 +22,12 @@ public class Tile {
     private final float SPRITE_DIM = .7f;
     private final float PHYISCS_DIM = .34f;
 
-    private Body physicsBody;
+    public Body physicsBody;
     private Camera camera;
-    private Sprite bodySprite;
+    public Sprite bodySprite;
     private Sprite movingSprite;
     private Block myBlock;
+    public World world;
 
     private boolean moving;
     private boolean mouseReleased;
@@ -34,12 +36,15 @@ public class Tile {
     public float diffX;
     public float diffY;
 
+    public Texture texture;
+
     public String label = "block";
 
     public Tile(World w,float startX, float startY, Camera c, Texture texture) {
 
         camera = c;
         myBlock = null;
+        world = w;
 
         moving = false;
         mouseReleased = true;
@@ -48,10 +53,12 @@ public class Tile {
         diffX = 0f;
         diffY = 0f;
 
+        this.texture = texture;
+
         BodyDef groundBodyDef = new BodyDef();
         groundBodyDef.position.set(startX,startY);
 
-        physicsBody = Level1.world.createBody(groundBodyDef);
+        physicsBody = world.createBody(groundBodyDef);
         PolygonShape groundBox = new PolygonShape();
         groundBox.setAsBox(PHYISCS_DIM,PHYISCS_DIM);
         physicsBody.createFixture(groundBox, 0.0f);
@@ -71,6 +78,7 @@ public class Tile {
 
         camera = c;
         myBlock = null;
+        world = w;
 
         moving = false;
         mouseReleased = true;
@@ -82,7 +90,7 @@ public class Tile {
         BodyDef groundBodyDef = new BodyDef();
         groundBodyDef.position.set(startX,startY);
 
-        physicsBody = Level1.world.createBody(groundBodyDef);
+        physicsBody = world.createBody(groundBodyDef);
         PolygonShape groundBox = new PolygonShape();
         groundBox.setAsBox(PHYISCS_DIM,PHYISCS_DIM);
         physicsBody.createFixture(groundBox, 0.0f);
@@ -100,6 +108,11 @@ public class Tile {
         this.label = label;
         
         physicsBody.setUserData(this);
+    }
+
+    public Tile(Tile oldTile) {
+        this(oldTile.world, oldTile.bodySprite.getX(), oldTile.bodySprite.getY(), oldTile.camera, oldTile.texture);
+
     }
 
     public void becomeSensor() {
@@ -155,9 +168,9 @@ public class Tile {
                     groundBodyDef.position.set(input.x + myBlock.tiles[i].diffX,input.y + myBlock.tiles[i].diffY);
                     System.out.println("X: " + myBlock.tiles[i].diffX);
 
-                    Level1.world.destroyBody(myBlock.tiles[i].physicsBody);
+                    world.destroyBody(myBlock.tiles[i].physicsBody);
 
-                    myBlock.tiles[i].physicsBody = Level1.world.createBody(groundBodyDef);
+                    myBlock.tiles[i].physicsBody = world.createBody(groundBodyDef);
                     PolygonShape groundBox = new PolygonShape();
                     groundBox.setAsBox(PHYISCS_DIM,PHYISCS_DIM);
                     myBlock.tiles[i].physicsBody.createFixture(groundBox, 0.0f);
