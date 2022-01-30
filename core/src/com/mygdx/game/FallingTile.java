@@ -62,7 +62,7 @@ public class FallingTile extends Tile {
     public void resetPos() {
         physicsBody = createPhysicsBody(physicsBody.getPosition().x,startingHeight,this);
         fallingNow = false;
-        level.fallingTileCount = level.fallingTileCount + 1;
+        level.fallingTileCount += 1;
         System.out.println("Falling Tiles "+level.fallingTileCount+" / "+level.fallingTiles.size());
         //level.fallingTiles.remove(this);
         //level.resetTiles.add(this);

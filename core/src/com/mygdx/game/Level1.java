@@ -61,6 +61,7 @@ public class Level1 implements Screen {
         level_data = level_d;
         levelNum = num;
         enteredFrom = dir;
+        fallingTileCount = 0;
 
 		camera = new OrthographicCamera(WIDTH,HEIGHT);
         //world = new World(new Vector2(0,-10), true);
@@ -109,13 +110,13 @@ public class Level1 implements Screen {
                     break;
                     case "levels/no_jump_block.png" :
                         tile = new StickyTile(world,input.x,input.y,camera,block.textures[i]);
-                        FallingTile trueTile = (FallingTile)tile;
-                        fallingTiles.add(trueTile);
-                        trueTile.level = this;
                         movableTiles.add(tile);
                     break;
                     case "levels/falling_block.png" :
                         tile = new FallingTile(world,input.x,input.y,camera,block.textures[i]);
+                        FallingTile trueTile = (FallingTile)tile;
+                        fallingTiles.add(trueTile);
+                        trueTile.level = this;
                         movableTiles.add(tile);
                     break;
                     case "levels/spike_tile.png" :
@@ -171,16 +172,15 @@ public class Level1 implements Screen {
         toReset = true;
         for(FallingTile t : fallingTiles) {
             t.resetPos();
-            System.out.println("resetting block");
         }  
     }
 
     private boolean fallingTileResetComplete() {
         if (fallingTiles.size() == 0)
             return true;
-        else if (fallingTileCount >= fallingTiles.size()+1)
+        if (fallingTileCount >= fallingTiles.size()) {
             return true;
-        else
+        } else
             return false;
     }
 
@@ -193,6 +193,8 @@ public class Level1 implements Screen {
 
 		game.batch.begin();
         game.batch.setProjectionMatrix(camera.combined);
+
+        
 
         
         for(int i=0;i<tiles.size();i++){
@@ -209,16 +211,21 @@ public class Level1 implements Screen {
         debugRenderer.render(world, camera.combined);
 		world.step(1/60f, 6, 2);
 
-        if (travelRoom && changeRoom != 0 && fallingTileResetComplete()) {
+
+        if (travelRoom) 
+        if (travelRoom  && fallingTileResetComplete()) {
             travelRoom = false;
-            LevelInfo[] newLevelData = updateLevelData();
-            level_data = newLevelData;
-            levelNum += changeRoom;
-            if (levelNum < 0)
-                levelNum = 0;
-            else if (levelNum > 13)
-                levelNum = 13;
-            else game.setScreen(new Level1(game,newLevelData,levelNum,changeRoom));
+            fallingTileCount = 0;
+            if (changeRoom != 0) {
+                LevelInfo[] newLevelData = updateLevelData();
+                level_data = newLevelData;
+                levelNum += changeRoom;
+                if (levelNum < 0)
+                    levelNum = 0;
+                else if (levelNum > 13)
+                    levelNum = 13;
+                else game.setScreen(new Level1(game,newLevelData,levelNum,changeRoom));
+            }
         }
 
         if (Gdx.input.isKeyJustPressed(Keys.E)) {
@@ -230,8 +237,10 @@ public class Level1 implements Screen {
             }
         }
 
+        if (toReset)
         if (toReset && fallingTileResetComplete()) {
             toReset = false;
+            fallingTileCount = 0;
             LevelInfo[] newLevelData = updateLevelData();
             level_data = newLevelData;
             game.setScreen(new Level1(game,newLevelData,levelNum,enteredFrom));
@@ -240,7 +249,6 @@ public class Level1 implements Screen {
         if (Gdx.input.isKeyJustPressed(Keys.R)) {
             for(FallingTile t : fallingTiles) {
                 t.resetPos();
-                System.out.println("resetting block");
             } 
         }
 
