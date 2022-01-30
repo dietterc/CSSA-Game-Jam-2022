@@ -52,9 +52,11 @@ public class PlayerCollisions {
                         }
                         if (trueOther.label != "falling" && (trueOther.getPosition().x - trueTravis.pos.x <= 0.2f)) {
                             trueTravis.landedOnFalling = false;
+                            System.out.println("Collission Listener - Landed on Falling: "+trueTravis.landedOnFalling);
                         }
                         if (trueOther.label != "bouncy" && (trueTravis.gravityDirection == "up" && trueOther.getPosition().y - trueTravis.pos.y > 0) || (trueTravis.gravityDirection == "down" && trueTravis.pos.y - trueOther.getPosition().y > 0)) {
                             trueTravis.landed = true;
+                            System.out.println("Collision Listener - Landed not on bouncy   : "+trueTravis.landed);
                         }
                         switch (trueOther.label) {
                             case "starttile" :
@@ -83,7 +85,6 @@ public class PlayerCollisions {
                                 trueTravis.landedOnFalling = true;
                                 if (trueOther instanceof FallingTile) {
                                     FallingTile fallingOther = (FallingTile)trueOther;
-                                    System.out.println("Cast Complete");
                                     fallingOther.playerLandInit();
                                 }   
                             break;
@@ -100,8 +101,14 @@ public class PlayerCollisions {
                                 System.out.println("Up We Go");
                             break;
                             case "spike" :
+                                /*
                                 //call reset method?
-                                trueTravis.level.resetStage();
+                                System.out.println("about to reset stage");
+                                if (trueTravis.level instanceof Level1) {
+                                    System.out.println("instance good");
+                                    trueTravis.level.resetStage();
+                                }*/
+                                trueTravis.level.resetFromSpikeCollision = true;
                                 System.out.println("Ouch!");
                             break;
 

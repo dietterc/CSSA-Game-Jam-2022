@@ -40,6 +40,7 @@ public class Player {
     private Float gravityStrength = -40f;
     public String gravityDirection = "down";
 
+    private Float fallingThreshold = 1f;
     public Boolean landed = false;
     public Boolean landedOnFalling = false;
     private Float jumping = 0f;
@@ -116,6 +117,8 @@ public class Player {
         if (jumping > 0f) {
             if (Gdx.input.isKeyPressed(Keys.SPACE) || bounced) {
                 jumping -= baseJumpDecay;
+                landed = false;
+                System.out.println("Landed: "+landed);
             } 
             //stop jumping and start falling
             if (!Gdx.input.isKeyPressed(Keys.SPACE) && !bounced) {
@@ -149,6 +152,7 @@ public class Player {
     private void updateVars() {
         speed = physicsBody.getLinearVelocity();
         pos = physicsBody.getPosition();
+        checkFalling();
         //updateLanded();
         if (gravityDirection != "up" && gravityDirection != "down" && gravityDirection != "left" && gravityDirection != "right") {
             gravityDirection = "down";
@@ -157,14 +161,25 @@ public class Player {
         
     }
 
+    private void checkFalling() {
+        if (!landedOnFalling) {
+            if (speed.y < -fallingThreshold || speed.y > fallingThreshold) {
+                landed = false;
+                System.out.println("checkFalling Landed: "+landed);
+            }
+        }
+    }
+
     private void updateLanded() {
         if (gravityDirection == "down" || gravityDirection == "up") {
             if (speed.y == 0f) {
                 landed = true;
+                System.out.println("Landed: "+landed);
                 bounced = false;
                 jumping = 0f;
             } else {
                 landed = false;
+                System.out.println("Landed: "+landed);
             }  
         /*} else {
             if (speed.x == 0f) {
@@ -244,6 +259,8 @@ public class Player {
     private void manageMovement() {
         if (!editMode) {
             if (Gdx.input.isKeyJustPressed(Keys.SPACE) && (landed || landedOnFalling) && jumping == 0 && !sticky) {
+                System.out.println("Landed: "+landed);
+                System.out.println("Landed on Falling: "+landedOnFalling);
                 jumping = baseJumpStrength;
                 System.out.println("Is Stick? "+sticky);
                 //physicsBody.applyLinearImpulse(0f,jumping,pos.x,pos.y,true);

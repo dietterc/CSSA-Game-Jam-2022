@@ -61,6 +61,7 @@ public class Level1 implements Screen {
     public static Texture helpTexture;
     public static Sprite helpSprite;
 
+    public boolean resetFromSpikeCollision = false;
 
 	public Level1(final MyGdxGame game, LevelInfo[] level_d, int num, int dir) {
 		this.game = game;
@@ -277,7 +278,8 @@ public class Level1 implements Screen {
             } 
         }
 
-        if (Gdx.input.isKeyJustPressed(Keys.C)) {
+        if (Gdx.input.isKeyJustPressed(Keys.C) || resetFromSpikeCollision) {
+            resetFromSpikeCollision = false;
             resetStage(); 
         }
 
