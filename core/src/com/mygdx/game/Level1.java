@@ -164,7 +164,7 @@ public class Level1 implements Screen {
                         Vector3 input = new Vector3(x1, y1, 0);
                         camera.project(input);
 
-                        points[k] = new Vector2(input.x+32,input.y-32);
+                        points[k] = new Vector2(input.x+33.75f,input.y-33.75f);
                         textures[k] = curr.tiles[k].texture;
                     }
 
