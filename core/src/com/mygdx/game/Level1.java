@@ -14,8 +14,6 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.physics.box2d.*;
-import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.graphics.glutils.FileTextureData;
@@ -88,7 +86,6 @@ public class Level1 implements Screen {
                 Vector3 input = new Vector3(x1, y1, 0);
                 camera.unproject(input);
                 Tile tile;
-                
                 switch (((FileTextureData)block.textures[i].getTextureData()).getFileHandle().path()) {
                     case "levels/start_block.png" :
                         tile = new StartTile(world,input.x,input.y,camera,block.textures[i]);
@@ -106,9 +103,6 @@ public class Level1 implements Screen {
                     break;
                     case "levels/falling_block.png" :
                         tile = new FallingTile(world,input.x,input.y,camera,block.textures[i]);
-                        FallingTile trueTile = (FallingTile)tile;
-                        trueTile.level = this;
-                        fallingTiles.add((FallingTile)tile);
                     break;
                     case "levels/spike_tile.png" :
                         tile = new Spike(world,input.x,input.y,camera,block.textures[i]);
@@ -148,12 +142,6 @@ public class Level1 implements Screen {
         
 		game.batch.end();
 
-        /*
-        for(FallingTile tile : fallingTiles) {
-            tile.step();
-        }
-        */
-
         player.step();
         for(int i=0;i<tiles.size();i++){
             tiles.get(i).step();
@@ -162,28 +150,22 @@ public class Level1 implements Screen {
         debugRenderer.render(world, camera.combined);
 		world.step(1/60f, 6, 2);
 
-
         if(Gdx.input.isKeyJustPressed(Keys.P)) {
 
-            if (toReset) {
-                toReset = false;
-                LevelInfo[] newLevelData = updateLevelData();
-                level_data = newLevelData;
-                //blocks.clear();
-                tiles.clear();
+            LevelInfo[] newLevelData = updateLevelData();
+            level_data = newLevelData;
+            //blocks.clear();
+            //tiles.clear();
 
-                if(levelNum == 0)
-                    game.setScreen(new MainMenu(game,newLevelData));
-                else
+            if(levelNum == 0)
+                game.setScreen(new MainMenu(game,newLevelData));
+            else {
                 levelNum -= 1;
                 game.setScreen(new Level1(game,newLevelData,levelNum));
-            } else {
-                for (FallingTile t: fallingTiles) {
-                    t.resetPos();
-                }
-                toReset = true;
+                
             }
                 
+            
         }
 
         if(Gdx.input.isKeyJustPressed(Keys.L)) {
