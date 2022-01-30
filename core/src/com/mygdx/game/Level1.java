@@ -48,6 +48,8 @@ public class Level1 implements Screen {
     public StartTile startTile;
     public EndTile endTile;
 
+    public int changeRoom = 0;
+
 
 	public Level1(final MyGdxGame game, LevelInfo[] level_d, int num, int dir) {
 		this.game = game;
@@ -146,6 +148,7 @@ public class Level1 implements Screen {
 
             player = new Player(world,x,y,camera);
         }
+        player.level = this;
 
 	}
 
@@ -174,6 +177,8 @@ public class Level1 implements Screen {
 
         debugRenderer.render(world, camera.combined);
 		world.step(1/60f, 6, 2);
+
+        
 
         if(Gdx.input.isKeyJustPressed(Keys.P)) {
 

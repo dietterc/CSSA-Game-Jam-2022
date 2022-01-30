@@ -55,6 +55,8 @@ public class Player {
     public Boolean gravityUp = false;
     public Boolean bounced = false;
 
+    public Level1 level;
+
 
     public Player(World world,float startX, float startY, OrthographicCamera c) {
         
