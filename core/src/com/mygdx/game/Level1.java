@@ -11,6 +11,7 @@ import com.mygdx.game.infoClasses.BlockInfo;
 import com.mygdx.game.infoClasses.LevelInfo;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
@@ -247,7 +248,7 @@ public class Level1 implements Screen {
             }
             tiles.add(tile);
             newTiles[i] = tile;
-            System.out.println("tile");
+            //System.out.println("tile");
         }
 
         Block newBlock = new Block(newTiles);
