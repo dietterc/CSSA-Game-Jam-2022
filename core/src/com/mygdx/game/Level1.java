@@ -41,6 +41,14 @@ public class Level1 implements Screen {
     ArrayList<Block> blocks = new ArrayList<Block>();
     ArrayList<Sprite> blockSprites = new ArrayList<Sprite>();
 
+    ArrayList<FallingTile> fallingTiles = new ArrayList<FallingTile>();
+
+    boolean toReset = false;
+
+    public StartTile startTile;
+    public EndTile endTile;
+
+
 	public Level1(final MyGdxGame game, LevelInfo[] level_d, int num) {
 		this.game = game;
         level_data = level_d;
@@ -79,12 +87,16 @@ public class Level1 implements Screen {
                 camera.unproject(input);
                 Tile tile;
                 switch (((FileTextureData)block.textures[i].getTextureData()).getFileHandle().path()) {
-                    //case "levels/start_block.png" :
-                        
-                    //break;
-                    //case "levels/end_block.png" :
-
-                    //break;
+                    case "levels/start_block.png" :
+                        tile = new StartTile(world,input.x,input.y,camera,block.textures[i]);
+                        startTile = (StartTile)tile;
+                        tile.setTouchable(false);
+                    break;
+                    case "levels/end_block.png" :
+                        tile = new EndTile(world,input.x,input.y,camera,block.textures[i]);
+                        endTile = (EndTile)tile;
+                        tile.setTouchable(false);
+                    break;
                     case "levels/spring_block.png" :
                         tile = new BouncyTile(world,input.x,input.y,camera,block.textures[i]);
                     break;
@@ -93,6 +105,14 @@ public class Level1 implements Screen {
                     break;
                     case "levels/falling_block.png" :
                         tile = new FallingTile(world,input.x,input.y,camera,block.textures[i]);
+                    break;
+                    case "levels/spike_tile.png" :
+                        tile = new Spike(world,input.x,input.y,camera,block.textures[i]);
+                        tile.setTouchable(false);
+                    break;
+                    case "levels/static_block.png" :
+                        tile = new Tile(world,input.x,input.y,camera,block.textures[i]);
+                        tile.setTouchable(false);
                     break;
                     
                     default:
