@@ -24,13 +24,13 @@ public class FallingTile extends Tile {
 
     public void step() {
         super.step();
-        if (Gdx.input.isKeyJustPressed(Keys.P)) {
-            playerLandInit();
-        }
+        //if (Gdx.input.isKeyJustPressed(Keys.P)) {
+        //    playerLandInit();
+        //}
         
-        if (Gdx.input.isKeyJustPressed(Keys.R)) {
-            resetPos();
-        }
+        //if (Gdx.input.isKeyJustPressed(Keys.R)) {
+        //    resetPos();
+        //}
 
         if (transformSelf) {
             System.out.println("FallingTile step");
