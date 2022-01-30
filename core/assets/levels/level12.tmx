@@ -66,21 +66,6 @@
   <object id="139" gid="14" x="640" y="832" width="64" height="64"/>
   <object id="140" gid="14" x="640" y="896" width="64" height="64"/>
   <object id="141" gid="14" x="640" y="960" width="64" height="64"/>
-  <object id="157" gid="14" x="768" y="64" width="64" height="64"/>
-  <object id="158" gid="14" x="768" y="128" width="64" height="64"/>
-  <object id="159" gid="14" x="768" y="192" width="64" height="64"/>
-  <object id="160" gid="14" x="768" y="256" width="64" height="64"/>
-  <object id="161" gid="14" x="768" y="320" width="64" height="64"/>
-  <object id="162" gid="14" x="768" y="384" width="64" height="64"/>
-  <object id="163" gid="14" x="768" y="448" width="64" height="64"/>
-  <object id="164" gid="14" x="768" y="512" width="64" height="64"/>
-  <object id="165" gid="14" x="768" y="576" width="64" height="64"/>
-  <object id="166" gid="14" x="768" y="640" width="64" height="64"/>
-  <object id="167" gid="14" x="768" y="704" width="64" height="64"/>
-  <object id="168" gid="14" x="768" y="768" width="64" height="64"/>
-  <object id="169" gid="14" x="768" y="832" width="64" height="64"/>
-  <object id="170" gid="14" x="768" y="896" width="64" height="64"/>
-  <object id="171" gid="14" x="768" y="960" width="64" height="64"/>
   <object id="172" gid="14" x="832" y="960" width="64" height="64"/>
   <object id="173" gid="14" x="832" y="896" width="64" height="64"/>
   <object id="174" gid="14" x="832" y="832" width="64" height="64"/>
@@ -126,7 +111,6 @@
   <object id="216" gid="14" x="960" y="896" width="64" height="64"/>
   <object id="217" gid="14" x="960" y="960" width="64" height="64"/>
   <object id="218" gid="14" x="896" y="960" width="64" height="64"/>
-  <object id="219" gid="14" x="1024" y="960" width="64" height="64"/>
   <object id="221" gid="14" x="1216" y="960" width="64" height="64"/>
   <object id="222" gid="14" x="1152" y="960" width="64" height="64"/>
   <object id="223" gid="14" x="1280" y="960" width="64" height="64"/>
@@ -135,20 +119,6 @@
   <object id="226" gid="14" x="1280" y="896" width="64" height="64"/>
   <object id="227" gid="14" x="1216" y="896" width="64" height="64"/>
   <object id="228" gid="14" x="1152" y="896" width="64" height="64"/>
-  <object id="230" gid="14" x="1024" y="896" width="64" height="64"/>
-  <object id="231" gid="14" x="1024" y="832" width="64" height="64"/>
-  <object id="234" gid="14" x="1024" y="768" width="64" height="64"/>
-  <object id="235" gid="14" x="1024" y="704" width="64" height="64"/>
-  <object id="239" gid="14" x="1024" y="640" width="64" height="64"/>
-  <object id="240" gid="14" x="1024" y="576" width="64" height="64"/>
-  <object id="243" gid="14" x="1024" y="512" width="64" height="64"/>
-  <object id="244" gid="14" x="1024" y="448" width="64" height="64"/>
-  <object id="247" gid="14" x="1024" y="384" width="64" height="64"/>
-  <object id="248" gid="14" x="1024" y="320" width="64" height="64"/>
-  <object id="251" gid="14" x="1024" y="256" width="64" height="64"/>
-  <object id="253" gid="14" x="1024" y="192" width="64" height="64"/>
-  <object id="254" gid="14" x="1024" y="128" width="64" height="64"/>
-  <object id="255" gid="14" x="1024" y="64" width="64" height="64"/>
   <object id="258" gid="14" x="1152" y="128" width="64" height="64"/>
   <object id="259" gid="14" x="1152" y="64" width="64" height="64"/>
   <object id="260" gid="14" x="1216" y="64" width="64" height="64"/>
@@ -239,16 +209,12 @@
   <object id="444" gid="14" x="448" y="-64" width="64" height="64"/>
   <object id="445" gid="14" x="384" y="-64" width="64" height="64"/>
   <object id="446" gid="14" x="320" y="-64" width="64" height="64"/>
-  <object id="447" gid="14" x="768" y="0" width="64" height="64"/>
-  <object id="448" gid="14" x="768" y="-64" width="64" height="64"/>
   <object id="449" gid="14" x="832" y="-64" width="64" height="64"/>
   <object id="450" gid="14" x="832" y="0" width="64" height="64"/>
   <object id="451" gid="14" x="896" y="0" width="64" height="64"/>
   <object id="452" gid="14" x="896" y="-64" width="64" height="64"/>
   <object id="453" gid="14" x="960" y="-64" width="64" height="64"/>
   <object id="454" gid="14" x="960" y="0" width="64" height="64"/>
-  <object id="455" gid="14" x="1024" y="0" width="64" height="64"/>
-  <object id="456" gid="14" x="1024" y="-64" width="64" height="64"/>
   <object id="458" gid="14" x="1152" y="-64" width="64" height="64"/>
   <object id="459" gid="14" x="1152" y="0" width="64" height="64"/>
   <object id="460" gid="14" x="1216" y="0" width="64" height="64"/>

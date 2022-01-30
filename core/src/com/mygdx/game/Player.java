@@ -110,9 +110,9 @@ public class Player {
         } else if (direction == "down") {
             bounced = true;
             System.out.println("Travis: Down!");
-            jumping = -bouncePower;
+            jumping = bouncePower;
             physicsBody.setLinearVelocity(new Vector2(physicsBody.getLinearVelocity().x,-physicsBody.getLinearVelocity().y/2));
-            applyForce(0f,-20f);
+            //applyForce(0f,-20f);
         }
     }
 

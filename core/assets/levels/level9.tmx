@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="29" height="15" tilewidth="64" tileheight="64" infinite="0" nextlayerid="5" nextobjectid="269">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="29" height="15" tilewidth="64" tileheight="64" infinite="0" nextlayerid="5" nextobjectid="277">
  <tileset firstgid="1" source="tileset.tsx"/>
  <objectgroup id="2" name="static">
   <object id="1" gid="10" x="640" y="192" width="64" height="64"/>
@@ -159,20 +159,20 @@
   <object id="266" gid="16" x="-64" y="128" width="64" height="64"/>
   <object id="267" gid="16" x="-64" y="64" width="64" height="64"/>
   <object id="268" gid="16" x="-64" y="0" width="64" height="64"/>
+  <object id="269" gid="8" x="640" y="64" width="64" height="64"/>
+  <object id="270" gid="8" x="704" y="64" width="64" height="64"/>
+  <object id="271" gid="8" x="768" y="64" width="64" height="64"/>
+  <object id="272" gid="8" x="832" y="64" width="64" height="64"/>
+  <object id="273" gid="8" x="896" y="64" width="64" height="64"/>
+  <object id="274" gid="8" x="1024" y="64" width="64" height="64"/>
+  <object id="275" gid="8" x="1152" y="64" width="64" height="64"/>
+  <object id="276" gid="8" x="1088" y="64" width="64" height="64"/>
  </objectgroup>
  <objectgroup id="4" name="block2">
   <object id="73" gid="7" x="704" y="192" width="64" height="64"/>
   <object id="74" gid="7" x="768" y="192" width="64" height="64"/>
   <object id="75" gid="7" x="832" y="192" width="64" height="64"/>
   <object id="76" gid="7" x="896" y="192" width="64" height="64"/>
-  <object id="77" gid="8" x="704" y="64" width="64" height="64"/>
-  <object id="78" gid="8" x="640" y="64" width="64" height="64"/>
-  <object id="79" gid="8" x="768" y="64" width="64" height="64"/>
-  <object id="80" gid="8" x="832" y="64" width="64" height="64"/>
-  <object id="81" gid="8" x="896" y="64" width="64" height="64"/>
-  <object id="82" gid="8" x="1152" y="64" width="64" height="64"/>
-  <object id="83" gid="8" x="1024" y="64" width="64" height="64"/>
-  <object id="84" gid="8" x="1088" y="64" width="64" height="64"/>
  </objectgroup>
  <objectgroup id="3" name="block1">
   <object id="39" gid="9" x="896" y="832" width="64" height="64"/>

@@ -154,21 +154,17 @@
   <object id="163" gid="16" x="-64" y="0" width="64" height="64"/>
  </objectgroup>
  <objectgroup id="7" name="block5">
-  <object id="57" gid="7" x="832" y="320" width="64" height="64"/>
-  <object id="58" gid="7" x="896" y="320" width="64" height="64"/>
-  <object id="59" gid="7" x="960" y="320" width="64" height="64"/>
-  <object id="60" gid="7" x="1024" y="320" width="64" height="64"/>
+  <object id="57" gid="7" x="576" y="704" width="64" height="64"/>
+  <object id="58" gid="7" x="640" y="704" width="64" height="64"/>
+  <object id="59" gid="7" x="704" y="704" width="64" height="64"/>
+  <object id="60" gid="7" x="768" y="704" width="64" height="64"/>
  </objectgroup>
- <objectgroup id="3" name="block1">
-  <object id="53" gid="7" x="704" y="640" width="64" height="64"/>
- </objectgroup>
- <objectgroup id="4" name="block2">
-  <object id="54" gid="7" x="1024" y="448" width="64" height="64"/>
- </objectgroup>
+ <objectgroup id="3" name="block1"/>
+ <objectgroup id="4" name="block2"/>
  <objectgroup id="5" name="block3">
-  <object id="55" gid="7" x="576" y="640" width="64" height="64"/>
+  <object id="55" gid="7" x="1088" y="640" width="64" height="64"/>
  </objectgroup>
  <objectgroup id="6" name="block4">
-  <object id="56" gid="9" x="640" y="640" width="64" height="64"/>
+  <object id="56" gid="9" x="1024" y="256" width="64" height="64"/>
  </objectgroup>
 </map>

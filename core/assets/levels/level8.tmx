@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="29" height="15" tilewidth="64" tileheight="64" infinite="0" nextlayerid="13" nextobjectid="298">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="29" height="15" tilewidth="64" tileheight="64" infinite="0" nextlayerid="13" nextobjectid="336">
  <tileset firstgid="1" source="tileset.tsx"/>
  <objectgroup id="7" name="gravity">
   <object id="99" gid="14" x="1536" y="64" width="64" height="64"/>
@@ -77,6 +77,16 @@
   <object id="171" gid="14" x="1664" y="960" width="64" height="64"/>
   <object id="172" gid="14" x="1728" y="960" width="64" height="64"/>
   <object id="173" gid="14" x="1792" y="960" width="64" height="64"/>
+  <object id="298" gid="14" x="1536" y="0" width="64" height="64"/>
+  <object id="299" gid="14" x="1600" y="0" width="64" height="64"/>
+  <object id="300" gid="14" x="1664" y="0" width="64" height="64"/>
+  <object id="301" gid="14" x="1728" y="0" width="64" height="64"/>
+  <object id="302" gid="14" x="1792" y="0" width="64" height="64"/>
+  <object id="303" gid="14" x="1792" y="-64" width="64" height="64"/>
+  <object id="304" gid="14" x="1664" y="-64" width="64" height="64"/>
+  <object id="305" gid="14" x="1728" y="-64" width="64" height="64"/>
+  <object id="306" gid="14" x="1600" y="-64" width="64" height="64"/>
+  <object id="307" gid="14" x="1536" y="-64" width="64" height="64"/>
  </objectgroup>
  <objectgroup id="2" name="static">
   <object id="1" gid="8" x="0" y="64" width="64" height="64"/>
@@ -134,7 +144,7 @@
   <object id="66" gid="8" x="1344" y="512" width="64" height="64"/>
   <object id="67" gid="8" x="1408" y="512" width="64" height="64"/>
   <object id="68" gid="8" x="1472" y="512" width="64" height="64"/>
-  <object id="69" gid="2" x="1536" y="512" width="64" height="64">
+  <object id="69" gid="1073741826" x="1600" y="512" width="64" height="64" rotation="-90">
    <properties>
     <property name="rotation" type="int" value="90"/>
    </properties>
@@ -226,11 +236,6 @@
   <object id="273" gid="16" x="-64" y="192" width="64" height="64"/>
   <object id="274" gid="16" x="-64" y="128" width="64" height="64"/>
   <object id="275" gid="16" x="-64" y="64" width="64" height="64"/>
-  <object id="278" gid="2" x="1792" y="0" width="64" height="64"/>
-  <object id="279" gid="2" x="1728" y="0" width="64" height="64"/>
-  <object id="280" gid="2" x="1664" y="0" width="64" height="64"/>
-  <object id="281" gid="2" x="1600" y="0" width="64" height="64"/>
-  <object id="282" gid="2" x="1536" y="0" width="64" height="64"/>
   <object id="283" gid="8" x="320" y="0" width="64" height="64"/>
   <object id="284" gid="8" x="320" y="-64" width="64" height="64"/>
   <object id="285" gid="8" x="256" y="0" width="64" height="64"/>
@@ -244,7 +249,35 @@
   <object id="293" gid="8" x="0" y="0" width="64" height="64"/>
   <object id="294" gid="8" x="0" y="-64" width="64" height="64"/>
   <object id="295" gid="2" x="384" y="-64" width="64" height="64"/>
-  <object id="296" gid="2" x="384" y="0" width="64" height="64"/>
+  <object id="296" gid="1073741826" x="384" y="0" width="64" height="64"/>
+  <object id="308" gid="8" x="384" y="-64" width="64" height="64"/>
+  <object id="309" gid="8" x="448" y="-64" width="64" height="64"/>
+  <object id="310" gid="8" x="512" y="-64" width="64" height="64"/>
+  <object id="311" gid="8" x="576" y="-64" width="64" height="64"/>
+  <object id="312" gid="8" x="704" y="-64" width="64" height="64"/>
+  <object id="313" gid="8" x="640" y="-64" width="64" height="64"/>
+  <object id="314" gid="8" x="768" y="-64" width="64" height="64"/>
+  <object id="315" gid="8" x="832" y="-64" width="64" height="64"/>
+  <object id="316" gid="8" x="960" y="-64" width="64" height="64"/>
+  <object id="317" gid="8" x="896" y="-64" width="64" height="64"/>
+  <object id="318" gid="8" x="1024" y="-64" width="64" height="64"/>
+  <object id="319" gid="8" x="1152" y="-64" width="64" height="64"/>
+  <object id="320" gid="8" x="1088" y="-64" width="64" height="64"/>
+  <object id="321" gid="8" x="1216" y="-64" width="64" height="64"/>
+  <object id="322" gid="8" x="1344" y="-64" width="64" height="64"/>
+  <object id="323" gid="8" x="1280" y="-64" width="64" height="64"/>
+  <object id="324" gid="8" x="1408" y="-64" width="64" height="64"/>
+  <object id="325" gid="8" x="1472" y="-64" width="64" height="64"/>
+  <object id="326" gid="16" x="1536" y="-128" width="64" height="64"/>
+  <object id="327" gid="16" x="1600" y="-128" width="64" height="64"/>
+  <object id="328" gid="16" x="1664" y="-128" width="64" height="64"/>
+  <object id="329" gid="16" x="1728" y="-128" width="64" height="64"/>
+  <object id="330" gid="16" x="1792" y="-128" width="64" height="64"/>
+  <object id="331" gid="16" x="1856" y="-128" width="64" height="64"/>
+  <object id="332" gid="16" x="1472" y="-128" width="64" height="64"/>
+  <object id="333" gid="16" x="1856" y="-64" width="64" height="64"/>
+  <object id="334" gid="16" x="1856" y="0" width="64" height="64"/>
+  <object id="335" gid="16" x="1856" y="64" width="64" height="64"/>
  </objectgroup>
  <objectgroup id="12" name="block7">
   <object id="297" gid="11" x="320" y="576" width="64" height="64"/>
