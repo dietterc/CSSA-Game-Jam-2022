@@ -31,7 +31,7 @@ public class Tile {
     private boolean mouseReleased;
     private boolean otherMoving;
 
-    private boolean canTouchme;
+    public boolean canTouchme;
 
     public float diffX;
     public float diffY;
