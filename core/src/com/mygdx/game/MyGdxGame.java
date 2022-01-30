@@ -22,9 +22,9 @@ public class MyGdxGame extends Game {
 	
 	@Override
 	public void create () {
-		level_data = new LevelInfo[11];
+		level_data = new LevelInfo[13];
 
-		for(int i=0;i<11;i++) {
+		for(int i=0;i<13;i++) {
 
 			//load in level Data
 			TiledMap tiledMap = new TmxMapLoader().load("levels/level" + i + ".tmx");

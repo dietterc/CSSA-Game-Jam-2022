@@ -38,6 +38,7 @@ public class Level1 implements Screen {
     TiledMapRenderer tiledMapRenderer;
 
     ArrayList<Tile> tiles = new ArrayList<Tile>();
+    ArrayList<Tile> movableTiles = new ArrayList<Tile>();
     ArrayList<Block> blocks = new ArrayList<Block>();
     ArrayList<Sprite> blockSprites = new ArrayList<Sprite>();
 
@@ -103,12 +104,15 @@ public class Level1 implements Screen {
                     break;
                     case "levels/spring_block.png" :
                         tile = new BouncyTile(world,input.x,input.y,camera,block.textures[i]);
+                        movableTiles.add(tile);
                     break;
                     case "levels/no_jump_block.png" :
                         tile = new StickyTile(world,input.x,input.y,camera,block.textures[i]);
+                        movableTiles.add(tile);
                     break;
                     case "levels/falling_block.png" :
                         tile = new FallingTile(world,input.x,input.y,camera,block.textures[i]);
+                        movableTiles.add(tile);
                     break;
                     case "levels/spike_tile.png" :
                         tile = new Spike(world,input.x,input.y,camera,block.textures[i]);
@@ -124,6 +128,7 @@ public class Level1 implements Screen {
                     break;
                     default:
                         tile = new Tile(world,input.x,input.y,camera,block.textures[i]);
+                        movableTiles.add(tile);
                     break;
                 }
                 tile.texture = block.textures[i];
@@ -167,11 +172,11 @@ public class Level1 implements Screen {
 		game.batch.begin();
         game.batch.setProjectionMatrix(camera.combined);
 
-        player.draw(game.batch);
+        
         for(int i=0;i<tiles.size();i++){
             tiles.get(i).draw(game.batch);   
         }
-        
+        player.draw(game.batch);
 		game.batch.end();
 
         player.step();
@@ -179,7 +184,7 @@ public class Level1 implements Screen {
             tiles.get(i).step();
         }
 
-        debugRenderer.render(world, camera.combined);
+        //debugRenderer.render(world, camera.combined);
 		world.step(1/60f, 6, 2);
 
         if (travelRoom && changeRoom != 0) {
@@ -236,7 +241,6 @@ public class Level1 implements Screen {
             
         }
         if(Gdx.input.isKeyJustPressed(Keys.L)) {
-
             LevelInfo[] newLevelData = updateLevelData();
             level_data = newLevelData;
             //blocks.clear();
@@ -244,9 +248,19 @@ public class Level1 implements Screen {
             levelNum += 1;
 
             game.setScreen(new Level1(game,newLevelData,levelNum,1));
-        
         }
         */
+        if(changeRoom == 0) {
+            for(int i=0;i<movableTiles.size();i++) {
+                movableTiles.get(i).setTouchable(false);
+            }
+        } 
+        else {
+            for(int i=0;i<movableTiles.size();i++) {
+                movableTiles.get(i).setTouchable(true);
+            }
+        }
+        
         
 
 	}

@@ -2,6 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.mygdx.game.infoClasses.LevelInfo;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -44,12 +45,15 @@ public class MainMenu implements Screen {
 		
 		game.batch.end();
 
-		if (Gdx.input.isTouched()) {
+		if (Gdx.input.isKeyJustPressed(Keys.E)) {
 			game.setScreen(new Level1(game,level_data,0,1));
-
 			dispose();
 		}
 		
+		if (Gdx.input.isKeyPressed(Keys.ESCAPE)) {
+            Gdx.app.exit();
+        }
+
 	}
 
     @Override
