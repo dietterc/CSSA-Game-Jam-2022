@@ -200,10 +200,13 @@ public class Player {
             }
             if (toChange) {
                 gravityDirection = "up";
+
                 System.out.println("Gravity Up");
+                bodySprite.setFlip(false,true);
             } else {
                 gravityDirection = "down";
                 System.out.println("Gravity Down");
+                bodySprite.setFlip(false,false);
             }
         }
         /*
