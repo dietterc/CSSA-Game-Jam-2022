@@ -138,7 +138,7 @@
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level10.tmx": {
             "scale": 0.33,
-            "selectedLayer": -1,
+            "selectedLayer": 0,
             "viewCenter": {
                 "x": 1428.7878787878788,
                 "y": 721.2121212121212
@@ -210,7 +210,7 @@
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level8.tmx": {
             "scale": 0.5,
-            "selectedLayer": -1,
+            "selectedLayer": 6,
             "viewCenter": {
                 "x": 959,
                 "y": 546
@@ -218,7 +218,7 @@
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level9.tmx": {
             "scale": 0.33,
-            "selectedLayer": 2,
+            "selectedLayer": 0,
             "viewCenter": {
                 "x": 1443.939393939394,
                 "y": 633.3333333333334
