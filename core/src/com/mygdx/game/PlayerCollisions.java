@@ -53,6 +53,9 @@ public class PlayerCollisions {
                         if (trueOther.label != "falling" && (trueOther.getPosition().x - trueTravis.pos.x <= 0.2f)) {
                             trueTravis.landedOnFalling = false;
                         }
+                        if (trueOther.label != "bouncy" && (trueTravis.gravityDirection == "up" && trueOther.getPosition().y - trueTravis.pos.y > 0) || (trueTravis.gravityDirection == "down" && trueTravis.pos.y - trueOther.getPosition().y > 0)) {
+                            trueTravis.landed = true;
+                        }
                         switch (trueOther.label) {
                             case "starttile" :
                                 trueTravis.level.changeRoom = -1;
