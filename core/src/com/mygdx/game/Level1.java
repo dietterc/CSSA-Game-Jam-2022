@@ -102,48 +102,48 @@ public class Level1 implements Screen {
                 Tile tile;
                 switch (((FileTextureData)block.textures[i].getTextureData()).getFileHandle().path()) {
                     case "levels/start_block.png" :
-                        tile = new StartTile(world,input.x,input.y,camera,block.textures[i]);
+                        tile = new StartTile(world,input.x,input.y,camera,block.textures[i],this);
                         startTile = (StartTile)tile;
                         tile.setTouchable(false);
                     break;
                     case "levels/end_block.png" :
-                        tile = new EndTile(world,input.x,input.y,camera,block.textures[i]);
+                        tile = new EndTile(world,input.x,input.y,camera,block.textures[i],this);
                         endTile = (EndTile)tile;
                         tile.setTouchable(false);
                     break;
                     case "levels/spring_block.png" :
-                        tile = new BouncyTile(world,input.x,input.y,camera,block.textures[i]);
+                        tile = new BouncyTile(world,input.x,input.y,camera,block.textures[i],this);
                         movableTiles.add(tile);
                     break;
                     case "levels/no_jump_block.png" :
-                        tile = new StickyTile(world,input.x,input.y,camera,block.textures[i]);
+                        tile = new StickyTile(world,input.x,input.y,camera,block.textures[i],this);
                         movableTiles.add(tile);
                     break;
                     case "levels/falling_block.png" :
-                        tile = new FallingTile(world,input.x,input.y,camera,block.textures[i]);
+                        tile = new FallingTile(world,input.x,input.y,camera,block.textures[i],this);
                         FallingTile trueTile = (FallingTile)tile;
                         fallingTiles.add(trueTile);
                         trueTile.level = this;
                         movableTiles.add(tile);
                     break;
                     case "level/invisible_spike.png" :
-                        tile = new Spike(world,input.x,input.y,camera,block.textures[i]);
+                        tile = new Spike(world,input.x,input.y,camera,block.textures[i],this);
                         tile.setTouchable(false);
                     break;
                     case "levels/spike_tile.png" :
-                        tile = new Spike(world,input.x,input.y,camera,block.textures[i]);
+                        tile = new Spike(world,input.x,input.y,camera,block.textures[i],this);
                         tile.setTouchable(false);
                     break;
                     case "levels/static_block.png" :
-                        tile = new Tile(world,input.x,input.y,camera,block.textures[i]);
+                        tile = new Tile(world,input.x,input.y,camera,block.textures[i],this);
                         tile.setTouchable(false);
                     break;
                     case "levels/gravity_zone.png" :
-                        tile = new GravityUp(world,input.x,input.y,camera,block.textures[i]);
+                        tile = new GravityUp(world,input.x,input.y,camera,block.textures[i],this);
                         tile.setTouchable(false);
                     break;
                     default:
-                        tile = new Tile(world,input.x,input.y,camera,block.textures[i]);
+                        tile = new Tile(world,input.x,input.y,camera,block.textures[i],this);
                         movableTiles.add(tile);
                     break;
                 }
