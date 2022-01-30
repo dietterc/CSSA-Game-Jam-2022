@@ -209,6 +209,8 @@ public class Level1 implements Screen {
                 world.destroyBody(t.physicsBody);
             }
             tiles.remove(t);
+            if(t instanceof FallingTile)
+                fallingTiles.remove(t);
             movableTiles.remove(t);
         }
 
@@ -235,6 +237,9 @@ public class Level1 implements Screen {
             else if (curr instanceof FallingTile) {
                 tile = new FallingTile(world,input.x + curr.diffX,input.y + curr.diffY,camera,curr.texture,this);
                 movableTiles.add(tile); 
+                FallingTile trueTile = (FallingTile)tile;
+                fallingTiles.add(trueTile);
+                trueTile.level = this;
             }
             else if ((curr instanceof Tile)) {
                 tile = new Tile(world,input.x + curr.diffX,input.y + curr.diffY,camera,curr.texture,this);
@@ -294,7 +299,7 @@ public class Level1 implements Screen {
         player.draw(game.batch);
 		game.batch.end();
 
-        if(Player.storedBlock != null) {
+        if(Player.storedBlock != null && changeRoom != 0) {
             if (Gdx.input.isButtonJustPressed(Buttons.RIGHT)) {
                 System.out.println("YEs");
                 unstoreBlock();
@@ -327,7 +332,7 @@ public class Level1 implements Screen {
         }
 
         if (Gdx.input.isKeyJustPressed(Keys.E)) {
-            if (changeRoom != 0) {
+            if (changeRoom != 0 && Player.storedBlock != null) {
                 travelRoom = true;
                 for(FallingTile t : fallingTiles) {
                     t.resetPos();
