@@ -55,6 +55,12 @@ public class Level1 implements Screen {
 
     public int enteredFrom;
 
+    public static Texture backgroundTexture;
+    public static Sprite backgroundSprite;
+
+    public static Texture helpTexture;
+    public static Sprite helpSprite;
+
 
 	public Level1(final MyGdxGame game, LevelInfo[] level_d, int num, int dir) {
 		this.game = game;
@@ -164,6 +170,20 @@ public class Level1 implements Screen {
         }
         player.level = this;
 
+        backgroundTexture = new Texture("StarryNightAndrewVanGogh.png");
+        backgroundSprite = new Sprite(backgroundTexture);
+        backgroundSprite.setBounds(-10f, -5.625f, 20f, 11.25f);
+        backgroundSprite.setOriginCenter(); 
+
+        if(levelNum == 0) {
+
+            helpTexture = new Texture("MoveBlocksText.png");
+            helpSprite = new Sprite(helpTexture);
+            
+            helpSprite.setBounds(-10f, 0f, 7f, 2f);
+            helpSprite.setOriginCenter();
+        }
+
 	}
 
     
@@ -193,6 +213,11 @@ public class Level1 implements Screen {
 
 		game.batch.begin();
         game.batch.setProjectionMatrix(camera.combined);
+
+        backgroundSprite.draw(game.batch);
+        
+        if(levelNum == 0)
+            helpSprite.draw(game.batch);
 
         
 
