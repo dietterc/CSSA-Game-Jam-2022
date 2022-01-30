@@ -175,7 +175,27 @@ public class Level1 implements Screen {
         debugRenderer.render(world, camera.combined);
 		world.step(1/60f, 6, 2);
 
-        
+        if (toReset && changeRoom != 0) {
+            toReset = false;
+            LevelInfo[] newLevelData = updateLevelData();
+            level_data = newLevelData;
+            levelNum += changeRoom;
+            if (levelNum < 0)
+                levelNum = 0;
+            if (levelNum > 13)
+                levelNum = 13;
+            game.setScreen(new Level1(game,newLevelData,levelNum,changeRoom));
+        }
+
+        if (Gdx.input.isKeyJustPressed(Keys.E)) {
+            if (changeRoom != 0) {
+                toReset = true;
+                for(FallingTile t : fallingTiles) {
+                    t.resetPos();
+                }
+            }
+        }
+
 
         if(Gdx.input.isKeyJustPressed(Keys.P)) {
 
