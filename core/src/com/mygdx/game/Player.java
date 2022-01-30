@@ -58,6 +58,7 @@ public class Player {
 
     public Level1 level;
 
+    public static Block storedBlock;
 
     public Player(World world,float startX, float startY, OrthographicCamera c) {
         
