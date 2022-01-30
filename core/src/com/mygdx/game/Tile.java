@@ -157,7 +157,7 @@ public class Tile {
         }
 
         if(!moving && mouseReleased && canTouchme) {
-            if (Gdx.input.isTouched()) {
+            if (Gdx.input.justTouched()) {
                 int x1 = Gdx.input.getX();
                 int y1 = Gdx.input.getY();
                 Vector3 input = new Vector3(x1, y1, 0);
