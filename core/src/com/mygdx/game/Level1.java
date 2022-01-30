@@ -19,6 +19,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
@@ -52,6 +53,7 @@ public class Level1 implements Screen {
     ArrayList<Tile> tiles = new ArrayList<Tile>();
     static ArrayList<Block> blocks = new ArrayList<Block>();
     ArrayList<Sprite> blockSprites = new ArrayList<Sprite>();
+
 
 	public Level1(final MyGdxGame game, LevelInfo[] level_d, int levelNum) {
 		this.game = game;
@@ -90,6 +92,7 @@ public class Level1 implements Screen {
                 Vector3 input = new Vector3(x1, y1, 0);
                 camera.unproject(input);
                 Tile tile;
+                
                 switch (((FileTextureData)block.textures[i].getTextureData()).getFileHandle().path()) {
                     //case "levels/start_block.png" :
                         
@@ -105,6 +108,9 @@ public class Level1 implements Screen {
                     break;
                     case "levels/falling_block.png" :
                         tile = new FallingTile(world,input.x,input.y,camera,block.textures[i]);
+                        FallingTile trueTile = (FallingTile)tile;
+                        trueTile.level = this;
+                        //fallingTiles.add((FallingTile)tile);
                     break;
                     default:
                         tile = new Tile(world,input.x,input.y,camera,block.textures[i]);
@@ -140,6 +146,12 @@ public class Level1 implements Screen {
         
 		game.batch.end();
 
+        /*
+        for(FallingTile tile : fallingTiles) {
+            tile.step();
+        }
+        */
+
         player.step();
         for(int i=0;i<tiles.size();i++){
             tiles.get(i).step();
@@ -147,6 +159,7 @@ public class Level1 implements Screen {
 
         debugRenderer.render(world, camera.combined);
 		world.step(1/60f, 6, 2);
+
 
         if(Gdx.input.isKeyPressed(Keys.P)) {
 

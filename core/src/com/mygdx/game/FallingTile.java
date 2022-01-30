@@ -22,6 +22,8 @@ public class FallingTile extends Tile {
     private Float startinyHeight;
     private Boolean fallingNow;
     private Float dropSpeed = -1f;
+    public Level1 level;
+    private Boolean transformSelf = false;
 
     public FallingTile(World w,float startX, float startY, Camera c, Texture texture) {
         super(w, startX, startY, c, texture, "falling");
@@ -29,12 +31,22 @@ public class FallingTile extends Tile {
         fallingNow = false;
     }
 
+
     public void step() {
+        super.step();
         if (Gdx.input.isKeyJustPressed(Keys.P)) {
             playerLandInit();
         }
+        
         if (Gdx.input.isKeyJustPressed(Keys.R)) {
             resetPos();
+        }
+
+        if (transformSelf) {
+            System.out.println("FallingTile step");
+            transformSelf = false;
+            physicsBody.setType(BodyType.KinematicBody);
+            physicsBody.setLinearVelocity(0f,dropSpeed);
         }
     }
 
@@ -50,14 +62,17 @@ public class FallingTile extends Tile {
 
     public void playerLandProc() {
         startinyHeight = physicsBody.getPosition().y;
-        physicsBody.setType(BodyType.KinematicBody);
-        physicsBody.setLinearVelocity(0f,dropSpeed);
+        //physicsBody.setType(BodyType.KinematicBody);
+        transformSelf = true;
+        //level.fallingTiles.add(this);
         fallingNow = true;
     }
 
     public void resetPos() {
         physicsBody = createPhysicsBody(physicsBody.getPosition().x,startinyHeight,this);
         fallingNow = false;
+        //level.fallingTiles.remove(this);
+        //level.resetTiles.add(this);
     }
 
 

@@ -81,6 +81,11 @@ public class PlayerCollisions {
                             break;
                             case "falling" :
                                 trueTravis.landedOnFalling = true;
+                                if (trueOther instanceof FallingTile) {
+                                    FallingTile fallingOther = (FallingTile)trueOther;
+                                    System.out.println("Cast Complete");
+                                    fallingOther.playerLandInit();
+                                }   
                             break;
                             case "sliderleft" :
                                 //trueTravis.sliderleft;
