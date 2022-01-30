@@ -15,6 +15,7 @@ public class FallingTile extends Tile {
     public Level1 level;
     private Boolean transformSelf = false;
 
+
     public FallingTile(World w,float startX, float startY, Camera c, Texture texture) {
         super(w, startX, startY, c, texture, "falling");
         startingHeight = startY;
@@ -61,6 +62,8 @@ public class FallingTile extends Tile {
     public void resetPos() {
         physicsBody = createPhysicsBody(physicsBody.getPosition().x,startingHeight,this);
         fallingNow = false;
+        level.fallingTileCount = level.fallingTileCount + 1;
+        System.out.println("Falling Tiles "+level.fallingTileCount+" / "+level.fallingTiles.size());
         //level.fallingTiles.remove(this);
         //level.resetTiles.add(this);
     }

@@ -42,7 +42,8 @@ public class Level1 implements Screen {
     ArrayList<Block> blocks = new ArrayList<Block>();
     ArrayList<Sprite> blockSprites = new ArrayList<Sprite>();
 
-    ArrayList<FallingTile> fallingTiles = new ArrayList<FallingTile>();
+    public ArrayList<FallingTile> fallingTiles = new ArrayList<FallingTile>();
+    public int fallingTileCount = 0;
 
     boolean toReset = false;
     boolean travelRoom = false;
@@ -108,6 +109,9 @@ public class Level1 implements Screen {
                     break;
                     case "levels/no_jump_block.png" :
                         tile = new StickyTile(world,input.x,input.y,camera,block.textures[i]);
+                        FallingTile trueTile = (FallingTile)tile;
+                        fallingTiles.add(trueTile);
+                        trueTile.level = this;
                         movableTiles.add(tile);
                     break;
                     case "levels/falling_block.png" :
@@ -161,6 +165,24 @@ public class Level1 implements Screen {
 
 	}
 
+    
+
+    public void resetStage() {
+        toReset = true;
+        for(FallingTile t : fallingTiles) {
+            t.resetPos();
+            System.out.println("resetting block");
+        }  
+    }
+
+    private boolean fallingTileResetComplete() {
+        if (fallingTiles.size() == 0)
+            return true;
+        else if (fallingTileCount >= fallingTiles.size()+1)
+            return true;
+        else
+            return false;
+    }
 
     @Override
 	public void render(float delta) {
@@ -187,7 +209,7 @@ public class Level1 implements Screen {
         //debugRenderer.render(world, camera.combined);
 		world.step(1/60f, 6, 2);
 
-        if (travelRoom && changeRoom != 0) {
+        if (travelRoom && changeRoom != 0 && fallingTileResetComplete()) {
             travelRoom = false;
             LevelInfo[] newLevelData = updateLevelData();
             level_data = newLevelData;
@@ -208,18 +230,22 @@ public class Level1 implements Screen {
             }
         }
 
-        if (toReset) {
+        if (toReset && fallingTileResetComplete()) {
             toReset = false;
             LevelInfo[] newLevelData = updateLevelData();
             level_data = newLevelData;
             game.setScreen(new Level1(game,newLevelData,levelNum,enteredFrom));
         }
 
-        if (Gdx.input.isKeyJustPressed(Keys.C)) {
-            toReset = true;
+        if (Gdx.input.isKeyJustPressed(Keys.R)) {
             for(FallingTile t : fallingTiles) {
                 t.resetPos();
-            }
+                System.out.println("resetting block");
+            } 
+        }
+
+        if (Gdx.input.isKeyJustPressed(Keys.C)) {
+            resetStage(); 
         }
 
         /*
