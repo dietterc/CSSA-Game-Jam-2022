@@ -122,7 +122,7 @@
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level0.tmx": {
             "scale": 0.5,
-            "selectedLayer": 0,
+            "selectedLayer": 4,
             "viewCenter": {
                 "x": 969,
                 "y": 294
@@ -130,7 +130,7 @@
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level1.tmx": {
             "scale": 0.33,
-            "selectedLayer": 4,
+            "selectedLayer": 3,
             "viewCenter": {
                 "x": 1162.121212121212,
                 "y": 478.78787878787887
@@ -138,7 +138,7 @@
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level10.tmx": {
             "scale": 0.33,
-            "selectedLayer": 5,
+            "selectedLayer": -1,
             "viewCenter": {
                 "x": 1428.7878787878788,
                 "y": 721.2121212121212
@@ -146,7 +146,7 @@
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level11.tmx": {
             "scale": 0.25,
-            "selectedLayer": 1,
+            "selectedLayer": -1,
             "viewCenter": {
                 "x": 1290,
                 "y": 1088
@@ -154,7 +154,7 @@
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level12.tmx": {
             "scale": 0.5,
-            "selectedLayer": 5,
+            "selectedLayer": -1,
             "viewCenter": {
                 "x": 895,
                 "y": 312
@@ -162,7 +162,7 @@
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level2.tmx": {
             "scale": 0.5,
-            "selectedLayer": 0,
+            "selectedLayer": -1,
             "viewCenter": {
                 "x": 889,
                 "y": 472
@@ -170,7 +170,7 @@
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level3.tmx": {
             "scale": 0.5,
-            "selectedLayer": 0,
+            "selectedLayer": -1,
             "viewCenter": {
                 "x": 943,
                 "y": 534
@@ -178,7 +178,7 @@
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level4.tmx": {
             "scale": 0.5,
-            "selectedLayer": 0,
+            "selectedLayer": 3,
             "viewCenter": {
                 "x": 869,
                 "y": 542
@@ -186,7 +186,7 @@
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level5.tmx": {
             "scale": 0.5,
-            "selectedLayer": 1,
+            "selectedLayer": -1,
             "viewCenter": {
                 "x": 949,
                 "y": 532
@@ -194,7 +194,7 @@
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level6.tmx": {
             "scale": 0.5,
-            "selectedLayer": 0,
+            "selectedLayer": -1,
             "viewCenter": {
                 "x": 941,
                 "y": 534
@@ -202,7 +202,7 @@
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level7.tmx": {
             "scale": 0.33,
-            "selectedLayer": 0,
+            "selectedLayer": -1,
             "viewCenter": {
                 "x": 537.878787878788,
                 "y": 18.181818181818244
@@ -210,7 +210,7 @@
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level8.tmx": {
             "scale": 0.5,
-            "selectedLayer": 1,
+            "selectedLayer": -1,
             "viewCenter": {
                 "x": 959,
                 "y": 546
@@ -218,7 +218,7 @@
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level9.tmx": {
             "scale": 0.33,
-            "selectedLayer": 1,
+            "selectedLayer": 2,
             "viewCenter": {
                 "x": 1443.939393939394,
                 "y": 633.3333333333334
@@ -252,7 +252,7 @@
             "scale": 0.5650862068965518,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 929.0617848970251,
+                "x": 929.946605644546,
                 "y": 481.3424866514111
             }
         },
@@ -429,6 +429,7 @@
     "project": "Tiled Project ASEC P.tiled-project",
     "property.type": "int",
     "recentFiles": [
+        "C:/Users/super/Desktop/tiled/levels/level0.tmx",
         "C:/Users/super/Desktop/tiled/levels/Final Levels/temp shenanigans/level3.tmx",
         "C:/Users/super/Desktop/tiled/levels/Final Levels/tileset.tsx",
         "C:/Users/super/Desktop/tiled/levels/tileset.tsx",
@@ -439,8 +440,7 @@
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level7.tmx",
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level6.tmx",
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level5.tmx",
-        "C:/Users/super/Desktop/tiled/levels/Final Levels/level4.tmx",
-        "C:/Users/super/Desktop/tiled/levels/Final Levels/level3.tmx"
+        "C:/Users/super/Desktop/tiled/levels/Final Levels/level4.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.type": 1

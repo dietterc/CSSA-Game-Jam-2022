@@ -62,10 +62,12 @@ public class PlayerCollisions {
                             case "starttile" :
                                 trueTravis.level.changeRoom = -1;
                                 System.out.println("changeRoom: "+trueTravis.level.changeRoom);
+                                trueTravis.level.toResetFallingBlocks = true;
                             break;
                             case "endtile" :
                                 trueTravis.level.changeRoom = 1;
                                 System.out.println("changeRoom: "+trueTravis.level.changeRoom);
+                                trueTravis.level.toResetFallingBlocks = true;
                             break;
                             case "sticky" :
                                 trueTravis.sticky = true;

@@ -51,6 +51,7 @@ public class Level1 implements Screen {
 
     boolean toReset = false;
     boolean travelRoom = false;
+    public boolean toResetFallingBlocks = false;
 
     public StartTile startTile;
     public EndTile endTile;
@@ -172,7 +173,7 @@ public class Level1 implements Screen {
             float x = startTile.startX;
             float y = startTile.startY + .5f;
             //System.out.println("x: " + x + " y: " + y);
-
+            
             player = new Player(world,x,y,camera);
         }
         else {
@@ -259,12 +260,18 @@ public class Level1 implements Screen {
         Player.storedBlock = null;
     }
 
+    public void resetFallingBlocks() {
+        if (fallingTiles.size() > 0) {
+            for(FallingTile t : fallingTiles) {
+                t.resetPos();
+            }
+        }
+    }
+
 
     public void resetStage() {
         toReset = true;
-        for(FallingTile t : fallingTiles) {
-            t.resetPos();
-        }  
+        resetFallingBlocks();
     }
 
     private boolean fallingTileResetComplete() {
@@ -304,6 +311,7 @@ public class Level1 implements Screen {
             if (Gdx.input.isButtonJustPressed(Buttons.RIGHT)) {
                 System.out.println("YEs");
                 unstoreBlock();
+                player.setSprite("none");
             }
         }
 
@@ -335,9 +343,7 @@ public class Level1 implements Screen {
         if (Gdx.input.isKeyJustPressed(Keys.E)) {
             if (changeRoom != 0 && Player.storedBlock != null) {
                 travelRoom = true;
-                for(FallingTile t : fallingTiles) {
-                    t.resetPos();
-                }
+                resetFallingBlocks();
             }
         }
 
@@ -359,6 +365,11 @@ public class Level1 implements Screen {
         if (Gdx.input.isKeyJustPressed(Keys.C) || resetFromSpikeCollision) {
             resetFromSpikeCollision = false;
             resetStage(); 
+        }
+
+        if (toResetFallingBlocks) {
+            toResetFallingBlocks = false;
+            resetFallingBlocks();
         }
 
         /*

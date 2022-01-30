@@ -104,10 +104,6 @@
  <objectgroup id="6" name="gravity">
   <object id="111" gid="14" x="1856" y="-256" width="64" height="64"/>
  </objectgroup>
- <objectgroup id="5" name="block3">
-  <object id="17" gid="11" x="640" y="960" width="64" height="64"/>
-  <object id="18" gid="11" x="576" y="960" width="64" height="64"/>
- </objectgroup>
  <objectgroup id="3" name="block1">
   <object id="7" gid="11" x="320" y="960" width="64" height="64"/>
   <object id="8" gid="11" x="384" y="960" width="64" height="64"/>

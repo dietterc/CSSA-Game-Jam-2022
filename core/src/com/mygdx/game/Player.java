@@ -61,6 +61,9 @@ public class Player {
 
     public static Block storedBlock;
 
+    private Sprite crabPlain;
+    private Sprite crabBag;
+
     public Player(World world,float startX, float startY, OrthographicCamera c) {
         
         camera = c;
@@ -81,15 +84,33 @@ public class Player {
         fixtureDef.restitution = 0.0f;
         Fixture fixture = physicsBody.createFixture(fixtureDef);
 
-        bodySprite = new Sprite(new Texture(Gdx.files.internal("space_crab.png")));
-        bodySprite.setBounds(0, 0, 1f, 1f);
-        bodySprite.setOriginCenter();        
+        crabPlain = new Sprite(new Texture(Gdx.files.internal("space_crab.png")));
+        crabPlain.setBounds(0, 0, 1f, 1f);
+        crabPlain.setOriginCenter(); 
+        //crabPlain.set(new Sprite(new Texture(Gdx.files.internal("space_crab.png"))));
+        crabBag = new Sprite(new Texture(Gdx.files.internal("space_crab_withbag.png")));
+        crabBag.setBounds(0, 0, 1f, 1f);
+        crabBag.setOriginCenter(); 
+        if (storedBlock != null)
+            setSprite("bag");
+        else
+            setSprite("none");
+
+        //bodySprite = crabPlain;
+        //bodySprite.setBounds(0, 0, 1f, 1f);
+        //bodySprite.setOriginCenter();        
 
         physicsBody.setUserData(this);
 
     }
 
-    
+    public void setSprite(String sprite) {
+        if (sprite == "bag") {
+            bodySprite = crabBag;
+        } else if (sprite == "none") {
+            bodySprite = crabPlain;
+        }
+    }
 
     public void setEditMode(boolean val) {
         editMode = val;
@@ -152,6 +173,7 @@ public class Player {
         }
         
     }   
+    
 
     private void updateVars() {
         speed = physicsBody.getLinearVelocity();
@@ -268,6 +290,11 @@ public class Player {
         }
         //DEBUGGING!! Remove these later ----------
         debugGravityChange();
+
+        if (Gdx.input.isKeyJustPressed(Keys.T)) {
+            System.out.println("bag");
+            setSprite("bag");
+        }
         //-----------------------------------------
     }
     
