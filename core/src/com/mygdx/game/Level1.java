@@ -353,7 +353,7 @@ public class Level1 implements Screen {
                 //DEBUGGING
                 //else if (levelNum > 0) {
                     System.out.println("To End Menu");
-                    game.setScreen(new EndMenu(game,newLevelData,Player.storedBlock));
+                    game.setScreen(new EndMenu(game,newLevelData));
                 }
                 else game.setScreen(new Level1(game,newLevelData,levelNum,changeRoom));
             }
