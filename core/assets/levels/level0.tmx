@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="29" height="15" tilewidth="64" tileheight="64" infinite="0" nextlayerid="8" nextobjectid="215">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="29" height="15" tilewidth="64" tileheight="64" infinite="0" nextlayerid="11" nextobjectid="218">
  <tileset firstgid="1" source="tileset.tsx"/>
  <objectgroup id="2" name="static">
   <object id="1" gid="10" x="128" y="512" width="64" height="64"/>
@@ -100,6 +100,15 @@
   <object id="212" gid="16" x="1856" y="0" width="64" height="64"/>
   <object id="213" gid="16" x="-64" y="0" width="64" height="64"/>
   <object id="214" gid="16" x="-64" y="-64" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup id="8" name="block2000">
+  <object id="215" gid="7" x="640" y="512" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup id="9" name="block3000">
+  <object id="216" gid="1" x="768" y="512" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup id="10" name="block4000">
+  <object id="217" gid="9" x="896" y="512" width="64" height="64"/>
  </objectgroup>
  <objectgroup id="7" name="gravity">
   <object id="210" gid="14" x="1472" y="-256" width="64" height="64"/>
