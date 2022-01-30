@@ -1,5 +1,6 @@
 package com.mygdx.game;
 
+import java.lang.System.Logger.Level;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
@@ -23,10 +24,10 @@ public class Tile {
 
     public Body physicsBody;
     private Camera camera;
-    private Sprite bodySprite;
+    public Sprite bodySprite;
     private Sprite movingSprite;
     public Block myBlock;
-    private World world;
+    public World world;
 
     private boolean moving;
     private boolean mouseReleased;
@@ -34,6 +35,8 @@ public class Tile {
 
     public float diffX;
     public float diffY;
+
+    public Texture texture;
 
     public String label = "block";
 
@@ -54,6 +57,8 @@ public class Tile {
 
         physicsBody = createPhysicsBody(startX,startY,this);
         /*
+        this.texture = texture;
+
         BodyDef groundBodyDef = new BodyDef();
         groundBodyDef.position.set(startX,startY);
 
@@ -101,7 +106,6 @@ public class Tile {
         groundBodyDef.position.set(startX,startY);
 
         physicsBody = world.createBody(groundBodyDef);
-        physicsBody.setUserData(this);
         PolygonShape groundBox = new PolygonShape();
         groundBox.setAsBox(PHYISCS_DIM,PHYISCS_DIM);
         physicsBody.createFixture(groundBox, 0.0f);
@@ -117,6 +121,11 @@ public class Tile {
         //movingSprite.setColor(.5f, .5f, .5f, 1);
         */
         
+    }
+
+    public Tile(Tile oldTile) {
+        this(oldTile.world, oldTile.bodySprite.getX(), oldTile.bodySprite.getY(), oldTile.camera, oldTile.texture);
+
     }
 
     public void becomeSensor() {
@@ -185,6 +194,9 @@ public class Tile {
 
                     myBlock.tiles[i].physicsBody = world.createBody(groundBodyDef);
                     myBlock.tiles[i].physicsBody.setUserData(myBlock.tiles[i]);
+                    world.destroyBody(myBlock.tiles[i].physicsBody);
+
+                    myBlock.tiles[i].physicsBody = world.createBody(groundBodyDef);
                     PolygonShape groundBox = new PolygonShape();
                     groundBox.setAsBox(PHYISCS_DIM,PHYISCS_DIM);
                     myBlock.tiles[i].physicsBody.createFixture(groundBox, 0.0f);
