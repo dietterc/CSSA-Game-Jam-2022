@@ -130,26 +130,26 @@
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level1.tmx": {
             "scale": 0.33,
-            "selectedLayer": 1,
+            "selectedLayer": 4,
             "viewCenter": {
                 "x": 1162.121212121212,
                 "y": 478.78787878787887
             }
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level10.tmx": {
-            "scale": 0.5650862068965518,
-            "selectedLayer": 4,
+            "scale": 0.33,
+            "selectedLayer": 5,
             "viewCenter": {
-                "x": 929.946605644546,
-                "y": 479.57284515636917
+                "x": 1428.7878787878788,
+                "y": 721.2121212121212
             }
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level11.tmx": {
-            "scale": 0.5650862068965518,
-            "selectedLayer": 0,
+            "scale": 0.25,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 800.7627765064836,
-                "y": 329.1533180778032
+                "x": 1290,
+                "y": 1088
             }
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level12.tmx": {
@@ -186,7 +186,7 @@
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level5.tmx": {
             "scale": 0.5,
-            "selectedLayer": 0,
+            "selectedLayer": 1,
             "viewCenter": {
                 "x": 949,
                 "y": 532
@@ -205,7 +205,7 @@
             "selectedLayer": 0,
             "viewCenter": {
                 "x": 537.878787878788,
-                "y": 21.212121212121247
+                "y": 18.181818181818244
             }
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level8.tmx": {
@@ -217,11 +217,11 @@
             }
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/level9.tmx": {
-            "scale": 0.5650862068965518,
-            "selectedLayer": 0,
+            "scale": 0.33,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 1119.298245614035,
-                "y": 330.9229595728451
+                "x": 1443.939393939394,
+                "y": 633.3333333333334
             }
         },
         "C:/Users/super/Desktop/tiled/levels/Final Levels/temp shenanigans/level3.tmx": {
