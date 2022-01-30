@@ -47,6 +47,9 @@ public class Level1 implements Screen {
 
     boolean toReset = false;
 
+    public StartTile startTile;
+    public EndTile endTile;
+
 
 	public Level1(final MyGdxGame game, LevelInfo[] level_d, int num) {
 		this.game = game;
@@ -87,12 +90,14 @@ public class Level1 implements Screen {
                 Tile tile;
                 
                 switch (((FileTextureData)block.textures[i].getTextureData()).getFileHandle().path()) {
-                    //case "levels/start_block.png" :
-                        
-                    //break;
-                    //case "levels/end_block.png" :
-
-                    //break;
+                    case "levels/start_block.png" :
+                        tile = new StartTile(world,input.x,input.y,camera,block.textures[i]);
+                        startTile = (StartTile)tile;
+                    break;
+                    case "levels/end_block.png" :
+                        tile = new EndTile(world,input.x,input.y,camera,block.textures[i]);
+                        endTile = (EndTile)tile;
+                    break;
                     case "levels/spring_block.png" :
                         tile = new BouncyTile(world,input.x,input.y,camera,block.textures[i]);
                     break;
@@ -104,6 +109,9 @@ public class Level1 implements Screen {
                         FallingTile trueTile = (FallingTile)tile;
                         trueTile.level = this;
                         fallingTiles.add((FallingTile)tile);
+                    break;
+                    case "levels/spike_tile.png" :
+                        tile = new Spike(world,input.x,input.y,camera,block.textures[i]);
                     break;
                     default:
                         tile = new Tile(world,input.x,input.y,camera,block.textures[i]);
