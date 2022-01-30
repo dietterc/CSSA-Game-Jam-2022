@@ -31,6 +31,7 @@ public class Tile {
 
     private boolean moving;
     private boolean mouseReleased;
+    private boolean mouseReleasedRight;
     private boolean otherMoving;
 
     public boolean canTouchme;
@@ -55,7 +56,8 @@ public class Tile {
         world = w;
 
         moving = false;
-        mouseReleased = true;
+        mouseReleased = false;
+        mouseReleasedRight = false;
         otherMoving = false;
         canTouchme = true;
 
@@ -66,9 +68,9 @@ public class Tile {
         this.startY = startY;
 
         physicsBody = createPhysicsBody(startX,startY,this);
-        /*
+        
         this.texture = texture;
-
+        /*
         BodyDef groundBodyDef = new BodyDef();
         groundBodyDef.position.set(startX,startY);
 
@@ -166,12 +168,13 @@ public class Tile {
     //called every iteration of render
     public void step() {
 
-        if(!Gdx.input.isTouched()){
+        if(!Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)){
             mouseReleased = true;
+            mouseReleasedRight = true;
         }
 
         if(!moving && mouseReleased && canTouchme) {
-            if (Gdx.input.justTouched()) {
+            if (Gdx.input.isButtonJustPressed(Buttons.LEFT)) {
                 int x1 = Gdx.input.getX();
                 int y1 = Gdx.input.getY();
                 Vector3 input = new Vector3(x1, y1, 0);
@@ -194,7 +197,7 @@ public class Tile {
             }
         }
         else {
-            if (Gdx.input.isTouched() && mouseReleased && canTouchme) {
+            if (Gdx.input.isButtonPressed(Buttons.LEFT) && mouseReleased && canTouchme) {
                 moving = false;
                 mouseReleased = false;
 
@@ -234,10 +237,30 @@ public class Tile {
             }
         }
 
-        if(Gdx.input.isKeyJustPressed(Buttons.RIGHT) && canTouchme) {
-
+        if(!moving && mouseReleased && canTouchme) {
+            if (Gdx.input.isButtonJustPressed(Buttons.RIGHT)) {
+                int x1 = Gdx.input.getX();
+                int y1 = Gdx.input.getY();
+                Vector3 input = new Vector3(x1, y1, 0);
+                camera.unproject(input);
+                //Now you can use input.x and input.y, as opposed to x1 and y1, to determine if the moving
+                //sprite has been clicked
+                if(bodySprite.getBoundingRectangle().contains(input.x, input.y)) {
+                    
+                    if(Player.storedBlock == null) {
+                        for(int i=0;i<myBlock.tiles.length;i++){
             
+                            myBlock.tiles[i].diffX = myBlock.tiles[i].bodySprite.getX() - bodySprite.getX();
+                            myBlock.tiles[i].diffY = myBlock.tiles[i].bodySprite.getY() - bodySprite.getY();
+                            //System.out.println("Y: " + myBlock.tiles[i].diffY);
+                        }
+                        level.storeBlock(myBlock);
+                        System.out.println("Yes");
+                    }
+                    mouseReleased = false;
+                }
 
+            }
         }
 
     }
