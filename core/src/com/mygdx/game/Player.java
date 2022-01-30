@@ -167,12 +167,30 @@ public class Player {
     }
 
     private void manageGravity() {
+        if (level.gravityTiles.size() > 0) {
+            boolean toChange = false;
+            for(GravityUp g: level.gravityTiles) {
+                if(bodySprite.getBoundingRectangle().contains(g.getPosition())) {
+                    toChange = true;
+                }
+                //if (toChange)
+                //    break;
+            }
+            if (toChange) {
+                gravityDirection = "up";
+                System.out.println("Gravity Up");
+            } else {
+                gravityDirection = "down";
+                System.out.println("Gravity Down");
+            }
+        }
+        /*
         if (resumeGravityDown == 0){
             resumeGravityDown --;
             gravityDirection = "down";
         } else if (resumeGravityDown > 0) {
             resumeGravityDown --;
-        }
+        }*/
     }
 
     private void checkFalling() {

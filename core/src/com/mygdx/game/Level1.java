@@ -42,6 +42,8 @@ public class Level1 implements Screen {
     ArrayList<Block> blocks = new ArrayList<Block>();
     ArrayList<Sprite> blockSprites = new ArrayList<Sprite>();
 
+    public ArrayList<GravityUp> gravityTiles = new ArrayList<GravityUp>();
+
     public ArrayList<FallingTile> fallingTiles = new ArrayList<FallingTile>();
     public int fallingTileCount = 0;
 
@@ -126,7 +128,7 @@ public class Level1 implements Screen {
                         trueTile.level = this;
                         movableTiles.add(tile);
                     break;
-                    case "level/invisible_spike.png" :
+                    case "levels/invisible_spike.png" :
                         tile = new Spike(world,input.x,input.y,camera,block.textures[i],this);
                         tile.setTouchable(false);
                     break;
@@ -139,8 +141,9 @@ public class Level1 implements Screen {
                         tile.setTouchable(false);
                     break;
                     case "levels/gravity_zone.png" :
-                        tile = new GravityUp(world,input.x,input.y,camera,block.textures[i],this);
+                        tile = new GravityUp(world,input.x,input.y,camera,block.textures[i],this,player);
                         tile.setTouchable(false);
+                        gravityTiles.add((GravityUp)tile);
                     break;
                     default:
                         tile = new Tile(world,input.x,input.y,camera,block.textures[i],this);

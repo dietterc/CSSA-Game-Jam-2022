@@ -96,11 +96,11 @@ public class PlayerCollisions {
                                 //trueTravis.sliderright;
                                 System.out.println("----->");
                             break; 
-                            case "gravityup" :
+                            /*case "gravityup" :
                                 trueTravis.gravityDirection = "up";
                                 trueTravis.resumeGravityDown = -1;
                                 System.out.println("Up We Go");
-                            break;
+                            break;*/
                             case "spike" :
                                 /*
                                 //call reset method?
@@ -167,10 +167,10 @@ public class PlayerCollisions {
                                 //trueTravis.sliderright;
                                 System.out.println("--x-->");
                             break;
-                            case "gravityup" :
+                            /*case "gravityup" :
                                 trueTravis.resumeGravityDown = 2;
                                 System.out.println("Fall timer reset");
-                            break;
+                            break;*/
                             //since the case resets, and probably calls a method, it shouldnt need an end case
                             //case "spike" :
                                 //call reset method?
