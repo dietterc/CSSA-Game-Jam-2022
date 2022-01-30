@@ -130,7 +130,6 @@ public class PlayerCollisions {
                     
 
                     if (travis != null && travis.getBody().getUserData() instanceof Player) {
-                        System.out.println("Passed null check");
                         Player trueTravis = (Player) travis.getBody().getUserData();
                         Tile trueOther = (Tile) other.getBody().getUserData();
                         switch (trueOther.label) {
