@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="29" height="15" tilewidth="64" tileheight="64" infinite="0" nextlayerid="9" nextobjectid="466">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="29" height="15" tilewidth="64" tileheight="64" infinite="0" nextlayerid="10" nextobjectid="468">
  <tileset firstgid="1" source="tileset.tsx"/>
  <objectgroup id="5" name="gravity">
   <object id="78" gid="14" x="320" y="64" width="64" height="64"/>
@@ -266,8 +266,6 @@
   <object id="67" gid="8" x="1152" y="768" width="64" height="64"/>
   <object id="68" gid="2" x="512" y="192" width="64" height="64"/>
   <object id="69" gid="2" x="576" y="192" width="64" height="64"/>
-  <object id="70" gid="2" x="1152" y="192" width="64" height="64"/>
-  <object id="71" gid="2" x="1216" y="192" width="64" height="64"/>
   <object id="72" gid="2" x="512" y="832" width="64" height="64">
    <properties>
     <property name="rotation" type="int" value="180"/>
@@ -288,7 +286,7 @@
     <property name="rotation" type="int" value="180"/>
    </properties>
   </object>
-  <object id="76" gid="6" x="1664" y="320" width="64" height="64"/>
+  <object id="76" gid="6" x="1600" y="320" width="64" height="64"/>
   <object id="339" gid="16" x="0" y="-128" width="64" height="64"/>
   <object id="340" gid="16" x="64" y="-128" width="64" height="64"/>
   <object id="341" gid="16" x="128" y="-128" width="64" height="64"/>
@@ -393,10 +391,10 @@
   <object id="77" gid="1" x="256" y="960" width="64" height="64"/>
  </objectgroup>
  <objectgroup id="8" name="block4">
-  <object id="338" gid="7" x="1536" y="320" width="64" height="64"/>
+  <object id="338" gid="7" x="1472" y="320" width="64" height="64"/>
  </objectgroup>
  <objectgroup id="6" name="block2">
-  <object id="336" gid="7" x="1600" y="320" width="64" height="64"/>
+  <object id="336" gid="7" x="1536" y="320" width="64" height="64"/>
  </objectgroup>
  <objectgroup id="7" name="block3">
   <object id="337" gid="1" x="0" y="960" width="64" height="64"/>
