@@ -39,6 +39,7 @@ public class Player {
 
     private Float gravityStrength = -40f;
     public String gravityDirection = "down";
+    public int resumeGravityDown = -1;
 
     private Float fallingThreshold = 1f;
     public Boolean landed = false;
@@ -87,6 +88,8 @@ public class Player {
         physicsBody.setUserData(this);
 
     }
+
+    
 
     public void setEditMode(boolean val) {
         editMode = val;
@@ -157,16 +160,26 @@ public class Player {
         //updateLanded();
         if (gravityDirection != "up" && gravityDirection != "down" && gravityDirection != "left" && gravityDirection != "right") {
             gravityDirection = "down";
-            System.out.println("Invalid Gravity Direction! Setting to Down");
+            //System.out.println("Invalid Gravity Direction! Setting to Down");
         }
+        manageGravity();
         
+    }
+
+    private void manageGravity() {
+        if (resumeGravityDown == 0){
+            resumeGravityDown --;
+            gravityDirection = "down";
+        } else if (resumeGravityDown > 0) {
+            resumeGravityDown --;
+        }
     }
 
     private void checkFalling() {
         if (!landedOnFalling) {
             if (speed.y < -fallingThreshold || speed.y > fallingThreshold) {
                 landed = false;
-                System.out.println("checkFalling Landed: "+landed);
+                //System.out.println("checkFalling Landed: "+landed);
             }
         }
     }
@@ -260,10 +273,10 @@ public class Player {
     private void manageMovement() {
         if (!editMode) {
             if (Gdx.input.isKeyJustPressed(Keys.SPACE) && (landed || landedOnFalling) && jumping == 0 && !sticky) {
-                System.out.println("Landed: "+landed);
-                System.out.println("Landed on Falling: "+landedOnFalling);
+                //System.out.println("Landed: "+landed);
+                //System.out.println("Landed on Falling: "+landedOnFalling);
                 jumping = baseJumpStrength;
-                System.out.println("Is Stick? "+sticky);
+                //System.out.println("Is Stick? "+sticky);
                 //physicsBody.applyLinearImpulse(0f,jumping,pos.x,pos.y,true);
             }
 
