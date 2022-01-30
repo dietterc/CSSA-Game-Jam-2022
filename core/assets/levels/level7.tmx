@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="29" height="15" tilewidth="64" tileheight="64" infinite="0" nextlayerid="8" nextobjectid="218">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="29" height="15" tilewidth="64" tileheight="64" infinite="0" nextlayerid="8" nextobjectid="290">
  <tileset firstgid="1" source="tileset.tsx"/>
  <objectgroup id="6" name="gravity">
   <object id="32" gid="14" x="896" y="64" width="64" height="64"/>
@@ -77,6 +77,16 @@
   <object id="104" gid="14" x="1024" y="960" width="64" height="64"/>
   <object id="105" gid="14" x="1088" y="960" width="64" height="64"/>
   <object id="106" gid="14" x="1152" y="960" width="64" height="64"/>
+  <object id="280" gid="14" x="896" y="0" width="64" height="64"/>
+  <object id="281" gid="14" x="896" y="-64" width="64" height="64"/>
+  <object id="282" gid="14" x="960" y="-64" width="64" height="64"/>
+  <object id="283" gid="14" x="960" y="0" width="64" height="64"/>
+  <object id="284" gid="14" x="1024" y="0" width="64" height="64"/>
+  <object id="285" gid="14" x="1024" y="-64" width="64" height="64"/>
+  <object id="286" gid="14" x="1088" y="-64" width="64" height="64"/>
+  <object id="287" gid="14" x="1088" y="0" width="64" height="64"/>
+  <object id="288" gid="14" x="1152" y="0" width="64" height="64"/>
+  <object id="289" gid="14" x="1152" y="-64" width="64" height="64"/>
  </objectgroup>
  <objectgroup id="2" name="static">
   <object id="1" gid="10" x="320" y="192" width="64" height="64"/>
@@ -109,36 +119,6 @@
   <object id="115" gid="8" x="512" y="256" width="64" height="64"/>
   <object id="118" gid="8" x="576" y="384" width="64" height="64"/>
   <object id="121" gid="8" x="576" y="448" width="64" height="64"/>
-  <object id="126" gid="16" x="0" y="0" width="64" height="64"/>
-  <object id="127" gid="16" x="64" y="0" width="64" height="64"/>
-  <object id="128" gid="16" x="128" y="0" width="64" height="64"/>
-  <object id="129" gid="16" x="192" y="0" width="64" height="64"/>
-  <object id="130" gid="16" x="256" y="0" width="64" height="64"/>
-  <object id="131" gid="16" x="320" y="0" width="64" height="64"/>
-  <object id="132" gid="16" x="384" y="0" width="64" height="64"/>
-  <object id="133" gid="16" x="448" y="0" width="64" height="64"/>
-  <object id="134" gid="16" x="512" y="0" width="64" height="64"/>
-  <object id="135" gid="16" x="576" y="0" width="64" height="64"/>
-  <object id="136" gid="16" x="640" y="0" width="64" height="64"/>
-  <object id="137" gid="16" x="704" y="0" width="64" height="64"/>
-  <object id="138" gid="16" x="768" y="0" width="64" height="64"/>
-  <object id="139" gid="16" x="832" y="0" width="64" height="64"/>
-  <object id="140" gid="16" x="896" y="0" width="64" height="64"/>
-  <object id="141" gid="16" x="960" y="0" width="64" height="64"/>
-  <object id="142" gid="16" x="1024" y="0" width="64" height="64"/>
-  <object id="143" gid="16" x="1088" y="0" width="64" height="64"/>
-  <object id="144" gid="16" x="1152" y="0" width="64" height="64"/>
-  <object id="145" gid="16" x="1216" y="0" width="64" height="64"/>
-  <object id="146" gid="16" x="1280" y="0" width="64" height="64"/>
-  <object id="147" gid="16" x="1344" y="0" width="64" height="64"/>
-  <object id="148" gid="16" x="1472" y="0" width="64" height="64"/>
-  <object id="149" gid="16" x="1408" y="0" width="64" height="64"/>
-  <object id="150" gid="16" x="1536" y="0" width="64" height="64"/>
-  <object id="151" gid="16" x="1600" y="0" width="64" height="64"/>
-  <object id="152" gid="16" x="1664" y="0" width="64" height="64"/>
-  <object id="153" gid="16" x="1728" y="0" width="64" height="64"/>
-  <object id="154" gid="16" x="1792" y="0" width="64" height="64"/>
-  <object id="155" gid="16" x="1856" y="0" width="64" height="64"/>
   <object id="156" gid="16" x="1856" y="64" width="64" height="64"/>
   <object id="157" gid="16" x="1856" y="128" width="64" height="64"/>
   <object id="158" gid="16" x="1856" y="192" width="64" height="64"/>
@@ -200,7 +180,50 @@
   <object id="214" gid="16" x="-64" y="192" width="64" height="64"/>
   <object id="215" gid="16" x="-64" y="128" width="64" height="64"/>
   <object id="216" gid="16" x="-64" y="64" width="64" height="64"/>
-  <object id="217" gid="16" x="-64" y="0" width="64" height="64"/>
+  <object id="236" gid="8" x="640" y="0" width="64" height="64"/>
+  <object id="237" gid="8" x="640" y="-64" width="64" height="64"/>
+  <object id="238" gid="8" x="576" y="-64" width="64" height="64"/>
+  <object id="239" gid="8" x="576" y="0" width="64" height="64"/>
+  <object id="240" gid="8" x="512" y="0" width="64" height="64"/>
+  <object id="241" gid="8" x="512" y="-64" width="64" height="64"/>
+  <object id="242" gid="8" x="448" y="-64" width="64" height="64"/>
+  <object id="243" gid="8" x="448" y="0" width="64" height="64"/>
+  <object id="244" gid="16" x="-64" y="0" width="64" height="64"/>
+  <object id="245" gid="16" x="-64" y="-64" width="64" height="64"/>
+  <object id="246" gid="16" x="-64" y="-128" width="64" height="64"/>
+  <object id="247" gid="16" x="0" y="-128" width="64" height="64"/>
+  <object id="248" gid="16" x="64" y="-128" width="64" height="64"/>
+  <object id="249" gid="16" x="128" y="-128" width="64" height="64"/>
+  <object id="250" gid="16" x="192" y="-128" width="64" height="64"/>
+  <object id="251" gid="16" x="320" y="-128" width="64" height="64"/>
+  <object id="252" gid="16" x="384" y="-128" width="64" height="64"/>
+  <object id="253" gid="16" x="448" y="-128" width="64" height="64"/>
+  <object id="254" gid="16" x="512" y="-128" width="64" height="64"/>
+  <object id="255" gid="16" x="576" y="-128" width="64" height="64"/>
+  <object id="256" gid="16" x="640" y="-128" width="64" height="64"/>
+  <object id="257" gid="16" x="704" y="-128" width="64" height="64"/>
+  <object id="258" gid="16" x="768" y="-128" width="64" height="64"/>
+  <object id="259" gid="16" x="832" y="-128" width="64" height="64"/>
+  <object id="260" gid="16" x="896" y="-128" width="64" height="64"/>
+  <object id="261" gid="16" x="1024" y="-128" width="64" height="64"/>
+  <object id="262" gid="16" x="960" y="-128" width="64" height="64"/>
+  <object id="263" gid="16" x="1088" y="-128" width="64" height="64"/>
+  <object id="264" gid="16" x="1152" y="-128" width="64" height="64"/>
+  <object id="265" gid="16" x="1280" y="-128" width="64" height="64"/>
+  <object id="266" gid="16" x="1216" y="-128" width="64" height="64"/>
+  <object id="267" gid="16" x="1344" y="-128" width="64" height="64"/>
+  <object id="268" gid="16" x="1408" y="-128" width="64" height="64"/>
+  <object id="269" gid="16" x="1472" y="-128" width="64" height="64"/>
+  <object id="270" gid="16" x="1536" y="-128" width="64" height="64"/>
+  <object id="271" gid="16" x="1600" y="-128" width="64" height="64"/>
+  <object id="272" gid="16" x="1664" y="-128" width="64" height="64"/>
+  <object id="273" gid="16" x="1728" y="-128" width="64" height="64"/>
+  <object id="274" gid="16" x="1792" y="-128" width="64" height="64"/>
+  <object id="275" gid="16" x="1856" y="-128" width="64" height="64"/>
+  <object id="276" gid="16" x="1920" y="-64" width="64" height="64"/>
+  <object id="277" gid="16" x="1856" y="-64" width="64" height="64"/>
+  <object id="278" gid="16" x="1856" y="64" width="64" height="64"/>
+  <object id="279" gid="16" x="1856" y="0" width="64" height="64"/>
  </objectgroup>
  <objectgroup id="4" name="block1">
   <object id="18" gid="1" x="320" y="576" width="64" height="64">

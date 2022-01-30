@@ -126,7 +126,7 @@ public class Level1 implements Screen {
                         trueTile.level = this;
                         movableTiles.add(tile);
                     break;
-                    case "level/invisible_spike.png" :
+                    case "levels/invisible_spike.png" :
                         tile = new Spike(world,input.x,input.y,camera,block.textures[i],this);
                         tile.setTouchable(false);
                     break;
