@@ -335,7 +335,7 @@ public class Level1 implements Screen {
             tiles.get(i).step();
         }
 
-        debugRenderer.render(world, camera.combined);
+        //debugRenderer.render(world, camera.combined);
 		world.step(1/60f, 6, 2);
 
 
