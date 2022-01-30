@@ -26,6 +26,7 @@ public class Tile {
     private Sprite bodySprite;
     private Sprite movingSprite;
     private Block myBlock;
+    private World world;
 
     private boolean moving;
     private boolean mouseReleased;
@@ -42,6 +43,7 @@ public class Tile {
 
         camera = c;
         myBlock = null;
+        world = w;
 
         moving = false;
         mouseReleased = true;
@@ -50,16 +52,18 @@ public class Tile {
         diffX = 0f;
         diffY = 0f;
 
+        physicsBody = createPhysicsBody(startX,startY,this);
+        /*
         BodyDef groundBodyDef = new BodyDef();
         groundBodyDef.position.set(startX,startY);
 
-        physicsBody = Level1.world.createBody(groundBodyDef);
+        physicsBody = world.createBody(groundBodyDef);
         physicsBody.setUserData(this);
         PolygonShape groundBox = new PolygonShape();
         groundBox.setAsBox(PHYISCS_DIM,PHYISCS_DIM);
         physicsBody.createFixture(groundBox, 0.0f);
         groundBox.dispose();
-
+        */
         bodySprite = new Sprite(texture);
         bodySprite.setBounds(0, 0, SPRITE_DIM, SPRITE_DIM);
         bodySprite.setOriginCenter();
@@ -71,10 +75,15 @@ public class Tile {
         
     }
 
-    public Tile(World w,float startX, float startY, Camera c, Texture texture, String label) {
+    public Tile(World w,float startX, float startY, Camera c, Texture texture, String newlabel) {
+        this(w, startX, startY, c, texture);
+        label = newlabel;
 
+        
+        /*
         camera = c;
         myBlock = null;
+        world = w;
 
         moving = false;
         mouseReleased = true;
@@ -82,17 +91,22 @@ public class Tile {
 
         diffX = 0f;
         diffY = 0f;
+        
+        
 
+        physicsBody = createPhysicsBody(startX,startY,this);
+
+        /*
         BodyDef groundBodyDef = new BodyDef();
         groundBodyDef.position.set(startX,startY);
 
-        physicsBody = Level1.world.createBody(groundBodyDef);
+        physicsBody = world.createBody(groundBodyDef);
         physicsBody.setUserData(this);
         PolygonShape groundBox = new PolygonShape();
         groundBox.setAsBox(PHYISCS_DIM,PHYISCS_DIM);
         physicsBody.createFixture(groundBox, 0.0f);
         groundBox.dispose();
-
+        
         bodySprite = new Sprite(texture);
         bodySprite.setBounds(0, 0, SPRITE_DIM, SPRITE_DIM);
         bodySprite.setOriginCenter();
@@ -101,8 +115,7 @@ public class Tile {
         movingSprite.setBounds(0, 0, SPRITE_DIM, SPRITE_DIM);
         movingSprite.setOriginCenter();
         //movingSprite.setColor(.5f, .5f, .5f, 1);
-
-        this.label = label;
+        */
         
     }
 
@@ -158,29 +171,54 @@ public class Tile {
 
                 for(int i=0;i<myBlock.tiles.length;i++) {
                     myBlock.tiles[i].bodySprite.setAlpha(1);
-
+                    /*
                     BodyDef groundBodyDef = new BodyDef();
                     groundBodyDef.position.set(input.x + myBlock.tiles[i].diffX,input.y + myBlock.tiles[i].diffY);
                     System.out.println("X: " + myBlock.tiles[i].diffX);
 
-                    Level1.world.destroyBody(myBlock.tiles[i].physicsBody);
+                    
 
-                    myBlock.tiles[i].physicsBody = Level1.world.createBody(groundBodyDef);
+                    
+
+                    world.destroyBody(myBlock.tiles[i].physicsBody);
+                    System.out.println("no delete cuz I'm stupid");
+
+                    myBlock.tiles[i].physicsBody = world.createBody(groundBodyDef);
                     myBlock.tiles[i].physicsBody.setUserData(myBlock.tiles[i]);
                     PolygonShape groundBox = new PolygonShape();
                     groundBox.setAsBox(PHYISCS_DIM,PHYISCS_DIM);
                     myBlock.tiles[i].physicsBody.createFixture(groundBox, 0.0f);
                     groundBox.dispose();
-
+                    */
+                    myBlock.tiles[i].physicsBody = createPhysicsBody(input.x + myBlock.tiles[i].diffX,input.y + myBlock.tiles[i].diffY,myBlock.tiles[i]);
                 } 
 
             }
         }
 
     }
+
+    public Body createPhysicsBody(float x, float y, Tile userData) {
+
+        BodyDef groundBodyDef = new BodyDef();
+        groundBodyDef.position.set(x,y);
+        if (userData.physicsBody != null) {
+            world.destroyBody(userData.physicsBody);
+        }
+        Body toReturn = world.createBody(groundBodyDef);
+        toReturn.setUserData(userData);
+        PolygonShape groundBox = new PolygonShape();
+        groundBox.setAsBox(PHYISCS_DIM,PHYISCS_DIM);
+        toReturn.createFixture(groundBox, 0.0f);
+        groundBox.dispose();
+        return toReturn;
+    }
     
     public void draw(SpriteBatch batch) {
-        Vector2 worldPos = physicsBody.getPosition();
+        Vector2 worldPos = new Vector2(1000,1000);
+        if (physicsBody != null) {
+            worldPos = physicsBody.getPosition();
+        }
 
         bodySprite.setPosition(worldPos.x - (bodySprite.getWidth() / 2), worldPos.y - (bodySprite.getHeight() / 2));
         bodySprite.draw(batch);

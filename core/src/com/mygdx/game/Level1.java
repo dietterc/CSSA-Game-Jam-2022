@@ -37,7 +37,7 @@ public class Level1 implements Screen {
     final float HEIGHT = 11.25f;
 
 	OrthographicCamera camera;
-    static World world;
+    World world;
     Box2DDebugRenderer debugRenderer;
     Body body;
     Player player;
@@ -84,14 +84,14 @@ public class Level1 implements Screen {
                 float y1 = block.blockPoints[i].y;
                 Vector3 input = new Vector3(x1, y1, 0);
                 camera.unproject(input);
-                Tile tile = new Tile(world,input.x,input.y,camera,block.textures[i]);
+                Tile tile;
                 switch (((FileTextureData)block.textures[i].getTextureData()).getFileHandle().path()) {
-                    case "levels/start_block.png" :
+                    //case "levels/start_block.png" :
                         
-                    break;
-                    case "levels/end_block.png" :
+                    //break;
+                    //case "levels/end_block.png" :
 
-                    break;
+                    //break;
                     case "levels/spring_block.png" :
                         tile = new BouncyTile(world,input.x,input.y,camera,block.textures[i]);
                     break;
