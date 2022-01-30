@@ -44,17 +44,21 @@ public class Level1 implements Screen {
     ArrayList<FallingTile> fallingTiles = new ArrayList<FallingTile>();
 
     boolean toReset = false;
+    boolean travelRoom = false;
 
     public StartTile startTile;
     public EndTile endTile;
 
     public int changeRoom = 0;
 
+    public int enteredFrom;
+
 
 	public Level1(final MyGdxGame game, LevelInfo[] level_d, int num, int dir) {
 		this.game = game;
         level_data = level_d;
         levelNum = num;
+        enteredFrom = dir;
 
 		camera = new OrthographicCamera(WIDTH,HEIGHT);
         //world = new World(new Vector2(0,-10), true);
@@ -178,8 +182,8 @@ public class Level1 implements Screen {
         debugRenderer.render(world, camera.combined);
 		world.step(1/60f, 6, 2);
 
-        if (toReset && changeRoom != 0) {
-            toReset = false;
+        if (travelRoom && changeRoom != 0) {
+            travelRoom = false;
             LevelInfo[] newLevelData = updateLevelData();
             level_data = newLevelData;
             levelNum += changeRoom;
@@ -192,14 +196,28 @@ public class Level1 implements Screen {
 
         if (Gdx.input.isKeyJustPressed(Keys.E)) {
             if (changeRoom != 0) {
-                toReset = true;
+                travelRoom = true;
                 for(FallingTile t : fallingTiles) {
                     t.resetPos();
                 }
             }
         }
 
+        if (toReset) {
+            toReset = false;
+            LevelInfo[] newLevelData = updateLevelData();
+            level_data = newLevelData;
+            game.setScreen(new Level1(game,newLevelData,levelNum,enteredFrom));
+        }
 
+        if (Gdx.input.isKeyJustPressed(Keys.C)) {
+            toReset = true;
+            for(FallingTile t : fallingTiles) {
+                t.resetPos();
+            }
+        }
+
+        /*
         if(Gdx.input.isKeyJustPressed(Keys.P)) {
 
             LevelInfo[] newLevelData = updateLevelData();
@@ -217,7 +235,6 @@ public class Level1 implements Screen {
                 
             
         }
-
         if(Gdx.input.isKeyJustPressed(Keys.L)) {
 
             LevelInfo[] newLevelData = updateLevelData();
@@ -229,6 +246,7 @@ public class Level1 implements Screen {
             game.setScreen(new Level1(game,newLevelData,levelNum,1));
         
         }
+        */
         
 
 	}
