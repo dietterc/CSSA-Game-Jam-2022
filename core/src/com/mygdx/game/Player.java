@@ -40,7 +40,7 @@ public class Player {
     private Float gravityStrength = -40f;
     public String gravityDirection = "down";
 
-    private Boolean landed = false;
+    public Boolean landed = false;
     public Boolean landedOnFalling = false;
     private Float jumping = 0f;
 
@@ -149,7 +149,7 @@ public class Player {
     private void updateVars() {
         speed = physicsBody.getLinearVelocity();
         pos = physicsBody.getPosition();
-        updateLanded();
+        //updateLanded();
         if (gravityDirection != "up" && gravityDirection != "down" && gravityDirection != "left" && gravityDirection != "right") {
             gravityDirection = "down";
             System.out.println("Invalid Gravity Direction! Setting to Down");
@@ -166,13 +166,13 @@ public class Player {
             } else {
                 landed = false;
             }  
-        } else {
+        /*} else {
             if (speed.x == 0f) {
                 landed = true;
                 jumping = 0f;
             } else {
                 landed = false;
-            }  
+            } */ 
         }
     }
 
