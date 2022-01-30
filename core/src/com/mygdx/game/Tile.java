@@ -33,6 +33,8 @@ public class Tile {
     private boolean mouseReleased;
     private boolean otherMoving;
 
+    private boolean canTouchme;
+
     public float diffX;
     public float diffY;
 
@@ -51,6 +53,7 @@ public class Tile {
         moving = false;
         mouseReleased = true;
         otherMoving = false;
+        canTouchme = true;
 
         diffX = 0f;
         diffY = 0f;
@@ -128,6 +131,10 @@ public class Tile {
 
     }
 
+    public void setTouchable(boolean val) {
+        canTouchme = val;
+    }
+
     public void becomeSensor() {
         for (Fixture f: physicsBody.getFixtureList()) {
             f.setSensor(true);
@@ -145,7 +152,7 @@ public class Tile {
             mouseReleased = true;
         }
 
-        if(!moving && mouseReleased) {
+        if(!moving && mouseReleased && canTouchme) {
             if (Gdx.input.isTouched()) {
                 int x1 = Gdx.input.getX();
                 int y1 = Gdx.input.getY();
@@ -169,7 +176,7 @@ public class Tile {
             }
         }
         else {
-            if (Gdx.input.isTouched() && mouseReleased) {
+            if (Gdx.input.isTouched() && mouseReleased && canTouchme) {
                 moving = false;
                 mouseReleased = false;
 
@@ -185,9 +192,6 @@ public class Tile {
                     groundBodyDef.position.set(input.x + myBlock.tiles[i].diffX,input.y + myBlock.tiles[i].diffY);
                     System.out.println("X: " + myBlock.tiles[i].diffX);
 
-                    
-
-                    
 
                     world.destroyBody(myBlock.tiles[i].physicsBody);
                     System.out.println("no delete cuz I'm stupid");

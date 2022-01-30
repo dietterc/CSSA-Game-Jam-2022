@@ -94,6 +94,7 @@ public class Level1 implements Screen {
                     case "levels/falling_block.png" :
                         tile = new FallingTile(world,input.x,input.y,camera,block.textures[i]);
                     break;
+                    
                     default:
                         tile = new Tile(world,input.x,input.y,camera,block.textures[i]);
                     break;
