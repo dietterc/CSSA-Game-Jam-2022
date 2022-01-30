@@ -95,6 +95,12 @@ public class Level1 implements Screen {
                     case "levels/spring_block.png" :
                         tile = new BouncyTile(world,input.x,input.y,camera,block.textures[i]);
                     break;
+                    case "levels/no_jump_block.png" :
+                        tile = new StickyTile(world,input.x,input.y,camera,block.textures[i]);
+                    break;
+                    case "levels/falling_block.png" :
+                        tile = new FallingTile(world,input.x,input.y,camera,block.textures[i]);
+                    break;
                     default:
                         tile = new Tile(world,input.x,input.y,camera,block.textures[i]);
                     break;

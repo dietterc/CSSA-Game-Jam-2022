@@ -56,9 +56,14 @@ public class PlayerCollisions {
                     }
 
                     if (travis != null && travis.getBody().getUserData() instanceof Player) {
-                        System.out.println("Passed null check");
                         Player trueTravis = (Player) travis.getBody().getUserData();
                         Tile trueOther = (Tile) other.getBody().getUserData();
+                        if (trueOther.label != "sticky" && (trueOther.getPosition().x - trueTravis.pos.x <= 0.2f)) {
+                            trueTravis.sticky = false;
+                        }
+                        if (trueOther.label != "falling" && (trueOther.getPosition().x - trueTravis.pos.x <= 0.2f)) {
+                            trueTravis.landedOnFalling = false;
+                        }
                         switch (trueOther.label) {
                             case "sticky" :
                                 trueTravis.sticky = true;
@@ -74,6 +79,9 @@ public class PlayerCollisions {
                                     System.out.println("Boing!");
                                 }
                             break;
+                            case "falling" :
+                                trueTravis.landedOnFalling = true;
+                            break;
                             case "sliderleft" :
                                 //trueTravis.sliderleft;
                                 System.out.println("<-----");
@@ -81,7 +89,7 @@ public class PlayerCollisions {
                             case "sliderright" :
                                 //trueTravis.sliderright;
                                 System.out.println("----->");
-                            break;
+                            break; 
                             case "gravityup" :
                                 trueTravis.gravityDirection = "up";
                                 System.out.println("Up We Go");
@@ -102,22 +110,27 @@ public class PlayerCollisions {
                 Fixture fixB = contact.getFixtureB();
                 Fixture travis = null;
                 Fixture other = null;
+                System.out.println("End contact");
 
 
                 if (fixA.getBody().getUserData() != null && fixB.getBody().getUserData() != null) {
-                    if (fixA.getBody().getUserData() == "Travis") {
+                    if (fixA.getBody().getUserData().toString() == "Travis") {
                         travis = fixA;
                         other = fixB;
-                    } else if (fixB.getBody().getUserData() == "Travis") {
+                    } else if (fixB.getBody().getUserData().toString() == "Travis") {
                         travis = fixB;
                         other = fixA;
                     }
 
+                    
+
                     if (travis != null && travis.getBody().getUserData() instanceof Player) {
+                        System.out.println("Passed null check");
                         Player trueTravis = (Player) travis.getBody().getUserData();
-                        switch (other.getBody().getUserData().toString()) {
+                        Tile trueOther = (Tile) other.getBody().getUserData();
+                        switch (trueOther.label) {
                             case "sticky" :
-                                trueTravis.sticky = false;
+                                //trueTravis.sticky = false;
                                 System.out.println("No more stick");
                             break;
                             //bouncy only needs to get called once, I suspect, and doesn't need an end condition

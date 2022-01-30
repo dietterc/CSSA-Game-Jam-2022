@@ -25,7 +25,7 @@ public class Tile {
     private Camera camera;
     private Sprite bodySprite;
     private Sprite movingSprite;
-    private Block myBlock;
+    public Block myBlock;
     private World world;
 
     private boolean moving;

@@ -41,6 +41,7 @@ public class Player {
     public String gravityDirection = "down";
 
     private Boolean landed = false;
+    public Boolean landedOnFalling = false;
     private Float jumping = 0f;
 
     private Vector2 speed = new Vector2(0f,0f);
@@ -240,8 +241,9 @@ public class Player {
 
     private void manageMovement() {
         if (!editMode) {
-            if (Gdx.input.isKeyJustPressed(Keys.SPACE) && landed && jumping == 0) {
+            if (Gdx.input.isKeyJustPressed(Keys.SPACE) && (landed || landedOnFalling) && jumping == 0 && !sticky) {
                 jumping = baseJumpStrength;
+                System.out.println("Is Stick? "+sticky);
                 //physicsBody.applyLinearImpulse(0f,jumping,pos.x,pos.y,true);
             }
 
