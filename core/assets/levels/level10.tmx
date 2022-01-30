@@ -153,12 +153,6 @@
   <object id="162" gid="16" x="-64" y="64" width="64" height="64"/>
   <object id="163" gid="16" x="-64" y="0" width="64" height="64"/>
  </objectgroup>
- <objectgroup id="7" name="block5">
-  <object id="57" gid="7" x="576" y="704" width="64" height="64"/>
-  <object id="58" gid="7" x="640" y="704" width="64" height="64"/>
-  <object id="59" gid="7" x="704" y="704" width="64" height="64"/>
-  <object id="60" gid="7" x="768" y="704" width="64" height="64"/>
- </objectgroup>
  <objectgroup id="3" name="block1"/>
  <objectgroup id="4" name="block2"/>
  <objectgroup id="5" name="block3">

@@ -117,7 +117,4 @@
  <objectgroup id="4" name="gravity">
   <object id="120" gid="14" x="1344" y="1344" width="64" height="64"/>
  </objectgroup>
- <objectgroup id="3" name="block1">
-  <object id="27" gid="11" x="896" y="384" width="64" height="64"/>
- </objectgroup>
 </map>

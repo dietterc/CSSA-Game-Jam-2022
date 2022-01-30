@@ -238,9 +238,4 @@
   <object id="3" gid="11" x="128" y="640" width="64" height="64"/>
   <object id="4" gid="11" x="192" y="640" width="64" height="64"/>
  </objectgroup>
- <objectgroup id="7" name="block3">
-  <object id="116" gid="11" x="64" y="768" width="64" height="64"/>
-  <object id="117" gid="11" x="128" y="768" width="64" height="64"/>
-  <object id="118" gid="11" x="192" y="768" width="64" height="64"/>
- </objectgroup>
 </map>

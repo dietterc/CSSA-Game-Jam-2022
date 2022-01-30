@@ -214,7 +214,4 @@
   <object id="105" gid="7" x="1344" y="512" width="64" height="64"/>
   <object id="107" gid="7" x="1408" y="512" width="64" height="64"/>
  </objectgroup>
- <objectgroup id="5" name="block3">
-  <object id="109" gid="9" x="576" y="832" width="64" height="64"/>
- </objectgroup>
 </map>
