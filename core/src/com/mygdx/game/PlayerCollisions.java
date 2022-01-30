@@ -73,13 +73,16 @@ public class PlayerCollisions {
                             break;
                             case "bouncy" :
                                 System.out.println("Bounce dif: "+ (trueOther.getPosition().y - trueTravis.pos.y));
-                                if (trueOther.rotation == 0 && (trueOther.getPosition().y - trueTravis.pos.y <= 0.34f)) {
-                                    trueTravis.bounce("up");
-                                    System.out.println("Boing!");
-                                } else if (trueOther.rotation == 180 && (trueOther.getPosition().y - trueTravis.pos.y >= 0.34f)) {
-                                    trueTravis.bounce("down");
-                                    System.out.println("Boing!");
-                                }
+                                if (trueOther instanceof BouncyTile) {
+                                    BouncyTile bounceOther = (BouncyTile)trueOther;
+                                    if (bounceOther.gravityDirection == "down" && (trueTravis.pos.y - trueOther.getPosition().y   > 0f)) {
+                                        trueTravis.bounce("up");
+                                        System.out.println("Boing!");
+                                    } else if (bounceOther.gravityDirection == "up" && (trueOther.getPosition().y - trueTravis.pos.y > 0f)) {
+                                        trueTravis.bounce("down");
+                                        System.out.println("Boing!");
+                                    }
+                                }   
                             break;
                             case "falling" :
                                 trueTravis.landedOnFalling = true;
@@ -96,11 +99,11 @@ public class PlayerCollisions {
                                 //trueTravis.sliderright;
                                 System.out.println("----->");
                             break; 
-                            case "gravityup" :
+                            /*case "gravityup" :
                                 trueTravis.gravityDirection = "up";
                                 trueTravis.resumeGravityDown = -1;
                                 System.out.println("Up We Go");
-                            break;
+                            break;*/
                             case "spike" :
                                 /*
                                 //call reset method?
@@ -167,10 +170,10 @@ public class PlayerCollisions {
                                 //trueTravis.sliderright;
                                 System.out.println("--x-->");
                             break;
-                            case "gravityup" :
+                            /*case "gravityup" :
                                 trueTravis.resumeGravityDown = 2;
                                 System.out.println("Fall timer reset");
-                            break;
+                            break;*/
                             //since the case resets, and probably calls a method, it shouldnt need an end case
                             //case "spike" :
                                 //call reset method?

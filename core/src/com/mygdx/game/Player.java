@@ -110,9 +110,9 @@ public class Player {
         } else if (direction == "down") {
             bounced = true;
             System.out.println("Travis: Down!");
-            jumping = -bouncePower;
+            jumping = bouncePower;
             physicsBody.setLinearVelocity(new Vector2(physicsBody.getLinearVelocity().x,-physicsBody.getLinearVelocity().y/2));
-            applyForce(0f,-20f);
+            //applyForce(0f,-20f);
         }
     }
 
@@ -167,12 +167,30 @@ public class Player {
     }
 
     private void manageGravity() {
+        if (level.gravityTiles.size() > 0) {
+            boolean toChange = false;
+            for(GravityUp g: level.gravityTiles) {
+                if(bodySprite.getBoundingRectangle().contains(g.getPosition())) {
+                    toChange = true;
+                }
+                //if (toChange)
+                //    break;
+            }
+            if (toChange) {
+                gravityDirection = "up";
+                System.out.println("Gravity Up");
+            } else {
+                gravityDirection = "down";
+                System.out.println("Gravity Down");
+            }
+        }
+        /*
         if (resumeGravityDown == 0){
             resumeGravityDown --;
             gravityDirection = "down";
         } else if (resumeGravityDown > 0) {
             resumeGravityDown --;
-        }
+        }*/
     }
 
     private void checkFalling() {
