@@ -334,8 +334,12 @@ public class Level1 implements Screen {
                 levelNum += changeRoom;
                 if (levelNum < 0)
                     levelNum = 0;
-                else if (levelNum > 13)
-                    levelNum = 13;
+                //else if (levelNum > 13) {
+                //DEBUGGING
+                else if (levelNum > 0) {
+                    System.out.println("To End Menu");
+                    game.setScreen(new EndMenu(game,newLevelData,Player.storedBlock));
+                }
                 else game.setScreen(new Level1(game,newLevelData,levelNum,changeRoom));
             }
         }
@@ -356,11 +360,12 @@ public class Level1 implements Screen {
             game.setScreen(new Level1(game,newLevelData,levelNum,enteredFrom));
         }
 
+        /*
         if (Gdx.input.isKeyJustPressed(Keys.R)) {
             for(FallingTile t : fallingTiles) {
                 t.resetPos();
             } 
-        }
+        }*/
 
         if (Gdx.input.isKeyJustPressed(Keys.C) || resetFromSpikeCollision) {
             resetFromSpikeCollision = false;

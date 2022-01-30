@@ -292,12 +292,13 @@ public class Player {
             Gdx.app.exit();
         }
         //DEBUGGING!! Remove these later ----------
+        /*
         debugGravityChange();
 
         if (Gdx.input.isKeyJustPressed(Keys.T)) {
             System.out.println("bag");
             setSprite("bag");
-        }
+        }*/
         //-----------------------------------------
     }
     
